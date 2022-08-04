@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+:root {
+  /* colors */
+  /* grey */
+  --grey-50: rgb(228, 227, 227);
+  --grey-200: rgb(86, 80, 80);
+
+  /* red */
+  --alert-pink: rgb(248, 153, 186);
+  --alert-red: rgb(110, 4, 4);
+
+  /* purple */
+  --success-light-purple: rgb(187, 187, 241);
+  --medium-purple: rgb(113, 113, 161);
+  --deep-purple: rgb(71, 8, 71);
+
+  /* blue */
+  --light-blue: rgb(193, 208, 245);
+
+  /* green */
+  --link-green-light: rgb(194, 253, 231);
+  --link-green-med: rgb(172, 239, 214);
+  --link-green-dark: rgb(145, 214, 189);
+
+  /* other variables */
+  --transition: 0.3s ease-in-out all;
+  --box-shadow: 2px 2px 5px gray;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.alert {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  font-weight: 700;
+  width: 72%;
+  /* margin-left: 1.6rem; */
+}
+.alert-danger {
+  background-color: var(--alert-pink);
+  background: rgb(110, 4, 4);
+  background: pink;
+
+  color: var(--alert-red);
+  color: white;
+  color: rgb(110, 4, 4);
+  /* color: white; */
+}
+.alert-success {
+  background-color: var(--success-light-purple);
+  color: white;
+}
+/* .book-keeper {
+  font-family: "Merriweather", serif;
+} */
+.btn-main {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 700;
+  width: 72%;
+  /* margin-left: 1.6rem; */
+  margin-bottom: 1rem;
+  background-color: var(--light-blue);
+  color: white;
+  font-size: 1.4rem;
+  border-radius: 0.4rem;
+  /* color: black; */
+}
+.btn-main:hover {
+  transition: var(--transition);
+  background-color: var(--medium-purple);
+  background-color: rgb(14, 14, 119);
+  background: rgb(9, 9, 97);
+  color: white;
+  cursor: pointer;
+  transform: scale(1.02);
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+.form {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60vw;
+  margin: 1.5rem;
+  box-shadow: 2px 2px 5px gray;
+  padding: 1rem;
+  transition: var(--transition);
+}
+.form-input {
+  font-family: "Cantarelli";
+  padding: 0.1rem;
+  padding-left: 0.4rem;
+  line-height: 1.6rem;
+  border: none;
+  box-shadow: 2px 2px 5px gray;
+  border-radius: 0.4rem;
+  width: 98.5%;
+}
+.select-input {
+  width: 50%;
+}
+.form-input:hover,
+.form-input:focus {
+  outline: none;
+  box-shadow: 2.5px 2.5px 5px gray;
+  /* border-radius: 0.6rem; */
+  transition: 0.1s ease-in-out all;
+}
+.form-label {
+  display: block;
+  text-transform: capitalize;
+  margin-bottom: 0.4rem;
+  /* text-align: left; */
+  /* margin-left: 18%; */
+}
+.form-row {
+  margin-bottom: 1rem;
+  width: 72%;
+}
+.ingredients-row {
+  display: flex;
+  width: 100%;
+}
+.ingredient-input {
+  margin-left: 0.5rem;
+  /* margin-right: 0.5rem; */
+}
+
+.test-colors {
+  background-color: rgb(24, 24, 105);
+  background-color: rgb(9, 9, 97);
+  color: rgb(71, 8, 71);
+  color: rgb(254, 243, 222);
+  color: rgb(86, 80, 80);
+  color: rgb(253, 208, 215);
+  color: rgb(255, 251, 251);
+  color: rgb(110, 4, 4);
+  color: rgb(232, 168, 4);
+  background-color: rgb(115, 199, 168);
+  background-color: rgb(113, 113, 161);
+}
