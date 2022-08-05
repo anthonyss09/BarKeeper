@@ -159,4 +159,21 @@ export default mongoose.model("User", UserSchema);
 
 ## setup axios
 
-## i am saving this file change as a test
+- [axios docs](https://axios-http.com/docs/intro)
+
+- in client
+
+npm install axios
+
+## finish setupUser in appContext
+
+- make axios post request
+- grab user, token from response.data
+- [local storage docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+- addUserToLocalStorage({user, token})
+- must JSON.stringify(user) to add to local storage
+- get user from local storage and store in const user
+- state.user = user ( return data to object prop value form JSON.parse(user))
+- state.token = token
+
+## up next add alert and alert text to finish setupUser

@@ -12,10 +12,17 @@ export default function Register() {
   };
   const [values, setValues] = useState(initialState);
 
-  const { isLoading, displayAlert, showAlert, alertType, alertText } =
-    useAppContext();
+  const {
+    isLoading,
+    displayAlert,
+    showAlert,
+    alertType,
+    alertText,
+    setupUser,
+  } = useAppContext();
 
   const toggleMember = () => {
+    console.log(values.isMember);
     setValues({ ...values, isMember: !values.isMember });
   };
 
@@ -25,9 +32,25 @@ export default function Register() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(values.isMember);
     const { name, email, password } = values;
-    if (!name || !email || !password) {
+    if (!email || !password || (!name && !values.isMember)) {
       displayAlert();
+    }
+    const currentUser = { name, email, password };
+
+    if (values.isMember) {
+      setupUser({
+        currentUser,
+        endPoint: "login",
+        alertText: "Successfully logged in user...",
+      });
+    } else {
+      setupUser({
+        currentUser,
+        endPoint: "register",
+        alertText: "Successfully registered user...",
+      });
     }
   };
   return (
@@ -36,13 +59,16 @@ export default function Register() {
       <form className="form" onSubmit={handleSubmit}>
         <h6>Register</h6>
         {showAlert && <Alert alertType={alertType} text={alertText} />}
-        <FormRow
-          type="text"
-          labelText="name"
-          name="name"
-          value={values.name}
-          onChange={handleChange}
-        />
+        {!values.isMember && (
+          <FormRow
+            type="text"
+            labelText="name"
+            name="name"
+            value={values.name}
+            onChange={handleChange}
+          />
+        )}
+
         <FormRow
           type="email"
           labelText="email"

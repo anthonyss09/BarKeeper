@@ -1,6 +1,16 @@
 import React, { useContext, useReducer } from "react";
 import reducer from "./reducer";
-import { DISPLAY_ALERT, CLEAR_ALERT, SETUP_USER_BEGIN } from "./actions";
+import axios from "axios";
+import {
+  DISPLAY_ALERT,
+  CLEAR_ALERT,
+  SETUP_USER_BEGIN,
+  SETUP_USER_SUCCESS,
+  SETUP_USER_ERROR,
+} from "./actions";
+
+const user = localStorage.getItem("user");
+const token = localStorage.getItem("token");
 
 const initialState = {
   name: "",
@@ -10,6 +20,9 @@ const initialState = {
   alertType: "",
   alertText: "",
   isLoading: false,
+  user: user ? JSON.parse(user) : null,
+  // user: user,
+  token: token,
 };
 
 const AppContext = React.createContext();
@@ -26,12 +39,35 @@ const AppProvider = ({ children }) => {
       dispatch({ type: CLEAR_ALERT });
     }, 3000);
   };
-  const setupUser = (endPoint) => {
+  const addUserToLocalStorage = ({ user, token }) => {
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("token", token);
+  };
+  const setupUser = async ({ currentUser, endPoint, alertText }) => {
     dispatch({ type: SETUP_USER_BEGIN });
+    try {
+      const response = await axios.post(
+        `/api/v1/auth/${endPoint}`,
+        currentUser
+      );
+      const { user, token } = response.data;
+      addUserToLocalStorage({ user, token });
+      dispatch({
+        type: SETUP_USER_SUCCESS,
+        payload: { user, token, alertText: alertText },
+      });
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: SETUP_USER_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
   };
 
   return (
-    <AppContext.Provider value={{ ...state, displayAlert }}>
+    <AppContext.Provider value={{ ...state, displayAlert, setupUser }}>
       {children}
     </AppContext.Provider>
   );

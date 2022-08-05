@@ -3,6 +3,7 @@ const app = express();
 import dotenv from "dotenv";
 dotenv.config();
 import "express-async-errors";
+import cors from "cors";
 //middleware
 import notFoundMiddleware from "./middleware/not-found.js";
 import errorHandlerMiddleware from "./middleware/error-handler.js";
@@ -18,6 +19,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 app.use(express.json());
+// app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Welcome to BarKeeper's backend!");
