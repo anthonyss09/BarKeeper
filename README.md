@@ -1,9 +1,9 @@
-Welcome to BarKeeper!
+## Welcome to BarKeeper!
 
 This is an app where you can create, store and update bar recipes and update inventory!
 You and your team will have easy access to all recipes and product information. You can even keep track of all inventory. Enjoy!
 
-- Steps of build...
+## Steps of build...
 
 npx create-react-app client
 
@@ -176,4 +176,8 @@ npm install axios
 - state.user = user ( return data to object prop value form JSON.parse(user))
 - state.token = token
 
-## up next add alert and alert text to finish setupUser
+## shared layout
+
+- [nested routes](https://reactrouter.com/docs/en/v6/getting-started/overview)
+- in pages create dashboard folder populate with SharedLayout.js AllProducts.js AddProduct.js Inventory.js index.js
+- created nested routes/ shared layout

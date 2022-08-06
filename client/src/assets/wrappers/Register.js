@@ -36,6 +36,20 @@ const Wrapper = styled.main`
     margin: 0 3rem;
     margin-bottom: 1rem;
   }
+  .btn-register {
+    font-weight: 700;
+    width: 72%;
+    background-color: var(--light-blue);
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .btn-register:hover {
+    background-color: var(--medium-purple);
+    background-color: rgb(14, 14, 119);
+    background: rgb(9, 9, 97);
+    color: white;
+  }
   .footer-div {
     color: var(--grey-200);
     display: flex;
@@ -47,6 +61,8 @@ const Wrapper = styled.main`
   .form {
     max-width: 500px;
     background: white;
+    width: 60vw;
+    margin: 1.5rem;
   }
   .form-label {
     font-weight: 700;

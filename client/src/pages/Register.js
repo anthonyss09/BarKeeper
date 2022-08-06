@@ -32,7 +32,7 @@ export default function Register() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values.isMember);
+
     const { name, email, password } = values;
     if (!email || !password || (!name && !values.isMember)) {
       displayAlert();
@@ -89,7 +89,11 @@ export default function Register() {
             {values.isMember ? "Register" : "Login"}
           </span>
         </div>
-        <button className="btn-main" type="submit" disabled={isLoading}>
+        <button
+          className="btn-main btn-register"
+          type="submit"
+          disabled={isLoading}
+        >
           {values.isMember ? "Login" : "Register"}
         </button>
       </form>
