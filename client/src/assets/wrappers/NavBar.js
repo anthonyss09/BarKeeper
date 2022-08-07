@@ -1,15 +1,31 @@
 import styled from "styled-components";
 
 const Wrapper = styled.nav`
-  .btn-drop-menu {
-    background: var(--light-blue);
-    margin-right: 1rem;
+  .btn-main {
+    width: min-content;
+  }
+  .btn-drop-down {
+    background: var(--blue-light);
+  }
+  .btn-logout {
+    width: 100%;
+    background: pink;
   }
   .center-text {
     font-size: 1.6rem;
   }
-  .hamburger {
-    margin-top: 0.4rem;
+  .drop-btns {
+    padding-right: 1rem;
+  }
+
+  .icon {
+    margin: 0.6rem;
+  }
+  .icon-bars {
+    margin-left: 1rem;
+  }
+  .icon:hover {
+    cursor: pointer;
   }
   .nav-bar {
     display: flex;
@@ -21,6 +37,15 @@ const Wrapper = styled.nav`
     place-items: center;
     margin-top: 1rem;
   }
+  // @media (max-width: 880px) {
+  //   .icon-angles {
+  //     display: none;
+  //   }
+  //   .icon-bars {
+  //     display: block;
+  //     margin-left: 1rem;
+  //   }
+  // }
 `;
 
 export default Wrapper;

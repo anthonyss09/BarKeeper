@@ -19,11 +19,11 @@
   --deep-purple: rgb(71, 8, 71);
 
   /* blue */
-  --light-blue: rgb(193, 208, 245);
+  --blue-light: rgb(193, 208, 245);
 
   /* green */
   --link-green-light: rgb(194, 253, 231);
-  --link-green-med: rgb(172, 239, 214);
+  --link-green-medium: rgb(172, 239, 214);
   --link-green-dark: rgb(145, 214, 189);
 
   /* other variables */
@@ -43,6 +43,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 .alert {
   margin-bottom: 1rem;
   padding: 0.8rem;
@@ -68,6 +69,8 @@ code {
   border: none;
   font-family: "Fira Sans", sans-serif;
   border-radius: 0.4rem;
+  display: flex;
+  justify-content: center;
 }
 .btn-main:hover {
   transition: var(--transition);
