@@ -1,6 +1,7 @@
 import Wrapper from "../assets/wrappers/Register";
 import { FormRow, Alert } from "../components/";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
 
 export default function Register() {
@@ -19,8 +20,18 @@ export default function Register() {
     alertType,
     alertText,
     setupUser,
+    user,
   } = useAppContext();
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    }
+  }, [user]);
   const toggleMember = () => {
     console.log(values.isMember);
     setValues({ ...values, isMember: !values.isMember });
@@ -36,6 +47,7 @@ export default function Register() {
     const { name, email, password } = values;
     if (!email || !password || (!name && !values.isMember)) {
       displayAlert();
+      return;
     }
     const currentUser = { name, email, password };
 

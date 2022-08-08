@@ -3,9 +3,9 @@ import styled from "styled-components";
 const Wrapper = styled.aside`
   .center-sidebar {
     width: 96%;
-    height: 95%;
+    height: 96%;
     z-index: 2;
-    margin: 1rem;
+    margin: 2%;
     position: absolute;
     background: white;
     box-shadow: var(--box-shadow);

@@ -1,4 +1,3 @@
-import { Sling as Hamburger } from "hamburger-react";
 import {
   FaAlignLeft,
   FaBars,
@@ -15,7 +14,7 @@ export default function NavBar({ onClick }) {
   const [showBtn, setShowBtn] = useState(false);
   // const [angleLeft, setAngleLeft] = useState(true);
 
-  const { user } = useAppContext();
+  const { user, logoutUser } = useAppContext();
 
   // const handleClick = () => {
   //   setAngleLeft(!angleLeft);
@@ -48,11 +47,18 @@ export default function NavBar({ onClick }) {
             }}
           >
             <FaUserCircle size={25} className="icon icon-user" />
-            {user.name}
+            {user && user.name}
             <FaCaretDown className="icon icon-caret" />
           </button>
           {showBtn && (
-            <button className="nav-item btn-main btn-logout">logout</button>
+            <button
+              className="nav-item btn-main btn-logout"
+              onClick={() => {
+                logoutUser();
+              }}
+            >
+              logout
+            </button>
           )}
         </div>
       </div>

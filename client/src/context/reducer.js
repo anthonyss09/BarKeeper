@@ -5,6 +5,7 @@ import {
   SETUP_USER_BEGIN,
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
+  LOGOUT_USER,
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -41,6 +42,9 @@ const reducer = (state, action) => {
       alertType: "danger",
       alertText: action.payload.msg,
     };
+  }
+  if (action.type === LOGOUT_USER) {
+    return { ...state, user: "", token: "" };
   }
 };
 export default reducer;

@@ -39,14 +39,14 @@ const Wrapper = styled.main`
   .btn-register {
     font-weight: 700;
     width: 72%;
-    background-color: var(--light-blue);
+    background: var(--blue-light);
     color: white;
     font-size: 1.4rem;
     margin-bottom: 1rem;
   }
   .btn-register:hover {
-    background-color: var(--medium-purple);
-    background-color: rgb(14, 14, 119);
+    // background-color: var(--medium-purple);
+    // background-color: rgb(14, 14, 119);
     background: rgb(9, 9, 97);
     color: white;
   }
