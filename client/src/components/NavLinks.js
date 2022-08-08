@@ -1,7 +1,9 @@
-import links from "../utils/links";
 import { NavLink } from "react-router-dom";
 
-export default function NavLinks({ onClick }) {
+export default function NavLinks({ onClick, links }) {
+  if (!links) {
+    links = [];
+  }
   return (
     <nav className="nav-links">
       {links.map((link) => {
@@ -11,7 +13,7 @@ export default function NavLinks({ onClick }) {
             key={link.id}
             to={link.path}
             className={({ isActive }) =>
-              isActive ? "nav-link link active" : "nav-link link"
+              isActive ? " nav-link active" : " nav-link"
             }
           >
             <span className="link-item">{link.icon}</span>

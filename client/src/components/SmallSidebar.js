@@ -1,6 +1,7 @@
 import NavLinks from "./NavLinks";
 import Wrapper from "../assets/wrappers/SmallSidebar";
 import { CgCloseR } from "react-icons/cg";
+import navLinks from "../utils/navLinks";
 
 export default function SmallSidebar({ onClick }) {
   return (
@@ -9,7 +10,7 @@ export default function SmallSidebar({ onClick }) {
         <div className="icon-close" onClick={onClick}>
           <CgCloseR size={50} />
         </div>
-        <NavLinks onClick={onClick} />
+        <NavLinks links={navLinks} onClick={onClick} />
       </div>
     </Wrapper>
   );

@@ -6,6 +6,7 @@ import {
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
   LOGOUT_USER,
+  SET_PRODUCT_ITEM,
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -46,5 +47,15 @@ const reducer = (state, action) => {
   if (action.type === LOGOUT_USER) {
     return { ...state, user: "", token: "" };
   }
+  if (action.type === SET_PRODUCT_ITEM) {
+    return {
+      ...state,
+      product: {
+        ...state.product,
+        [action.payload.item]: action.payload.value,
+      },
+    };
+  }
+  throw new Error(`No action of type: ${action.type}`);
 };
 export default reducer;

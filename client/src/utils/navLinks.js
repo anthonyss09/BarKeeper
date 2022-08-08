@@ -2,7 +2,7 @@ import { FaWineBottle } from "react-icons/fa";
 import { FaGlassMartiniAlt } from "react-icons/fa";
 import { FaGlassCheers } from "react-icons/fa";
 
-export const links = [
+const navLinks = [
   {
     id: 1,
     text: "All products",
@@ -23,4 +23,4 @@ export const links = [
   },
 ];
 
-export default links;
+export default navLinks;

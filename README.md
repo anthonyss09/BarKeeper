@@ -181,3 +181,11 @@ npm install axios
 - [nested routes](https://reactrouter.com/docs/en/v6/getting-started/overview)
 - in pages create dashboard folder populate with SharedLayout.js AllProducts.js AddProduct.js Inventory.js index.js
 - created nested routes/ shared layout
+
+## protected route , logout user
+
+- create protected route in pages
+- if no user return navigate from react-router-dom
+- else return children
+- in app.js wrap shared layout in protected route
+- app context, logout user, remove user from local storage, set state.user state.token to ""

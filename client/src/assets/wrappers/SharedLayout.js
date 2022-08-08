@@ -8,9 +8,11 @@ const Wrapper = styled.main`
   }
   .dashboard-page {
     // height: 100vh;
-    padding: 4rem;
-    border: 2px solid black;
+    // padding: 4rem;
+    // border: 2px solid black;
+    // box-shadow: var(--box-shadow);
     margin: 2rem;
+    // min-height: 60%;
   }
   .first-column {
     // width: 18rem;

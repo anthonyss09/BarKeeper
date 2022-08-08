@@ -9,7 +9,7 @@ const Wrapper = styled.aside`
     left 1rem;
     font-size: 2rem;
   }
-  .link-item {
+  .Nav-link-item {
     margin-right: 0.4rem;
     
     }

@@ -8,6 +8,7 @@ import {
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
   LOGOUT_USER,
+  SET_PRODUCT_ITEM,
 } from "./actions";
 
 const user = localStorage.getItem("user");
@@ -24,6 +25,7 @@ const initialState = {
   user: user ? JSON.parse(user) : null,
   // user: user,
   token: token,
+  product: { productType: "" },
 };
 
 const AppContext = React.createContext();
@@ -76,9 +78,13 @@ const AppProvider = ({ children }) => {
     dispatch({ type: LOGOUT_USER });
   };
 
+  const setProductItem = (item, value) => {
+    dispatch({ type: SET_PRODUCT_ITEM, payload: { item: item, value: value } });
+  };
+
   return (
     <AppContext.Provider
-      value={{ ...state, displayAlert, setupUser, logoutUser }}
+      value={{ ...state, displayAlert, setupUser, logoutUser, setProductItem }}
     >
       {children}
     </AppContext.Provider>
