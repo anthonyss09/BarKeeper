@@ -189,5 +189,3 @@ npm install axios
 - else return children
 - in app.js wrap shared layout in protected route
 - app context, logout user, remove user from local storage, set state.user state.token to ""
-
-## merge branch test
