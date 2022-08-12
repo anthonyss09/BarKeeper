@@ -1,10 +1,5 @@
 import { Outlet } from "react-router-dom";
-import {
-  BigSidebar,
-  NavBar,
-  SmallSidebar,
-  SmallSideBar,
-} from "../../components";
+import { BigSidebar, NavBar, SmallSidebar } from "../../components";
 import Wrapper from "../../assets/wrappers/SharedLayout";
 import { useState } from "react";
 

@@ -8,11 +8,12 @@ const Wrapper = styled.aside`
     top: 1rem;
     left 1rem;
     font-size: 2rem;
+    // font-weight: bold;
   }
-  .Nav-link-item {
-    margin-right: 0.4rem;
-    
-    }
+ 
+  .link-item {
+    margin-right: 0.5rem;
+  }
   .nav-link {
     background: var(--link-green-light);
     padding: 1rem 0 1rem 4rem;
@@ -26,7 +27,9 @@ const Wrapper = styled.aside`
   .active {
     background: var(--link-green-dark);
   }
- 
+  .header {
+    height: 4rem;
+  }
   .nav-links {
     display: flex;
     flex-direction: column;

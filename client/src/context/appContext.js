@@ -9,6 +9,8 @@ import {
   SETUP_USER_ERROR,
   LOGOUT_USER,
   SET_PRODUCT_ITEM,
+  SET_OBJECT_PAIR,
+  SET_COCKTAIL_INGREDIENTS,
 } from "./actions";
 
 const user = localStorage.getItem("user");
@@ -25,7 +27,27 @@ const initialState = {
   user: user ? JSON.parse(user) : null,
   // user: user,
   token: token,
-  product: { productType: "" },
+  product: "",
+  beer: { notes: "", name: "", producer: "", style: "", region: "", abv: "" },
+  cocktail: {
+    name: "",
+    instructions: "",
+    ingredients: {
+      amount: ["0", "0", "0", "0", "0"],
+      ingredient: ["", "", "", "", ""],
+    },
+    inspiration: "",
+  },
+  wine: {
+    notes: "",
+    name: "",
+    producer: "",
+    region: "",
+    varietal: "",
+    color: "",
+    vintage: "",
+  },
+  spirit: { notes: "", name: "", producer: "", region: "", spirtType: "" },
 };
 
 const AppContext = React.createContext();
@@ -78,13 +100,37 @@ const AppProvider = ({ children }) => {
     dispatch({ type: LOGOUT_USER });
   };
 
-  const setProductItem = (item, value) => {
+  const setItem = (item, value) => {
     dispatch({ type: SET_PRODUCT_ITEM, payload: { item: item, value: value } });
+  };
+
+  const setObjectPair = (object, { name, value }) => {
+    dispatch({
+      type: SET_OBJECT_PAIR,
+      payload: { object: object, name: name, value: value },
+    });
+  };
+
+  const setCocktailIngredients = (name, value, index) => {
+    const arr = state.cocktail.ingredients[name];
+    arr.splice(index, 1, value);
+    dispatch({
+      type: SET_COCKTAIL_INGREDIENTS,
+      payload: { name: name, array: arr },
+    });
   };
 
   return (
     <AppContext.Provider
-      value={{ ...state, displayAlert, setupUser, logoutUser, setProductItem }}
+      value={{
+        ...state,
+        displayAlert,
+        setupUser,
+        logoutUser,
+        setItem,
+        setObjectPair,
+        setCocktailIngredients,
+      }}
     >
       {children}
     </AppContext.Provider>

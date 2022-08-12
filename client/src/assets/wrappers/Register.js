@@ -60,9 +60,12 @@ const Wrapper = styled.main`
   }
   .form {
     max-width: 500px;
+    height: min-content;
     background: white;
     width: 60vw;
-    margin: 1.5rem;
+    // margin: 1.5rem;
+    display: flex;
+    align-items: center;
   }
   .form-label {
     font-weight: 700;

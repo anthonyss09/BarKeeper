@@ -5,6 +5,8 @@ import BigSidebar from "./BigSidebar";
 import NavBar from "./NavBar";
 import SmallSidebar from "./SmallSidebar";
 import ProductCards from "./ProductCards";
+import ProductForm from "./ProductForm";
+import DynamicRows from "./DynamicRows";
 
 export {
   FormRow,
@@ -14,4 +16,6 @@ export {
   NavBar,
   SmallSidebar,
   ProductCards,
+  ProductForm,
+  DynamicRows,
 };

@@ -6,8 +6,11 @@ export default function BigSidebar() {
   return (
     <Wrapper>
       <div className="sidebar-container">
-        <div className="bar-keeper">BarKeeper</div>
-        <NavLinks links={navLinks} />
+        <div className="header">
+          <div className="bar-keeper">BarKeeper</div>
+        </div>
+
+        <NavLinks />
       </div>
     </Wrapper>
   );

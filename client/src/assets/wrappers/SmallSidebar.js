@@ -9,8 +9,10 @@ const Wrapper = styled.aside`
     position: absolute;
     background: white;
     box-shadow: var(--box-shadow);
+    box-shadow: 1px 2px 5px 1px gray;
     display: flex;
     justify-content: center;
+    z-index: 100;
   }
   .icon-close {
     position: absolute;
@@ -22,6 +24,12 @@ const Wrapper = styled.aside`
   }
   .link-item {
     margin-right: 2rem;
+  }
+  .nav-link {
+    margin-top: 2rem;
+  }
+  .nav-link:hover {
+    transform: scale(1.02);
   }
   .nav-links {
     display: flex;

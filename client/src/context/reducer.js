@@ -7,6 +7,8 @@ import {
   SETUP_USER_ERROR,
   LOGOUT_USER,
   SET_PRODUCT_ITEM,
+  SET_OBJECT_PAIR,
+  SET_COCKTAIL_INGREDIENTS,
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -47,12 +49,30 @@ const reducer = (state, action) => {
   if (action.type === LOGOUT_USER) {
     return { ...state, user: "", token: "" };
   }
+  if (action.type === SET_OBJECT_PAIR) {
+    return {
+      ...state,
+      [action.payload.object]: {
+        ...state[action.payload.object],
+        [action.payload.name]: action.payload.value,
+      },
+    };
+  }
   if (action.type === SET_PRODUCT_ITEM) {
     return {
       ...state,
-      product: {
-        ...state.product,
-        [action.payload.item]: action.payload.value,
+      [action.payload.item]: action.payload.value,
+    };
+  }
+  if (action.type === SET_COCKTAIL_INGREDIENTS) {
+    return {
+      ...state,
+      cocktail: {
+        ...state.cocktail,
+        ingredients: {
+          ...state.cocktail.ingredients,
+          [action.payload.name]: [...action.payload.array],
+        },
       },
     };
   }
