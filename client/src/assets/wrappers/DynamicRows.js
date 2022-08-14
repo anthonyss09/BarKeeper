@@ -10,12 +10,6 @@ const Wrapper = styled.aside`
     margin-bottom: 0.4rem;
     margin: 0.4rem 1rem 0.4rem 1rem;
   }
-  .dynamic-rows {
-    box-shadow: none;
-    border: 4px solid rgb(228, 228, 228);
-    height: min-content;
-    height: 100%;
-  }
   .form-label {
     padding-left: 1.1rem;
     margin: 1rem 0;
@@ -26,16 +20,25 @@ const Wrapper = styled.aside`
     border-radius: 0;
   }
   .icon {
-    margin-right: 0.9rem;
+    // margin-right: 0.9rem;
   }
   .icon:hover {
     cursor: pointer;
-    transform: scale(1.04);
+    transform: scale(1.08);
   }
   .icon-add-row {
     display: flex;
     justify-content: space-between;
     margin-top: 0.8rem;
+  }
+  .icon-subtract {
+    margin-left: 0.4rem;
+    margin-top: 0.4rem;
+    opacity: 0.5;
+  }
+  .icon-subtract:hover {
+    transform: scale(1.04);
+    opacity: 1;
   }
   .ingredients-input {
     width: 60%;
@@ -45,7 +48,8 @@ const Wrapper = styled.aside`
   .select-input {
     width: 25%;
     min-width: 50px;
-    height: 1.8rem;
+    min-width: fit-content;
+    height: 2rem;
     margin-right: 1rem;
     border: 2px solid rgb(228, 228, 228);
   }
@@ -63,7 +67,20 @@ const Wrapper = styled.aside`
       align-items: center;
     }
     .icon {
-      margin-left: 0.9rem;
+      margin-left: 1.1rem;
+      transform: scale(1.2);
+    }
+    .icon:hover {
+      transform: scale(1.3);
+    }
+    .icon-add {
+      margin-top: 0.2rem;
+    }
+    .icon-subtract {
+      transform: scale(1.5);
+    }
+    .icon-subtract:hover {
+      transform: scale(1.7);
     }
     .ingredients-input {
       width: 98%;

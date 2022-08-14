@@ -3,36 +3,40 @@ import greyGradient from "../images/greyGradient.jpg";
 
 const Wrapper = styled.main`
   .btns {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 1rem;
-    margin-top: 0.6rem;
-    margin-bottom: 1.6rem;
+    justify-content: space-between;
+    margin: 0.8rem 0.7rem 1.6rem 1rem;
   }
   .btn-add {
     background: var(--blue-light);
     // box-shadow: var(--box-shadow);
     background: rgb(137, 173, 248);
     color: white;
-
   }
   .btn-add:hover {
-    transform: scale(.98);
+    // transform: scale(.98);
   }
   .btn-back {
     background: rgb(253, 160, 171);
     background: pink;
   }
   .btn-back:hover {
-    transform: scale(0.98);
+    // transform: scale(0.98);
     }
   .btn-main {
     height: 4rem;
     width: 48%;
     font-size: 1.5rem;
-    margin-top: 0.8rem;
+  }
+  .dynamic-rows {
+    width: 90%;
+    margin 0.6rem 1rem;
+    box-shadow: none;
+    border: 4px solid rgb(228, 228, 228);
+    height: min-content;
+    grid-row: 1;
+    grid-column: 2/3;
   }
   .form {
     height: min-content;
@@ -47,43 +51,51 @@ const Wrapper = styled.main`
     margin 0.6rem 1rem;
     height: 100%;
   }
+  // .icon-cocktail-container {
+  //   width: 90%;
+  //   height: 90%;
+  // }
   .icon-container {
     width: 92%;
     height: 86%;
     background: white;
     display: grid;
     place-items: center;
-    // border-radius: 15%;
-  }
-  .icon-cocktail-container {
-     width: 90%;
-    height: 90%;
   }
   .image-container {
-    width: 92%;
-    height: 100%;
     margin 0.6rem 1rem;
-    height: 103%;
     display: grid;
     place-items: center;
     background: rgb(210,210,210);
     grid-row: 1/2;
-    // border-radius: 15%;
+    max-height: 250px;
   }
-  .image-container-general {
-    height: 200px;
+  .inspiration-row {
+    grid-row: 3/4;
+    grid-column: 1/2;
   }
-  .dynamic-rows {
-    width: 90%;
-    margin 0.6rem 1rem;
-    height: 100%;
-    grid-row: 1;
+  .instructions-row {
+    grid-row: 3/4;
     grid-column: 2/3;
+    height: 100%;
+    // padding-top: 1.9rem;
+  }
+  .name-row {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    margin-top: 1.2rem;
+    margin-top: 2rem;
+    margin-top: 1rem;
+    // height: 4rem;
+  }
+  .notes-row {
+    margin-top: 1.55rem;
   }
   .place-holder {
     grid-row: 2/3;
     grid-row: 2/3;
     margin-top: 1.8rem;
+    margin-top: 0.8rem;
   }
   .place-holder-input {
     margin-top: 1.7rem;
@@ -93,33 +105,15 @@ const Wrapper = styled.main`
     // border-top: 1px solid lightGray;
     // border-bottom: 1px solid lightGray;
   }
-  .name-row {
-    grid-row: 2/3;
-    grid-column: 1/2;
-    margin-top: 1.2rem;
-    margin-top: 2rem;
-    // height: 4rem;
-  }
-  .notes-row {
-    margin-top: 1.2rem;
-  }
-  .instructions-row {
-    grid-row: 3/4;
-    grid-column: 2/3;
-    height: 100%;
-    // padding-top: 1.9rem;
-  }
-  .inspiration-row {
-    grid-row: 3/4;
-    grid-column: 1/2;
-  }
   .producer-row {
     margin-top: 2rem;
+    margin-top: 1rem;
   }
   .rows-container {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    // grid-template-rows: 250px;
   }
   .select-input {
     height: 2.4rem;
@@ -127,6 +121,8 @@ const Wrapper = styled.main`
   @media (max-width: 800px) {
     .btns {
       flex-direction: column;
+      margin: 1rem 0;
+      gap: 1.4rem;
     }
     .btn-back {
       margin-bottom: 0.8rem;
@@ -149,15 +145,18 @@ const Wrapper = styled.main`
       flex-direction: column;
     }
     .form-row {
-      width: 100%;
+      width: 99%;
       margin-left: 0;
     }
     .image-container {
-       height: 250px;
-        width: 100%;
+      height: 250px;
+      width: 100%;
       margin-left: 0;
     }
     .name-row {
+      margin-top: 1rem;
+    }
+    .notes-row {
       margin-top: 1rem;
     }
     .producer-row {
@@ -168,12 +167,10 @@ const Wrapper = styled.main`
       flex-direction: column;
     }
     @media (max-width: 800px) {
-  .form {
-    // box-shadow: 1px 2px 5px 1px gray;
-    // border-radius: 1rem;
-    padding: 1rem 2rem;
-  }
-}
+      .form {
+        padding: 1rem 2rem;
+      }
+    }
   }
 `;
 export default Wrapper;

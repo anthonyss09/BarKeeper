@@ -29,7 +29,15 @@ const initialState = {
   // user: user,
   token: token,
   product: "",
-  beer: { notes: "", name: "", producer: "", style: "", region: "", abv: "" },
+  beer: {
+    notes: "",
+    name: "",
+    producer: "",
+    style: "",
+    region: "",
+    abv: "",
+    stock: "",
+  },
   cocktail: {
     name: "",
     instructions: "",
@@ -47,8 +55,16 @@ const initialState = {
     varietal: "",
     color: "",
     vintage: "",
+    stock: "",
   },
-  spirit: { notes: "", name: "", producer: "", region: "", spirtType: "" },
+  spirit: {
+    notes: "",
+    name: "",
+    producer: "",
+    region: "",
+    type: "",
+    stock: "",
+  },
 };
 
 const AppContext = React.createContext();
@@ -120,7 +136,7 @@ const AppProvider = ({ children }) => {
       payload: { name: name, array: arr },
     });
   };
-  const removeCocktailIngredients = (name, value, index) => {
+  const removeCocktailIngredients = (name, index) => {
     const arr = state.cocktail.ingredients[name];
     arr.splice(index, 1);
     dispatch({

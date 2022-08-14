@@ -45,20 +45,22 @@ export default function DynamicRows({ onChange }) {
                   }}
                   className="form-input ingredients-input"
                 />
+                <GrSubtractCircle
+                  size={20}
+                  className="icon icon-subtract"
+                  onClick={() => {
+                    if (ingredients.amount.length <= 3) {
+                      setCocktailIngredients("amount", "", index);
+                      setCocktailIngredients("ingredient", "", index);
+                    } else if (ingredients.amount.length > 3) {
+                      removeCocktailIngredients("amount", index);
+                      removeCocktailIngredients("ingredient", index);
+                    }
+                  }}
+                />
               </div>
               {ingredients.amount.length === index + 1 && (
                 <div className="form-row icon-add-row">
-                  {ingredients.amount.length > 3 && (
-                    <GrSubtractCircle
-                      size={25}
-                      className="icon icon-subtract"
-                      onClick={() => {
-                        removeCocktailIngredients("amount", index);
-                        removeCocktailIngredients("ingredient", index);
-                      }}
-                    />
-                  )}
-
                   <GrAddCircle
                     size={25}
                     className="icon icon-add"

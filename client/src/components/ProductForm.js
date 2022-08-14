@@ -69,7 +69,7 @@ export default function ProductForm({ productObject, onClick, onChange }) {
                     ? "textarea"
                     : "text"
                 }
-                rows={item === "notes" ? 6 : 5}
+                rows={item === "notes" ? 7 : 5}
                 className={item}
               />
             ) : (
