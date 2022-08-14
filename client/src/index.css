@@ -49,6 +49,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+textarea {
+  resize: none;
+}
 
 .alert {
   margin-bottom: 1rem;
@@ -89,8 +92,9 @@ code {
 
 .form {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
+  display: grid;
   /* align-items: center; */
   padding: 1rem;
   transition: var(--transition);

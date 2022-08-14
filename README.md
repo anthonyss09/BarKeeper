@@ -189,3 +189,7 @@ npm install axios
 - else return children
 - in app.js wrap shared layout in protected route
 - app context, logout user, remove user from local storage, set state.user state.token to ""
+
+## gradient attribution
+
+- [attribution](<a href="https://www.freepik.com/photos/black-studio">Black studio photo created by benzoix - www.freepik.com</a>)

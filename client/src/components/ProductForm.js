@@ -21,21 +21,39 @@ export default function ProductForm({ productObject, onClick, onChange }) {
     <Wrapper>
       <form className="form">
         <div className="rows-container">
-          <div className="image-container">
+          <div
+            className={
+              productType !== "cocktail"
+                ? "image-container image-container-general"
+                : "image-container"
+            }
+          >
             {productType === "beer" && (
-              <FaBeer size={110} className="icon icon-beer" />
+              <div className="icon-container">
+                <FaBeer size={110} className="icon icon-beer" />
+              </div>
             )}
             {productType === "cocktail" && (
-              <FaGlassMartiniAlt size={90} className="icon icon-cocktail" />
+              <div className="icon-container icon-cocktail-container">
+                <FaGlassMartiniAlt size={120} className="icon icon-cocktail" />
+              </div>
             )}
             {productType === "spirit" && (
-              <FaWineBottle size={100} className="icon icon-spirit" />
+              <div className="icon-container">
+                <FaWineBottle size={100} className="icon icon-spirit" />
+              </div>
             )}
             {productType === "wine" && (
-              <FaWineGlassAlt size={100} className="icon icon-wine" />
+              <div className="icon-container">
+                <FaWineGlassAlt size={100} className="icon icon-wine" />
+              </div>
             )}
           </div>
-
+          {productType === "cocktail" && (
+            <div className="form-row place-holder">
+              <input className="form-input place-holder-input" />
+            </div>
+          )}
           {productItems.map((item, index) => {
             return item !== "ingredients" ? (
               <FormRow
@@ -51,7 +69,7 @@ export default function ProductForm({ productObject, onClick, onChange }) {
                     ? "textarea"
                     : "text"
                 }
-                rows={5}
+                rows={item === "notes" ? 6 : 5}
                 className={item}
               />
             ) : (

@@ -20,14 +20,17 @@ const Wrapper = styled.nav`
     height: 100%;
     background: pink;
     background: white;
-    border: 2px solid black;
+    border: 3px solid black;
     color: black;
     // color: var(--blue-light);
     font-weight: bold;
     letter-spacing: 0.1rem;
+    background: rgb(80, 80, 80);
+    color: white;
   }
   .btn-logout:hover {
     transform: scale(1);
+    // background: rgb(100, 100, 100);
   }
   .center-text {
     font-size: 1.6rem;
@@ -48,6 +51,9 @@ const Wrapper = styled.nav`
     cursor: pointer;
     z-index: 6;
   }
+  // .icon-user {
+  //   color: var(--blue-light);
+  // }
   .nav-bar {
     display: flex;
     justify-content: space-between;

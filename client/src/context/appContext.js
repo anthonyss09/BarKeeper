@@ -11,6 +11,7 @@ import {
   SET_PRODUCT_ITEM,
   SET_OBJECT_PAIR,
   SET_COCKTAIL_INGREDIENTS,
+  REMOVE_COCKTAIL_INGREDIENTS,
 } from "./actions";
 
 const user = localStorage.getItem("user");
@@ -33,8 +34,8 @@ const initialState = {
     name: "",
     instructions: "",
     ingredients: {
-      amount: ["0", "0", "0", "0", "0"],
-      ingredient: ["", "", "", "", ""],
+      amount: ["0", "0", "0"],
+      ingredient: ["", "", ""],
     },
     inspiration: "",
   },
@@ -119,6 +120,14 @@ const AppProvider = ({ children }) => {
       payload: { name: name, array: arr },
     });
   };
+  const removeCocktailIngredients = (name, value, index) => {
+    const arr = state.cocktail.ingredients[name];
+    arr.splice(index, 1);
+    dispatch({
+      type: REMOVE_COCKTAIL_INGREDIENTS,
+      payload: { name: name, array: arr },
+    });
+  };
 
   return (
     <AppContext.Provider
@@ -130,6 +139,7 @@ const AppProvider = ({ children }) => {
         setItem,
         setObjectPair,
         setCocktailIngredients,
+        removeCocktailIngredients,
       }}
     >
       {children}

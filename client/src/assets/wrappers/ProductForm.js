@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import greyGradient from "../images/greyGradient.jpg";
 
 const Wrapper = styled.main`
   .btns {
@@ -8,6 +9,7 @@ const Wrapper = styled.main`
     justify-content: space-evenly;
     gap: 1rem;
     margin-top: 0.6rem;
+    margin-bottom: 1.6rem;
   }
   .btn-add {
     background: var(--blue-light);
@@ -27,14 +29,14 @@ const Wrapper = styled.main`
     transform: scale(0.98);
     }
   .btn-main {
-    width: 45%;
     height: 4rem;
+    width: 48%;
     font-size: 1.5rem;
     margin-top: 0.8rem;
   }
   .form {
     height: min-content;
-ß  }
+  }
   .form-input {
     box-shadow: none;
     border: 4px solid rgb(228,228,228);
@@ -45,48 +47,82 @@ const Wrapper = styled.main`
     margin 0.6rem 1rem;
     height: 100%;
   }
-  .icon {
-    // opacity: 0.8;
-  }
-  .image-container {
-    width: 200px;
-    width: 100%;
-    height: 150px;
-    height: 100%;
-    margin: 1rem 0 0 1rem;
+  .icon-container {
+    width: 92%;
+    height: 86%;
+    background: white;
     display: grid;
     place-items: center;
-    background: white;
+    // border-radius: 15%;
+  }
+  .icon-cocktail-container {
+     width: 90%;
+    height: 90%;
+  }
+  .image-container {
+    width: 92%;
+    height: 100%;
+    margin 0.6rem 1rem;
+    height: 103%;
+    display: grid;
+    place-items: center;
+    background: rgb(210,210,210);
     grid-row: 1/2;
+    // border-radius: 15%;
+  }
+  .image-container-general {
+    height: 200px;
   }
   .dynamic-rows {
-     width: 82%;
-    margin-left: 1rem;
-    margin-top: 0.6rem;
-    // box-shadow: var(--box-shadow);
-    padding: 1rem;
-   grid-row: 1/2;
-   grid-column: 2/3;
+    width: 90%;
+    margin 0.6rem 1rem;
+    height: 100%;
+    grid-row: 1;
+    grid-column: 2/3;
+  }
+  .place-holder {
+    grid-row: 2/3;
+    grid-row: 2/3;
+    margin-top: 1.8rem;
+  }
+  .place-holder-input {
+    margin-top: 1.7rem;
+    background: rgb(228,228,228);
+    // border-left: none;
+    // border-right: none;
+    // border-top: 1px solid lightGray;
+    // border-bottom: 1px solid lightGray;
   }
   .name-row {
     grid-row: 2/3;
     grid-column: 1/2;
+    margin-top: 1.2rem;
+    margin-top: 2rem;
     // height: 4rem;
-  
+  }
+  .notes-row {
+    margin-top: 1.2rem;
   }
   .instructions-row {
-    grid-row: 2/4;
+    grid-row: 3/4;
     grid-column: 2/3;
-    
+    height: 100%;
+    // padding-top: 1.9rem;
   }
   .inspiration-row {
     grid-row: 3/4;
     grid-column: 1/2;
   }
+  .producer-row {
+    margin-top: 2rem;
+  }
   .rows-container {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+  .select-input {
+    height: 2.4rem;
   }
   @media (max-width: 800px) {
     .btns {
@@ -98,20 +134,34 @@ const Wrapper = styled.main`
     .btn-main {
       width: 100%;
     }
+    .circle-div {
+      width: 95%;
+    }
     .dynamic-rows {
-     margin-left: 0;
-     width: 95%;
+      width: 100%;
+      margin-left: 0;
+    }
+    .place-holder {
+      display: none;
     }
     .form {
-      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
     .form-row {
       width: 100%;
       margin-left: 0;
     }
     .image-container {
-       margin: 0.8rem 0;
-       border-radius: 1.6rem;
+       height: 250px;
+        width: 100%;
+      margin-left: 0;
+    }
+    .name-row {
+      margin-top: 1rem;
+    }
+    .producer-row {
+      margin-top: 1rem;
     }
     .rows-container {
       display: flex;

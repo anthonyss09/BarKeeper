@@ -46,7 +46,7 @@ export default function NavBar({ onClick }) {
               setShowBtn(!showBtn);
             }}
           >
-            <FaUserCircle size={25} className="icon icon-user" />
+            <FaUserCircle size={35} className="icon icon-user" />
             {user && user.name}
             <FaCaretDown className="icon icon-caret" />
           </button>

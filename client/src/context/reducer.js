@@ -9,6 +9,7 @@ import {
   SET_PRODUCT_ITEM,
   SET_OBJECT_PAIR,
   SET_COCKTAIL_INGREDIENTS,
+  REMOVE_COCKTAIL_INGREDIENTS,
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -65,6 +66,18 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === SET_COCKTAIL_INGREDIENTS) {
+    return {
+      ...state,
+      cocktail: {
+        ...state.cocktail,
+        ingredients: {
+          ...state.cocktail.ingredients,
+          [action.payload.name]: [...action.payload.array],
+        },
+      },
+    };
+  }
+  if (action.type === REMOVE_COCKTAIL_INGREDIENTS) {
     return {
       ...state,
       cocktail: {
