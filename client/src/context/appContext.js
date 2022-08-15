@@ -12,6 +12,10 @@ import {
   SET_OBJECT_PAIR,
   SET_COCKTAIL_INGREDIENTS,
   REMOVE_COCKTAIL_INGREDIENTS,
+  ADD_PRODUCT_BEGIN,
+  ADD_PRODUCT_SUCCESS,
+  ADD_PRODUCT_ERROR,
+  CLEAR_VALUES,
 } from "./actions";
 
 const user = localStorage.getItem("user");
@@ -72,6 +76,33 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  //axios
+  const authFetch = axios.create({
+    baseURL: "api/v1",
+  });
+  authFetch.interceptors.request.use(
+    (config) => {
+      config.headers.common["Authorization"] = `Bearer ${state.token}`;
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+  //response
+  authFetch.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      console.log(error.response);
+      if (error.response.status === 401) {
+        console.log("AUTH ERROR");
+        logoutUser();
+      }
+      return Promise.reject(error);
+    }
+  );
   const displayAlert = () => {
     dispatch({ type: DISPLAY_ALERT });
     clearAlert();
@@ -136,6 +167,7 @@ const AppProvider = ({ children }) => {
       payload: { name: name, array: arr },
     });
   };
+
   const removeCocktailIngredients = (name, index) => {
     const arr = state.cocktail.ingredients[name];
     arr.splice(index, 1);
@@ -145,6 +177,42 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  const clearValues = () => {
+    const { beer, spirit, wine } = initialState;
+    const cocktail = {
+      name: "",
+      instructions: "",
+      ingredients: {
+        amount: ["0", "0", "0"],
+        ingredient: ["", "", ""],
+      },
+      inspiration: "",
+    };
+
+    console.log({ cocktail });
+    dispatch({
+      type: CLEAR_VALUES,
+      payload: { beer: beer, cocktail: cocktail, spirit: spirit, wine: wine },
+    });
+  };
+  const addProduct = async (productObject) => {
+    dispatch({ type: ADD_PRODUCT_BEGIN });
+    try {
+      const response = await authFetch.post(
+        "/products/add-product",
+        productObject
+      );
+      dispatch({ type: ADD_PRODUCT_SUCCESS });
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: ADD_PRODUCT_ERROR,
+        payload: { msg: error.response.data },
+      });
+    }
+    clearValues();
+    clearAlert();
+  };
   return (
     <AppContext.Provider
       value={{
@@ -156,6 +224,8 @@ const AppProvider = ({ children }) => {
         setObjectPair,
         setCocktailIngredients,
         removeCocktailIngredients,
+        addProduct,
+        clearValues,
       }}
     >
       {children}

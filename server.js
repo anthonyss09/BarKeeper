@@ -3,12 +3,14 @@ const app = express();
 import dotenv from "dotenv";
 dotenv.config();
 import "express-async-errors";
-import cors from "cors";
+// import cors from "cors";
 //middleware
 import notFoundMiddleware from "./middleware/not-found.js";
 import errorHandlerMiddleware from "./middleware/error-handler.js";
+import auth from "./middleware/auth.js";
 //routes
 import authRouter from "./routes/authRoutes.js";
+import productRouter from "./routes/productRoutes.js";
 
 import connectDb from "./Db/connect.js";
 
@@ -27,6 +29,7 @@ app.get("/", (req, res) => {
 
 //routes
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/products", auth, productRouter);
 
 //middleware
 app.use(notFoundMiddleware);

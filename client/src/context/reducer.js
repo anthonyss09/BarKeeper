@@ -10,6 +10,10 @@ import {
   SET_OBJECT_PAIR,
   SET_COCKTAIL_INGREDIENTS,
   REMOVE_COCKTAIL_INGREDIENTS,
+  CLEAR_VALUES,
+  ADD_PRODUCT_BEGIN,
+  ADD_PRODUCT_SUCCESS,
+  ADD_PRODUCT_ERROR,
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -87,6 +91,36 @@ const reducer = (state, action) => {
           [action.payload.name]: [...action.payload.array],
         },
       },
+    };
+  }
+  if (action.type === ADD_PRODUCT_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === ADD_PRODUCT_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "Succesfully added product...",
+    };
+  }
+  if (action.type === ADD_PRODUCT_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
+  if (action.type === CLEAR_VALUES) {
+    return {
+      ...state,
+      beer: action.payload.beer,
+      cocktail: { ...action.payload.cocktail },
+      spirit: action.payload.spirit,
+      wine: action.payload.wine,
     };
   }
   throw new Error(`No action of type: ${action.type}`);

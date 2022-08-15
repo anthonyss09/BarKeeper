@@ -6,8 +6,17 @@ import { useAppContext } from "../../context/appContext";
 export default function AddProduct() {
   const [showCards, setShowCards] = useState(true);
 
-  const { setItem, productType, beer, cocktail, wine, spirit, setObjectPair } =
-    useAppContext();
+  const {
+    setItem,
+    productType,
+    beer,
+    cocktail,
+    wine,
+    spirit,
+    setObjectPair,
+    addProduct,
+    displayAlert,
+  } = useAppContext();
   const [productObject, setProductObject] = useState({});
 
   const handleClick = (e) => {
@@ -37,6 +46,29 @@ export default function AddProduct() {
     const { name, value } = e.target;
     setObjectPair(productType, { name, value });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    switch (productType) {
+      case "beer":
+        addProduct({ ...beer, productType: "Beer" });
+        break;
+      case "cocktail":
+        addProduct({ ...cocktail, productType: "Cocktail" });
+        break;
+      case "wine":
+        addProduct({ ...wine, productType: "Wine" });
+        break;
+      case "spirit":
+        addProduct({ ...spirit, productType: "Spirit" });
+        break;
+      default:
+        return;
+    }
+    console.log("submitted");
+  };
+
   return (
     <Wrapper>
       {showCards ? (
@@ -49,6 +81,7 @@ export default function AddProduct() {
             productObject={productObject}
             onClick={handleClick}
             onChange={handleChange}
+            onSubmit={handleSubmit}
           />
         </div>
       )}

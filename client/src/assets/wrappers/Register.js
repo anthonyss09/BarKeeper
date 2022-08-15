@@ -63,8 +63,8 @@ const Wrapper = styled.main`
     height: min-content;
     background: white;
     width: 60vw;
-    // margin: 1.5rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
   }
   .form-label {

@@ -1,6 +1,7 @@
 import Wrapper from "../assets/wrappers/ProductForm";
 import FormRow from "./FormRow";
 import DynamicRows from "./DynamicRows";
+import Alert from "./Alert";
 import { useAppContext } from "../context/appContext";
 import {
   FaGlassWhiskey,
@@ -12,14 +13,23 @@ import {
   FaGlobeEurope,
 } from "react-icons/fa";
 
-export default function ProductForm({ productObject, onClick, onChange }) {
+export default function ProductForm({
+  productObject,
+  onClick,
+  onChange,
+  onSubmit,
+}) {
   const productItems = Object.keys(productObject);
 
-  const { productType } = useAppContext();
+  const state = useAppContext();
+  const { productType, showAlert, alertType, alertText } = state;
 
   return (
     <Wrapper>
-      <form className="form">
+      <form className="form" onSubmit={onSubmit}>
+        {showAlert && (
+          <Alert alertType="success" text="hooooray hooooray hooooray!" />
+        )}
         <div className="rows-container">
           <div
             className={
@@ -61,7 +71,7 @@ export default function ProductForm({ productObject, onClick, onChange }) {
                 key={index}
                 labelText={item}
                 name={item}
-                value={productObject.item}
+                value={state[productType][item]}
                 type={
                   item === "notes" ||
                   item === "inspiration" ||

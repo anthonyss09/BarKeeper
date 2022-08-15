@@ -57,8 +57,10 @@ textarea {
   margin-bottom: 1rem;
   padding: 0.8rem;
   border-radius: 0.3rem;
+  border-radius: 0;
   font-weight: 700;
   width: 72%;
+  width: 96%;
   /* margin-left: 1.6rem; */
 }
 .alert-danger {
@@ -71,6 +73,8 @@ textarea {
 }
 .alert-success {
   background-color: var(--success-light-purple);
+  /* background: rgb(251, 223, 99);
+  color: rgb(223, 215, 99); */
   color: white;
 }
 

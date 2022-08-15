@@ -68,7 +68,7 @@ const Wrapper = styled.main`
     place-items: center;
     background: rgb(210,210,210);
     grid-row: 1/2;
-    max-height: 250px;
+    max-height: 229px;
   }
   .inspiration-row {
     grid-row: 3/4;
@@ -86,7 +86,6 @@ const Wrapper = styled.main`
     margin-top: 1.2rem;
     margin-top: 2rem;
     margin-top: 1rem;
-    // height: 4rem;
   }
   .notes-row {
     margin-top: 1.55rem;
@@ -100,10 +99,6 @@ const Wrapper = styled.main`
   .place-holder-input {
     margin-top: 1.7rem;
     background: rgb(228,228,228);
-    // border-left: none;
-    // border-right: none;
-    // border-top: 1px solid lightGray;
-    // border-bottom: 1px solid lightGray;
   }
   .producer-row {
     margin-top: 2rem;

@@ -19,8 +19,8 @@ export default function DynamicRows({ onChange }) {
         </label>
         {ingredients.amount.map((amount, index) => {
           return (
-            <>
-              <div className="dynamic-row" key={index}>
+            <div key={index}>
+              <div className="dynamic-row">
                 <select
                   className="form-input select-input"
                   value={amount}
@@ -71,7 +71,7 @@ export default function DynamicRows({ onChange }) {
                   />
                 </div>
               )}
-            </>
+            </div>
           );
         })}
       </div>

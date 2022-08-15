@@ -23,10 +23,13 @@ const Wrapper = styled.nav`
     border: 3px solid black;
     color: black;
     // color: var(--blue-light);
+    font-size: 1.1rem;
     font-weight: bold;
     letter-spacing: 0.1rem;
-    background: rgb(80, 80, 80);
-    color: white;
+    // background: rgb(80, 80, 80);
+    // color: white;
+    background: rgb(228, 228, 228);
+    padding: 1.1rem;
   }
   .btn-logout:hover {
     transform: scale(1);

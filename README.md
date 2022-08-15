@@ -190,6 +190,21 @@ npm install axios
 - in app.js wrap shared layout in protected route
 - app context, logout user, remove user from local storage, set state.user state.token to ""
 
-## gradient attribution
+## configure axios
 
-- [attribution](<a href="https://www.freepik.com/photos/black-studio">Black studio photo created by benzoix - www.freepik.com</a>)
+- configure axios interceptors, headers bearer token
+- grab token from authheader, verify with jwt method and set req.user
+  (actually won't need req.user for this setup, new model strategy)
+- add auth middleware to product routes
+
+## mongoose models, product controller
+
+- create product model with name, product array and createBy, product array will store product objects this way we can replace entire array when doing mass inventory changes instead of performing patch requests for each product
+
+- will branch here to build upon product model
+
+## next up
+
+- update product
+
+- get all products and display, start with front end
