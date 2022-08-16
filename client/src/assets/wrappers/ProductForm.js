@@ -1,74 +1,79 @@
 import styled from "styled-components";
 import greyGradient from "../images/greyGradient.jpg";
+import cocktail from "../images/cocktail.jpg";
+import wine from "../images/wine.jpg";
 
 const Wrapper = styled.main`
   .btns {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0.8rem 0.7rem 1.6rem 1rem;
+    width: 101%;
+    margin-top: 1rem;
   }
   .btn-add {
     background: var(--blue-light);
-    // box-shadow: var(--box-shadow);
     background: rgb(137, 173, 248);
     color: white;
   }
-  .btn-add:hover {
-    // transform: scale(.98);
-  }
   .btn-back {
-    background: rgb(253, 160, 171);
     background: pink;
   }
-  .btn-back:hover {
-    // transform: scale(0.98);
-    }
   .btn-main {
     height: 4rem;
     width: 48%;
     font-size: 1.5rem;
   }
   .dynamic-rows {
-    width: 90%;
-    margin 0.6rem 1rem;
+    width: 101%;
     box-shadow: none;
-    border: 4px solid rgb(228, 228, 228);
+    border: 4px solid rgb(238, 238, 238);
     height: min-content;
-    grid-row: 1;
+    grid-row: 1/2;
     grid-column: 2/3;
+    // padding: 1rem 0;
+    padding-bottom: 1rem;
   }
   .form {
     height: min-content;
+    padding-right: 1.6rem;
   }
   .form-input {
     box-shadow: none;
-    border: 4px solid rgb(228,228,228);
+    border: 4px solid rgb(228, 228, 228);
     border-radius: 0;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    color: rgb(40, 40, 40);
   }
   .form-row {
-    width: 90%;
-    margin 0.6rem 1rem;
-    height: 100%;
+    width: 100%;
+    margin-top: -1.8rem;
   }
-  // .icon-cocktail-container {
-  //   width: 90%;
-  //   height: 90%;
-  // }
+  .icon-add-row {
+    margin: 0;
+  }
   .icon-container {
     width: 92%;
-    height: 86%;
+    height: 88%;
     background: white;
     display: grid;
     place-items: center;
+    background-image: url(${wine});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .image-container {
-    margin 0.6rem 1rem;
     display: grid;
     place-items: center;
-    background: rgb(210,210,210);
+    background: rgb(228, 228, 228);
     grid-row: 1/2;
-    max-height: 229px;
+    max-height: 233.79px;
+    width: 103.5%;
+  }
+  .ingredients-input {
+    letter-spacing: 0;
   }
   .inspiration-row {
     grid-row: 3/4;
@@ -77,38 +82,31 @@ const Wrapper = styled.main`
   .instructions-row {
     grid-row: 3/4;
     grid-column: 2/3;
-    height: 100%;
-    // padding-top: 1.9rem;
   }
   .name-row {
     grid-row: 2/3;
     grid-column: 1/2;
-    margin-top: 1.2rem;
-    margin-top: 2rem;
-    margin-top: 1rem;
+    margin-top: -1rem;
+  }
+  .producer-row {
+    margin-top: -1rem;
   }
   .notes-row {
-    margin-top: 1.55rem;
+    margin-top: 1.2rem;
   }
   .place-holder {
     grid-row: 2/3;
     grid-row: 2/3;
-    margin-top: 1.8rem;
-    margin-top: 0.8rem;
+    color: white;
+    margin-top: -1rem;
   }
   .place-holder-input {
-    margin-top: 1.7rem;
-    background: rgb(228,228,228);
-  }
-  .producer-row {
-    margin-top: 2rem;
-    margin-top: 1rem;
+    background: rgb(228, 228, 228);
   }
   .rows-container {
-    width: 100%;
     display: grid;
+    gap: 1.8rem;
     grid-template-columns: 1fr 1fr;
-    // grid-template-rows: 250px;
   }
   .select-input {
     height: 2.4rem;
@@ -117,7 +115,8 @@ const Wrapper = styled.main`
     .btns {
       flex-direction: column;
       margin: 1rem 0;
-      gap: 1.4rem;
+      gap: 1.6rem;
+      width: 102.5%;
     }
     .btn-back {
       margin-bottom: 0.8rem;
@@ -140,26 +139,18 @@ const Wrapper = styled.main`
       flex-direction: column;
     }
     .form-row {
-      width: 99%;
+      width: 100%;
       margin-left: 0;
+      margin: 0;
     }
     .image-container {
       height: 250px;
-      width: 100%;
-      margin-left: 0;
-    }
-    .name-row {
-      margin-top: 1rem;
-    }
-    .notes-row {
-      margin-top: 1rem;
-    }
-    .producer-row {
-      margin-top: 1rem;
+      width: 102.5%;
     }
     .rows-container {
       display: flex;
       flex-direction: column;
+      gap: 1rem;
     }
     @media (max-width: 800px) {
       .form {

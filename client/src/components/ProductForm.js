@@ -45,7 +45,7 @@ export default function ProductForm({
             )}
             {productType === "cocktail" && (
               <div className="icon-container icon-cocktail-container">
-                <FaGlassMartiniAlt size={120} className="icon icon-cocktail" />
+                {/* <FaGlassMartiniAlt size={120} className="icon icon-cocktail" /> */}
               </div>
             )}
             {productType === "spirit" && (
@@ -55,12 +55,13 @@ export default function ProductForm({
             )}
             {productType === "wine" && (
               <div className="icon-container">
-                <FaWineGlassAlt size={100} className="icon icon-wine" />
+                {/* <FaWineGlassAlt size={100} className="icon icon-wine" /> */}
               </div>
             )}
           </div>
           {productType === "cocktail" && (
             <div className="form-row place-holder">
+              <label className="form-label">hold my place</label>
               <input className="form-input place-holder-input" />
             </div>
           )}

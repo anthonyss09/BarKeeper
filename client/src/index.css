@@ -98,7 +98,7 @@ textarea {
   height: 100vh;
   /* display: flex;
   flex-direction: column; */
-  display: grid;
+  /* display: grid; */
   /* align-items: center; */
   padding: 1rem;
   transition: var(--transition);
@@ -165,5 +165,5 @@ textarea {
   background-color: rgb(115, 199, 168);
   background-color: rgb(239, 239, 241);
   background: rgb(250, 252, 260);
-  background: rgb(137, 173, 248);
+  background: rgb(174, 209, 247);
 }

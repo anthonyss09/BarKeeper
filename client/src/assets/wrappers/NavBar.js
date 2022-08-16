@@ -27,9 +27,14 @@ const Wrapper = styled.nav`
     font-weight: bold;
     letter-spacing: 0.1rem;
     // background: rgb(80, 80, 80);
-    // color: white;
+    color: white;
     background: rgb(228, 228, 228);
-    padding: 1.1rem;
+    background: rgb(174, 209, 247);
+    padding: 1.2rem;
+    background: white;
+    color: black;
+    color: rgb(70, 70, 70);
+    // height: 2rem;
   }
   .btn-logout:hover {
     transform: scale(1);

@@ -6,8 +6,8 @@ const Wrapper = styled.aside`
   }
   .dynamic-row {
     display: flex;
-    margin-bottom: 1.4rem;
-    margin-bottom: 0.4rem;
+    // margin-bottom: 1.4rem;
+    // margin-bottom: 0.4rem;
     margin: 0.4rem 1rem 0.4rem 1rem;
   }
   .form-label {
@@ -25,6 +25,9 @@ const Wrapper = styled.aside`
   .icon:hover {
     cursor: pointer;
     transform: scale(1.08);
+  }
+  .icon-add {
+    margin-left: 1rem;
   }
   .icon-add-row {
     display: flex;
@@ -55,7 +58,7 @@ const Wrapper = styled.aside`
   }
   @media (max-width: 800px) {
     .dynamic-rows {
-      margin-left: 0;
+      // margin-left: 0;
       padding: 1rem 0;
     }
     .form-label {
