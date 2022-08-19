@@ -1,36 +1,59 @@
 import mongoose from "mongoose";
 
-const WineSchema = new mongoose.Schema({
-  name: { type: String },
-  products: [
-    {
-      nname: {
-        type: String,
-      },
-      notes: {
-        type: String,
-      },
-      producer: {
-        type: String,
-      },
-      region: {
-        type: String,
-      },
-      varietal: {
-        type: String,
-      },
-      color: {
-        type: String,
-      },
-      vintage: {
-        type: String,
-      },
-      stock: {
-        type: Number,
-      },
+const ProductsSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "Please provide product name."],
     },
-    { timestamps: true },
-  ],
+    notes: {
+      type: String,
+    },
+    producer: {
+      type: String,
+    },
+    region: {
+      type: String,
+    },
+    varietal: {
+      type: String,
+    },
+    color: {
+      type: String,
+    },
+    vintage: {
+      type: String,
+    },
+    stock: {
+      type: Number,
+      default: 0,
+    },
+    productType: {
+      type: String,
+      // enum: [
+      //   "beer",
+      //   "cocktail",
+      //   "spirit",
+      //   "wine-sparkling",
+      //   "wine-white",
+      //   "wine-orange",
+      //   "wine-rose",
+      //   "wine-chilled-red",
+      //   "wine-red",
+      // ],
+    },
+    createdBy: {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
+      required: [true, "Please provide user."],
+    },
+  },
+  { timestamps: true }
+);
+
+const WineSchema = new mongoose.Schema({
+  productType: { type: String },
+  products: [ProductsSchema],
   createdBy: { type: mongoose.Types.ObjectId, ref: "User" },
 });
 export default mongoose.model("Wine", WineSchema);

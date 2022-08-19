@@ -12,31 +12,14 @@ import { useAppContext } from "../context/appContext";
 
 export default function NavBar({ onClick }) {
   const [showBtn, setShowBtn] = useState(false);
-  // const [angleLeft, setAngleLeft] = useState(true);
 
   const { user, logoutUser } = useAppContext();
 
-  // const handleClick = () => {
-  //   setAngleLeft(!angleLeft);
-  // };
   return (
     <Wrapper>
       <div className="nav-bar">
         <div className="hamburger nav-item" onClick={onClick}>
           <FaBars size={30} className=" icon icon-bars" />
-          {/* {angleLeft ? (
-            <FaAngleDoubleLeft
-              className="icon icon-angles"
-              size={30}
-              onClick={handleClick}
-            />
-          ) : (
-            <FaAngleDoubleRight
-              className="icon icon-angles"
-              size={30}
-              onClick={handleClick}
-            />
-          )} */}
         </div>
         <span className="center-text nav-item">Dashboard</span>
         <div className="drop-btns">

@@ -7,6 +7,9 @@ import SmallSidebar from "./SmallSidebar";
 import ProductCards from "./ProductCards";
 import ProductForm from "./ProductForm";
 import DynamicRows from "./DynamicRows";
+import SearchBar from "./SearchBar";
+import ProductPreview from "./ProductPreview";
+import FormSelect from "./FormSelect";
 
 export {
   FormRow,
@@ -18,4 +21,7 @@ export {
   ProductCards,
   ProductForm,
   DynamicRows,
+  SearchBar,
+  ProductPreview,
+  FormSelect,
 };

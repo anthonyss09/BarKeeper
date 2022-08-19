@@ -11,18 +11,24 @@ const Wrapper = styled.main`
     //nice light blue color
     background: rgb(248, 252, 260);
     background-color: rgb(239, 239, 241);
+    background: rgb(248, 248, 248);
+    background: white;
     height: 100%;
+    border-top: 4px solid rgb(248, 248, 248);
+    border-left: 4px solid rgb(248, 248, 248);
   }
   .first-column {
     height: 100vh;
     background: white;
     // background: rgb(252, 250, 250);
+    // background: rgb(248, 248, 248);
   }
   .nav-bar {
     height: 4.2rem;
     width: 100%;
     background: rgb(252, 250, 250);
     background: white;
+    // background: rgb(248, 248, 248);
     z-index: 30;
   }
   .second-column {
@@ -33,13 +39,14 @@ const Wrapper = styled.main`
       display: none;
     }
     .dashboard-page {
-      background-color: rgb(239, 239, 241);
+      bacground: white;
+      border-left: none;
     }
   }
   @media (max-width: 800px) {
     .dashboard-page {
       padding: 2rem;
-      // background: rgb(248, 252, 260);
+      // background: white;
     }
     .nav-bar {
       background: white;

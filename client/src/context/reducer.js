@@ -14,6 +14,7 @@ import {
   ADD_PRODUCT_BEGIN,
   ADD_PRODUCT_SUCCESS,
   ADD_PRODUCT_ERROR,
+  GET_ALL_PRODUCTS,
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -122,6 +123,9 @@ const reducer = (state, action) => {
       spirit: action.payload.spirit,
       wine: action.payload.wine,
     };
+  }
+  if (action.type === GET_ALL_PRODUCTS) {
+    return { ...state, products: action.payload.products };
   }
   throw new Error(`No action of type: ${action.type}`);
 };

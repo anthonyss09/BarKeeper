@@ -66,7 +66,6 @@ export default function AddProduct() {
       default:
         return;
     }
-    console.log("submitted");
   };
 
   return (

@@ -16,6 +16,7 @@ import {
   ADD_PRODUCT_SUCCESS,
   ADD_PRODUCT_ERROR,
   CLEAR_VALUES,
+  GET_ALL_PRODUCTS,
 } from "./actions";
 
 const user = localStorage.getItem("user");
@@ -30,9 +31,11 @@ const initialState = {
   alertText: "",
   isLoading: false,
   user: user ? JSON.parse(user) : null,
+  sort: "",
+  search: "",
   // user: user,
   token: token,
-  product: "",
+  productType: "All",
   beer: {
     notes: "",
     name: "",
@@ -40,6 +43,7 @@ const initialState = {
     style: "",
     region: "",
     abv: "",
+    productType: "",
     stock: "",
   },
   cocktail: {
@@ -50,6 +54,7 @@ const initialState = {
       ingredient: ["", "", ""],
     },
     inspiration: "",
+    productType: "",
   },
   wine: {
     notes: "",
@@ -59,6 +64,7 @@ const initialState = {
     varietal: "",
     color: "",
     vintage: "",
+    productType: "",
     stock: "",
   },
   spirit: {
@@ -67,8 +73,10 @@ const initialState = {
     producer: "",
     region: "",
     type: "",
+    productType: "",
     stock: "",
   },
+  products: [""],
 };
 
 const AppContext = React.createContext();
@@ -189,12 +197,12 @@ const AppProvider = ({ children }) => {
       inspiration: "",
     };
 
-    console.log({ cocktail });
     dispatch({
       type: CLEAR_VALUES,
       payload: { beer: beer, cocktail: cocktail, spirit: spirit, wine: wine },
     });
   };
+
   const addProduct = async (productObject) => {
     dispatch({ type: ADD_PRODUCT_BEGIN });
     try {
@@ -213,6 +221,26 @@ const AppProvider = ({ children }) => {
     clearValues();
     clearAlert();
   };
+
+  const getAllProducts = async () => {
+    const { productType, sort, search } = state;
+    let url = `/products?productType=${productType}&sort=${sort}`;
+    if (search) {
+      url = url + `&search=${search}`;
+    }
+    try {
+      const response = await authFetch.get(url);
+      const { data } = response;
+
+      dispatch({
+        type: GET_ALL_PRODUCTS,
+        payload: { products: data.products },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -226,6 +254,7 @@ const AppProvider = ({ children }) => {
         removeCocktailIngredients,
         addProduct,
         clearValues,
+        getAllProducts,
       }}
     >
       {children}

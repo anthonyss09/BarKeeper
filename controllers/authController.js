@@ -1,8 +1,8 @@
 import User from "../models/User.js";
-import Beer from "../models/Beer.js";
-import Wine from "../models/Wine.js";
-import Spirit from "../models/Spirit.js";
-import Cocktail from "../models/Cocktail.js";
+import InventoryBeer from "../models/InventoryBeer.js";
+import InventoryWine from "../models/InventoryWine.js";
+import InventorySpirit from "../models/InventorySpirit.js";
+import InventoryCocktail from "../models/InventoryCocktail.js";
 
 import {
   BadRequestError,
@@ -22,26 +22,12 @@ const register = async (req, res) => {
     throw new BadRequestError("Please provide all values.");
   }
   const user = await User.create({ name, email, password });
-  await Beer.create({
-    name: "Beer",
-    products: [],
-    createdBy: user._id,
-  });
-  await Spirit.create({
-    name: "Spirit",
-    products: [],
-    createdBy: user._id,
-  });
-  await Wine.create({
-    name: "Wine",
-    products: [],
-    createdBy: user._id,
-  });
-  await Cocktail.create({
-    name: "Cocktail",
-    products: [],
-    createdBy: user._id,
-  });
+
+  await InventoryBeer.create({ inventory: [], createdBy: user._id });
+  await InventorySpirit.create({ inventory: [], createdBy: user._id });
+  await InventoryWine.create({ inventory: [], createdBy: user._id });
+  await InventoryCocktail.create({ inventory: [], createdBy: user._id });
+
   const token = user.createJWT();
   res
     .status(StatusCodes.CREATED)

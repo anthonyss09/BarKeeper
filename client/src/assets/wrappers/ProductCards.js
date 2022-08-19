@@ -6,6 +6,8 @@ const Wrapper = styled.aside`
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background: rgb(242, 242, 242);
+    padding: 2rem;
   }
   .product-card {
     height: 250px;
@@ -17,6 +19,9 @@ const Wrapper = styled.aside`
     font-size: 2rem;
     text-transform: capitalize;
     background: white;
+    font-weight: 600;
+    color: rgb(60, 60, 60);
+    letter-spacing: 0.1rem;
   }
   .product-card:hover {
     transition: var(--transition);

@@ -77,9 +77,6 @@ const Wrapper = styled.nav`
     .btn-drop-down {
       background: white;
     }
-    .center-text {
-      margin-left: 15%;
-    }
   }
 `;
 

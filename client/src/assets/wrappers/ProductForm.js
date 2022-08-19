@@ -4,6 +4,9 @@ import cocktail from "../images/cocktail.jpg";
 import wine from "../images/wine.jpg";
 
 const Wrapper = styled.main`
+  label {
+    letter-spacing: 0.04rem;
+  }
   .btns {
     display: flex;
     flex-wrap: wrap;
@@ -28,27 +31,40 @@ const Wrapper = styled.main`
     width: 101%;
     box-shadow: none;
     border: 4px solid rgb(238, 238, 238);
+    border: 4px solid white;
     height: min-content;
     grid-row: 1/2;
     grid-column: 2/3;
-    // padding: 1rem 0;
-    padding-bottom: 1rem;
+    padding: 1rem 0;
+    // padding-bottom: 1rem;
+    background: white;
   }
   .form {
     height: min-content;
     padding-right: 1.6rem;
+    background: rgb(248, 248, 248);
+    // background: rgb(238, 238, 238);
   }
   .form-input {
     box-shadow: none;
     border: 4px solid rgb(228, 228, 228);
+    border: 4px solid white;
     border-radius: 0;
     font-family: sans-serif;
     font-size: 0.9rem;
     color: rgb(40, 40, 40);
   }
+  .form-label {
+    margin-bottom: 0.8rem;
+  }
+  .dynamic-input {
+    border: 4px solid rgb(228, 228, 228);
+  }
   .form-row {
     width: 100%;
     margin-top: -1.8rem;
+    font-weight: bolder;
+    color: rgb(80, 80, 80);
   }
   .icon-add-row {
     margin: 0;
@@ -68,6 +84,7 @@ const Wrapper = styled.main`
     display: grid;
     place-items: center;
     background: rgb(228, 228, 228);
+    background: white;
     grid-row: 1/2;
     max-height: 233.79px;
     width: 103.5%;
@@ -98,10 +115,14 @@ const Wrapper = styled.main`
     grid-row: 2/3;
     grid-row: 2/3;
     color: white;
+    color: rgb(238, 238, 238);
+    color: rgb(248, 248, 248);
     margin-top: -1rem;
   }
   .place-holder-input {
     background: rgb(228, 228, 228);
+
+    background: white;
   }
   .rows-container {
     display: grid;
@@ -115,6 +136,7 @@ const Wrapper = styled.main`
     .btns {
       flex-direction: column;
       margin: 1rem 0;
+      margin-top: 2rem;
       gap: 1.6rem;
       width: 102.5%;
     }
@@ -137,11 +159,13 @@ const Wrapper = styled.main`
     .form {
       display: flex;
       flex-direction: column;
+      padding: 1rem 2rem;
     }
     .form-row {
       width: 100%;
       margin-left: 0;
       margin: 0;
+      margin-top: 1rem;
     }
     .image-container {
       height: 250px;
@@ -151,11 +175,6 @@ const Wrapper = styled.main`
       display: flex;
       flex-direction: column;
       gap: 1rem;
-    }
-    @media (max-width: 800px) {
-      .form {
-        padding: 1rem 2rem;
-      }
     }
   }
 `;

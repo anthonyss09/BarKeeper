@@ -1,8 +1,10 @@
 import { NavLinks } from "./index";
 import Wrapper from "../assets/wrappers/BigSidebar";
 import navLinks from "../utils/navLinks";
+import { useAppContext } from "../context/appContext";
 
 export default function BigSidebar() {
+  const { setItems } = useAppContext();
   return (
     <Wrapper>
       <div className="sidebar-container">
@@ -10,7 +12,11 @@ export default function BigSidebar() {
           <div className="bar-keeper">BarKeeper</div>
         </div>
 
-        <NavLinks />
+        <NavLinks
+          onClick={() => {
+            setItems("productType", "All");
+          }}
+        />
       </div>
     </Wrapper>
   );

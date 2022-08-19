@@ -1,4 +1,4 @@
-import amountSelectOptions from "../utils/amountSelectOptions";
+import { selectAmountOptions } from "../utils/options";
 import { useAppContext } from "../context/appContext";
 import FormRow from "./FormRow";
 import Wrapper from "../assets/wrappers/DynamicRows";
@@ -13,22 +13,25 @@ export default function DynamicRows({ onChange }) {
 
   return (
     <Wrapper>
+      <label className="form-label" htmlFor="ingredient">
+        Ingredients
+      </label>
       <div className="dynamic-rows">
-        <label className="form-label" htmlFor="ingredient">
+        {/* <label className="form-label" htmlFor="ingredient">
           Ingredients
-        </label>
+        </label> */}
         {ingredients.amount.map((amount, index) => {
           return (
             <div key={index}>
               <div className="dynamic-row">
                 <select
-                  className="form-input select-input"
+                  className="form-input select-input dynamic-input"
                   value={amount}
                   onChange={(e) => {
                     setCocktailIngredients("amount", e.target.value, index);
                   }}
                 >
-                  {amountSelectOptions.map((option, ind) => {
+                  {selectAmountOptions.map((option, ind) => {
                     return (
                       <option key={ind} defaultValue={option}>
                         {option}
@@ -43,7 +46,7 @@ export default function DynamicRows({ onChange }) {
                   onChange={(e) => {
                     setCocktailIngredients("ingredient", e.target.value, index);
                   }}
-                  className="form-input ingredients-input"
+                  className="form-input ingredients-input dynamic-input"
                 />
                 <GrSubtractCircle
                   size={20}

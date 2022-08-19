@@ -194,7 +194,6 @@ npm install axios
 
 - configure axios interceptors, headers bearer token
 - grab token from authheader, verify with jwt method and set req.user
-  (actually won't need req.user for this setup, new model strategy)
 - add auth middleware to product routes
 
 ## mongoose models, product controller
@@ -203,8 +202,6 @@ npm install axios
 
 - will branch here to build upon product model
 
-## next up
+## product model setup
 
-- update product
-
-- get all products and display, start with front end
+## search page
