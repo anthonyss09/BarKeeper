@@ -1,0 +1,63 @@
+import Wrapper from "../assets/wrappers/ProductForm";
+import FormRow from "./FormRow";
+import Alert from "./Alert";
+import DynamicRows from "./DynamicRows";
+import { useAppContext } from "../context/appContext";
+import wineBottle from "../assets/images/wine.jpg";
+
+export default function CocktailForm({ onClick, onChange, onSubmit }) {
+  const { showAlert, cocktail } = useAppContext();
+  return (
+    <Wrapper>
+      <form className="form" onSubmit={onSubmit}>
+        {showAlert && (
+          <Alert alertType="success" text="hooooray hooooray hooooray!" />
+        )}
+        <div className="rows-container">
+          <div className=" image-container">
+            <div className="icon-container">
+              {/* <img src={wineBottle} /> */}
+            </div>
+          </div>
+          <div className="form-row place-holder">
+            <label className="form-label">hold my place</label>
+            <input className="form-input place-holder-input" />
+          </div>
+          <FormRow
+            name="name"
+            labelText="name"
+            onChange={onChange}
+            value={cocktail.name}
+            type="text"
+            className="name"
+          />
+          <DynamicRows />
+          <FormRow
+            name="instructions"
+            labelText="instructions"
+            onChange={onChange}
+            value={cocktail.instructions}
+            type="textarea"
+            rows={5}
+            className="instructions"
+          />
+          <FormRow
+            name="inspiration"
+            labelText="inspiration"
+            onChange={onChange}
+            value={cocktail.inspiration}
+            type="textarea"
+            rows={5}
+            className="inspiration"
+          />
+        </div>
+        <div className="btns">
+          <button className="btn-main btn-add">Add product</button>
+          <button type="button" className="btn-main btn-back" onClick={onClick}>
+            Back
+          </button>
+        </div>
+      </form>
+    </Wrapper>
+  );
+}

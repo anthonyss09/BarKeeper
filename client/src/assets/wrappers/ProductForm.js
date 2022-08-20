@@ -57,6 +57,7 @@ const Wrapper = styled.main`
   .form-label {
     margin-bottom: 0.8rem;
   }
+  //dynamic rows styling stays where is, intentionally overriding styles
   .dynamic-input {
     border: 4px solid rgb(228, 228, 228);
   }
@@ -86,7 +87,7 @@ const Wrapper = styled.main`
     background: rgb(228, 228, 228);
     background: white;
     grid-row: 1/2;
-    max-height: 233.79px;
+    max-height: 236.5px;
     width: 103.5%;
   }
   .ingredients-input {
@@ -109,7 +110,7 @@ const Wrapper = styled.main`
     margin-top: -1rem;
   }
   .notes-row {
-    margin-top: 1.2rem;
+    // margin-top: 0.1rem;
   }
   .place-holder {
     grid-row: 2/3;
@@ -128,6 +129,7 @@ const Wrapper = styled.main`
     display: grid;
     gap: 1.8rem;
     grid-template-columns: 1fr 1fr;
+    margin-top: 2rem;
   }
   .select-input {
     height: 2.4rem;

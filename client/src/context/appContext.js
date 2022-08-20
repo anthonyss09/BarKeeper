@@ -17,6 +17,7 @@ import {
   ADD_PRODUCT_ERROR,
   CLEAR_VALUES,
   GET_ALL_PRODUCTS,
+  SET_SHOW_CARDS,
 } from "./actions";
 
 const user = localStorage.getItem("user");
@@ -33,9 +34,10 @@ const initialState = {
   user: user ? JSON.parse(user) : null,
   sort: "",
   search: "",
+  showCards: true,
   // user: user,
   token: token,
-  productType: "All",
+  productType: "all",
   beer: {
     notes: "",
     name: "",
@@ -43,7 +45,6 @@ const initialState = {
     style: "",
     region: "",
     abv: "",
-    productType: "",
     stock: "",
   },
   cocktail: {
@@ -54,7 +55,6 @@ const initialState = {
       ingredient: ["", "", ""],
     },
     inspiration: "",
-    productType: "",
   },
   wine: {
     notes: "",
@@ -64,7 +64,6 @@ const initialState = {
     varietal: "",
     color: "",
     vintage: "",
-    productType: "",
     stock: "",
   },
   spirit: {
@@ -73,7 +72,6 @@ const initialState = {
     producer: "",
     region: "",
     type: "",
-    productType: "",
     stock: "",
   },
   products: [""],
@@ -154,6 +152,10 @@ const AppProvider = ({ children }) => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     dispatch({ type: LOGOUT_USER });
+  };
+
+  const setShowCards = (bool) => {
+    dispatch({ type: SET_SHOW_CARDS, payload: { bool: bool } });
   };
 
   const setItem = (item, value) => {
@@ -255,6 +257,7 @@ const AppProvider = ({ children }) => {
         addProduct,
         clearValues,
         getAllProducts,
+        setShowCards,
       }}
     >
       {children}

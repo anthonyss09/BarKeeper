@@ -12,7 +12,7 @@ const selectAmountOptions = [
   "dashes",
 ];
 
-const productTypeOptions = ["All", "Beer", "Cocktail", "Spirit", "Wine"];
+const productTypeOptions = ["all", "beer", "cocktail", "spirit", "wine"];
 
 const sortOptions = ["A-Z", "Z-A", "Newest", "Oldest"];
 

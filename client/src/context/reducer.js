@@ -15,6 +15,7 @@ import {
   ADD_PRODUCT_SUCCESS,
   ADD_PRODUCT_ERROR,
   GET_ALL_PRODUCTS,
+  SET_SHOW_CARDS,
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -46,7 +47,7 @@ const reducer = (state, action) => {
   if (action.type === SETUP_USER_ERROR) {
     return {
       ...state,
-      isLoadin: false,
+      isLoading: false,
       showAlert: true,
       alertType: "danger",
       alertText: action.payload.msg,
@@ -54,6 +55,9 @@ const reducer = (state, action) => {
   }
   if (action.type === LOGOUT_USER) {
     return { ...state, user: "", token: "" };
+  }
+  if (action.type === SET_SHOW_CARDS) {
+    return { ...state, showCards: action.payload.bool };
   }
   if (action.type === SET_OBJECT_PAIR) {
     return {

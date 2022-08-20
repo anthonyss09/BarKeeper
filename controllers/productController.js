@@ -2,10 +2,10 @@ import Beer from "../models/Beer.js";
 import Spirit from "../models/Spirit.js";
 import Wine from "../models/Wine.js";
 import Cocktail from "../models/Cocktail.js";
-import InventoryBeer from "../models/InventoryBeer.js";
-import InventoryCocktail from "../models/InventoryCocktail.js";
-import InventorySpirit from "../models/InventorySpirit.js";
-import InventoryWine from "../models/InventoryWine.js";
+// import InventoryBeer from "../models/InventoryBeer.js";
+// import InventoryCocktail from "../models/InventoryCocktail.js";
+// import InventorySpirit from "../models/InventorySpirit.js";
+// import InventoryWine from "../models/InventoryWine.js";
 
 import {
   BadRequestError,
@@ -23,7 +23,9 @@ const createProduct = async (req, res) => {
   }
 
   productObject.createdBy = req.user.userId;
-  const { productType } = productObject;
+  let { productType } = productObject;
+  productType =
+    productType.charAt(0).toUpperCase() + productType.slice(1).toLowerCase();
 
   const newProduct = await mongoose.model(productType).create(productObject);
 
@@ -61,7 +63,7 @@ const getProducts = async (req, res) => {
 
   let products = beers.concat(cocktails).concat(spirits).concat(wines);
 
-  if (productType !== "All") {
+  if (productType !== "all") {
     products = products.filter(
       (product) => product.productType === productType
     );

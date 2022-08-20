@@ -10,6 +10,10 @@ import DynamicRows from "./DynamicRows";
 import SearchBar from "./SearchBar";
 import ProductPreview from "./ProductPreview";
 import FormSelect from "./FormSelect";
+import BeerForm from "./BeerForm";
+import CocktailForm from "./CocktailForm";
+import SpiritForm from "./SpiritForm";
+import WineForm from "./WineForm";
 
 export {
   FormRow,
@@ -24,4 +28,8 @@ export {
   SearchBar,
   ProductPreview,
   FormSelect,
+  BeerForm,
+  CocktailForm,
+  SpiritForm,
+  WineForm,
 };

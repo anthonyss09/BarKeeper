@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const ProductsSchema = new mongoose.Schema(
+const WineSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -51,9 +51,4 @@ const ProductsSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const WineSchema = new mongoose.Schema({
-  productType: { type: String },
-  products: [ProductsSchema],
-  createdBy: { type: mongoose.Types.ObjectId, ref: "User" },
-});
 export default mongoose.model("Wine", WineSchema);

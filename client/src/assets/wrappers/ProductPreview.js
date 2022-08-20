@@ -8,6 +8,10 @@ const Wrapper = styled.aside`
   .product-image {
     height: 105px;
   }
+  .product-link {
+    color: black;
+    text-decoration: none;
+  }
   .product-name {
     background: white;
     margin-top: 0.6rem;

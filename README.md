@@ -1,6 +1,7 @@
 ## Welcome to BarKeeper!
 
-This is an app where you can create, store and update bar recipes and update inventory!
+This is an app where you can create, store and update bar recipes AND update inventory!
+
 You and your team will have easy access to all recipes and product information. You can even keep track of all inventory. Enjoy!
 
 ## Steps of build...
@@ -192,6 +193,7 @@ npm install axios
 
 ## configure axios
 
+- [axios docs](https://axios-http.com/docs/intro)
 - configure axios interceptors, headers bearer token
 - grab token from authheader, verify with jwt method and set req.user
 - add auth middleware to product routes

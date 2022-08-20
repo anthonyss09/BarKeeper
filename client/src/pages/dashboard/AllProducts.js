@@ -18,11 +18,7 @@ export default function AllProducts() {
       <div className="container-product-previews">
         {products.map((product, index) => {
           return (
-            <ProductPreview
-              key={index}
-              products={products}
-              name={product.name}
-            />
+            <ProductPreview key={index} products={products} product={product} />
           );
         })}
       </div>

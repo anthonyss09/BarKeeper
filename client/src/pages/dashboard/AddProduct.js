@@ -1,10 +1,17 @@
 import Wrapper from "../../assets/wrappers/AddProducts";
-import { ProductCards, ProductForm } from "../../components/";
+import {
+  ProductCards,
+  ProductForm,
+  BeerForm,
+  CocktailForm,
+  SpiritForm,
+  WineForm,
+} from "../../components/";
 import { useState } from "react";
 import { useAppContext } from "../../context/appContext";
 
 export default function AddProduct() {
-  const [showCards, setShowCards] = useState(true);
+  // const [showCards, setShowCards] = useState(true);
 
   const {
     setItem,
@@ -16,6 +23,8 @@ export default function AddProduct() {
     setObjectPair,
     addProduct,
     displayAlert,
+    showCards,
+    setShowCards,
   } = useAppContext();
   const [productObject, setProductObject] = useState({});
 
@@ -52,16 +61,16 @@ export default function AddProduct() {
 
     switch (productType) {
       case "beer":
-        addProduct({ ...beer, productType: "Beer" });
+        addProduct({ ...beer, productType: "beer" });
         break;
       case "cocktail":
-        addProduct({ ...cocktail, productType: "Cocktail" });
+        addProduct({ ...cocktail, productType: "cocktail" });
         break;
       case "wine":
-        addProduct({ ...wine, productType: "Wine" });
+        addProduct({ ...wine, productType: "wine" });
         break;
       case "spirit":
-        addProduct({ ...spirit, productType: "Spirit" });
+        addProduct({ ...spirit, productType: "spirit" });
         break;
       default:
         return;
@@ -76,12 +85,34 @@ export default function AddProduct() {
         </div>
       ) : (
         <div>
-          <ProductForm
-            productObject={productObject}
-            onClick={handleClick}
-            onChange={handleChange}
-            onSubmit={handleSubmit}
-          />
+          {productType === "beer" && (
+            <BeerForm
+              onClick={handleClick}
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+            />
+          )}
+          {productType === "cocktail" && (
+            <CocktailForm
+              onClick={handleClick}
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+            />
+          )}
+          {productType === "spirit" && (
+            <SpiritForm
+              onClick={handleClick}
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+            />
+          )}
+          {productType === "wine" && (
+            <WineForm
+              onClick={handleClick}
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+            />
+          )}
         </div>
       )}
     </Wrapper>
