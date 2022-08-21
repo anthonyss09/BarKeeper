@@ -52,6 +52,7 @@ const getProducts = async (req, res) => {
   const queryObject = {
     createdBy: req.user.userId,
   };
+
   if (search) {
     queryObject.name = { $regex: search, $options: "i" };
   }
@@ -69,7 +70,30 @@ const getProducts = async (req, res) => {
     );
   }
 
-  res.status(StatusCodes.OK).json({ products: products });
+  res.status(StatusCodes.OK).json({ products });
 };
 
-export { createProduct, getProducts };
+const editProduct = async (req, res) => {
+  const productObject = req.body;
+  let { productType } = productObject;
+  const { _id: id } = productObject;
+  productType =
+    productType.charAt(0).toUpperCase() + productType.slice(1).toLowerCase();
+
+  const exists = await mongoose.model(productType).findOne({ _id: id });
+
+  if (!exists) {
+    throw new NotFoundError(`No product with id of ${id} found.`);
+  }
+
+  const response = await mongoose
+    .model(productType)
+    .findOneAndUpdate({ name: productObject.name }, productObject, {
+      new: true,
+      runValidators: true,
+    });
+
+  res.status(StatusCodes.OK).json({ response });
+};
+
+export { createProduct, getProducts, editProduct };

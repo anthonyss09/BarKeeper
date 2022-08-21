@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
 const Wrapper = styled.aside`
+  .icon-search {
+    // color: rgb(110, 4, 4);
+  }
   .form {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     background: rgb(248, 248, 248);
     background: rgb(238, 238, 238);
+    // border: 4px solid rgb(166, 8, 8);
     padding: 1.4rem;
     // gap: 1rem;
   }

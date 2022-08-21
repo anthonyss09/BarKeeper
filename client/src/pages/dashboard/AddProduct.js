@@ -7,12 +7,9 @@ import {
   SpiritForm,
   WineForm,
 } from "../../components/";
-import { useState } from "react";
 import { useAppContext } from "../../context/appContext";
 
 export default function AddProduct() {
-  // const [showCards, setShowCards] = useState(true);
-
   const {
     setItem,
     productType,
@@ -25,30 +22,18 @@ export default function AddProduct() {
     displayAlert,
     showCards,
     setShowCards,
+    isEditing,
+    editProduct,
+    setIsEditing,
+    clearValues,
   } = useAppContext();
-  const [productObject, setProductObject] = useState({});
 
   const handleClick = (e) => {
     const name = e.target.innerHTML;
     setShowCards(!showCards);
+    setIsEditing(false);
     setItem("productType", name);
-
-    switch (name) {
-      case "beer":
-        setProductObject(beer);
-        break;
-      case "cocktail":
-        setProductObject(cocktail);
-        break;
-      case "wine":
-        setProductObject(wine);
-        break;
-      case "spirit":
-        setProductObject(spirit);
-        break;
-      default:
-        setProductObject({});
-    }
+    clearValues();
   };
 
   const handleChange = (e) => {
@@ -61,15 +46,29 @@ export default function AddProduct() {
 
     switch (productType) {
       case "beer":
+        if (isEditing) {
+          editProduct({ ...beer, productType: "beer" });
+          break;
+        }
         addProduct({ ...beer, productType: "beer" });
         break;
       case "cocktail":
+        if (isEditing) {
+          editProduct({ ...cocktail, productType: "cocktail" });
+          break;
+        }
         addProduct({ ...cocktail, productType: "cocktail" });
         break;
       case "wine":
+        if (isEditing) {
+          editProduct({ ...wine, productType: "wine" });
+        }
         addProduct({ ...wine, productType: "wine" });
         break;
       case "spirit":
+        if (isEditing) {
+          editProduct({ ...spirit, productType: "spirit" });
+        }
         addProduct({ ...spirit, productType: "spirit" });
         break;
       default:

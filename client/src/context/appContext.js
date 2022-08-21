@@ -18,6 +18,10 @@ import {
   CLEAR_VALUES,
   GET_ALL_PRODUCTS,
   SET_SHOW_CARDS,
+  SET_IS_EDITING,
+  EDIT_PRODUCT_BEGIN,
+  EDIT_PRODUCT_SUCCESS,
+  EDIT_PRODUCT_ERROR,
 } from "./actions";
 
 const user = localStorage.getItem("user");
@@ -35,6 +39,7 @@ const initialState = {
   sort: "",
   search: "",
   showCards: true,
+  isEditing: false,
   // user: user,
   token: token,
   productType: "all",
@@ -243,6 +248,27 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const setIsEditing = (bool) => {
+    dispatch({ type: SET_IS_EDITING, payload: { bool: bool } });
+  };
+
+  const editProduct = (product) => {
+    dispatch({ type: EDIT_PRODUCT_BEGIN });
+
+    try {
+      const response = authFetch.patch(`/products/${product.name}`, product);
+      console.log(response);
+      dispatch({ type: EDIT_PRODUCT_SUCCESS });
+    } catch (error) {
+      dispatch({
+        type: EDIT_PRODUCT_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearValues();
+    clearAlert();
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -258,6 +284,8 @@ const AppProvider = ({ children }) => {
         clearValues,
         getAllProducts,
         setShowCards,
+        setIsEditing,
+        editProduct,
       }}
     >
       {children}

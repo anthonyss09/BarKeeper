@@ -16,16 +16,22 @@ const Wrapper = styled.aside`
   }
   .nav-link {
     background: var(--link-green-light);
+    background: beige;
+    background: rgb(245,245,240);
     padding: 1rem 0 1rem 4rem;
     transition: var(--transition);
   }
   .nav-link:hover {
     padding-left: 5rem;
+    background: rgb(236, 231, 200);
+    background: rgb(200,200,180);
     background: var(--link-green-medium);
-     
+    background: rgb(248, 241, 218);
+    background: rgb(230,230,225); 
   }
   .active {
     background: var(--link-green-dark);
+    background: rgb(220,220,215); 
   }
   .header {
     height: 4rem;

@@ -1,6 +1,7 @@
 import Wrapper from "../assets/wrappers/ProductForm";
 import FormRow from "./FormRow";
 import Alert from "./Alert";
+import AddEditBtns from "./AddEditBtns";
 import { useAppContext } from "../context/appContext";
 import wineBottle from "../assets/images/wine.jpg";
 
@@ -8,7 +9,7 @@ export default function WineForm({ onClick, onChange, onSubmit }) {
   const { showAlert, wine } = useAppContext();
   return (
     <Wrapper>
-      <form class="form" onSubmit={onSubmit}>
+      <form className="form" onSubmit={onSubmit}>
         {showAlert && (
           <Alert alertType="success" text="hooooray hooooray hooooray!" />
         )}
@@ -84,12 +85,7 @@ export default function WineForm({ onClick, onChange, onSubmit }) {
             className="stock"
           />
         </div>
-        <div className="btns">
-          <button className="btn-main btn-add">Add product</button>
-          <button type="button" className="btn-main btn-back" onClick={onClick}>
-            Back
-          </button>
-        </div>
+        <AddEditBtns onClick={onClick} />
       </form>
     </Wrapper>
   );

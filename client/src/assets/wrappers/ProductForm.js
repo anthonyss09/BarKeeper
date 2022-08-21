@@ -18,9 +18,13 @@ const Wrapper = styled.main`
     background: var(--blue-light);
     background: rgb(137, 173, 248);
     color: white;
+    background: rgb(100, 100, 100);
   }
   .btn-back {
     background: pink;
+    background: rgb(166, 8, 8);
+    background: rgb(110, 4, 4);
+    color: white;
   }
   .btn-main {
     height: 4rem;
@@ -32,6 +36,7 @@ const Wrapper = styled.main`
     box-shadow: none;
     border: 4px solid rgb(238, 238, 238);
     border: 4px solid white;
+    // border: 2px solid rgb(208, 208, 208);
     height: min-content;
     grid-row: 1/2;
     grid-column: 2/3;
@@ -41,14 +46,25 @@ const Wrapper = styled.main`
   }
   .form {
     height: min-content;
-    padding-right: 1.6rem;
+    // padding-right: 1.6rem;
+    padding: 2rem 1.4rem;
     background: rgb(248, 248, 248);
+    // border: 8px solid rgb(118, 118, 118);
+    // border: 4px solid rgb(166, 8, 8);
+    // border: 4px solid rgb(110, 4, 4);
     // background: rgb(238, 238, 238);
+    // border: 3px solid rgb(208, 208, 208);
+    // border: 2px solid rgb(208, 208, 208);
   }
   .form-input {
     box-shadow: none;
     border: 4px solid rgb(228, 228, 228);
     border: 4px solid white;
+    // border: 2px solid rgb(208, 208, 208);
+    // border: 2px solid gold;
+    // border: 2px solid rgb(255, 187, 0);
+    // border: 1px solid rgb(255, 170, 0);
+    // border: 2px solid rgb(208, 208, 208);
     border-radius: 0;
     font-family: sans-serif;
     font-size: 0.9rem;
@@ -57,7 +73,7 @@ const Wrapper = styled.main`
   .form-label {
     margin-bottom: 0.8rem;
   }
-  //dynamic rows styling stays where is, intentionally overriding styles
+  //dynamic input styling stays where is, intentionally overriding styles
   .dynamic-input {
     border: 4px solid rgb(228, 228, 228);
   }
@@ -73,7 +89,6 @@ const Wrapper = styled.main`
   .icon-container {
     width: 92%;
     height: 88%;
-    background: white;
     display: grid;
     place-items: center;
     background-image: url(${wine});
@@ -161,7 +176,8 @@ const Wrapper = styled.main`
     .form {
       display: flex;
       flex-direction: column;
-      padding: 1rem 2rem;
+      padding: 2rem 2rem;
+      padding-top: 0;
     }
     .form-row {
       width: 100%;

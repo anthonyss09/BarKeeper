@@ -1,6 +1,7 @@
 import Wrapper from "../assets/wrappers/ProductForm";
 import FormRow from "./FormRow";
 import Alert from "./Alert";
+import AddEditBtns from "./AddEditBtns";
 import DynamicRows from "./DynamicRows";
 import { useAppContext } from "../context/appContext";
 import wineBottle from "../assets/images/wine.jpg";
@@ -51,12 +52,7 @@ export default function CocktailForm({ onClick, onChange, onSubmit }) {
             className="inspiration"
           />
         </div>
-        <div className="btns">
-          <button className="btn-main btn-add">Add product</button>
-          <button type="button" className="btn-main btn-back" onClick={onClick}>
-            Back
-          </button>
-        </div>
+        <AddEditBtns onClick={onClick} />
       </form>
     </Wrapper>
   );

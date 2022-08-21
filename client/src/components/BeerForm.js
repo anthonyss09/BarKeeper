@@ -1,15 +1,16 @@
 import Wrapper from "../assets/wrappers/ProductForm";
 import FormRow from "./FormRow";
 import Alert from "./Alert";
+import AddEditBtns from "./AddEditBtns";
 import { useAppContext } from "../context/appContext";
 import { FaBeer } from "react-icons/fa";
 import wineBottle from "../assets/images/wine.jpg";
 
 export default function BeerForm({ onClick, onChange, onSubmit }) {
-  const { showAlert, beer } = useAppContext();
+  const { showAlert, beer, isEditing } = useAppContext();
   return (
     <Wrapper>
-      <form class="form" onSubmit={onSubmit}>
+      <form className="form" onSubmit={onSubmit}>
         {showAlert && (
           <Alert alertType="success" text="hooooray hooooray hooooray!" />
         )}
@@ -77,12 +78,7 @@ export default function BeerForm({ onClick, onChange, onSubmit }) {
             className="stock"
           />
         </div>
-        <div className="btns">
-          <button className="btn-main btn-add">Add product</button>
-          <button type="button" className="btn-main btn-back" onClick={onClick}>
-            Back
-          </button>
-        </div>
+        <AddEditBtns onClick={onClick} />
       </form>
     </Wrapper>
   );

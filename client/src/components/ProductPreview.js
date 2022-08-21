@@ -2,9 +2,10 @@ import Wrapper from "../assets/wrappers/ProductPreview";
 import wine from "../assets/images/wine.jpg";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
+import { SET_IS_EDITING } from "../context/actions";
 
 export default function ProductPreview({ image, product, name }) {
-  const { setItem, setShowCards, showCards } = useAppContext();
+  const { setItem, setShowCards, showCards, setIsEditing } = useAppContext();
 
   return (
     <Wrapper>
@@ -15,6 +16,7 @@ export default function ProductPreview({ image, product, name }) {
           setItem("productType", product.productType);
           setItem(product.productType, { ...product });
           setShowCards(!showCards);
+          setIsEditing(true);
         }}
       >
         <div className="product-preview">

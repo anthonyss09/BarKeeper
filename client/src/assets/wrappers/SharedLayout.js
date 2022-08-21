@@ -8,6 +8,7 @@ const Wrapper = styled.main`
   }
   .dashboard-page {
     padding: 2rem;
+    // padding: 1.8rem;
     //nice light blue color
     background: rgb(248, 252, 260);
     background-color: rgb(239, 239, 241);
@@ -46,6 +47,7 @@ const Wrapper = styled.main`
   @media (max-width: 800px) {
     .dashboard-page {
       padding: 2rem;
+      // padding: 1.4rem;
       // background: white;
     }
     .nav-bar {

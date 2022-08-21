@@ -16,6 +16,10 @@ import {
   ADD_PRODUCT_ERROR,
   GET_ALL_PRODUCTS,
   SET_SHOW_CARDS,
+  SET_IS_EDITING,
+  EDIT_PRODUCT_BEGIN,
+  EDIT_PRODUCT_SUCCESS,
+  EDIT_PRODUCT_ERROR,
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -130,6 +134,31 @@ const reducer = (state, action) => {
   }
   if (action.type === GET_ALL_PRODUCTS) {
     return { ...state, products: action.payload.products };
+  }
+  if (action.type === SET_IS_EDITING) {
+    return { ...state, isEditing: action.payload.bool };
+  }
+  if (action.type === EDIT_PRODUCT_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === EDIT_PRODUCT_SUCCESS) {
+    return {
+      ...state,
+      isEditing: false,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "Successfully edited product...",
+    };
+  }
+  if (action.type === EDIT_PRODUCT_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
   }
   throw new Error(`No action of type: ${action.type}`);
 };
