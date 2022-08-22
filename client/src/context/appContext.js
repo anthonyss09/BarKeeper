@@ -22,6 +22,14 @@ import {
   EDIT_PRODUCT_BEGIN,
   EDIT_PRODUCT_SUCCESS,
   EDIT_PRODUCT_ERROR,
+  GET_ALL_PRODUCTS_BEGIN,
+  GET_ALL_PRODUCTS_SUCCESS,
+  GET_ALL_PRODUCTS_ERROR,
+  GET_INVENTORIES_BEGIN,
+  GET_INVENTORIES_SUCCESS,
+  GET_INVENTORIES_ERROR,
+  UPDATE_INVENTORIES_BEGIN,
+  SET_INVENTORY_PAIR,
 } from "./actions";
 
 const user = localStorage.getItem("user");
@@ -79,7 +87,11 @@ const initialState = {
     type: "",
     stock: "",
   },
-  products: [""],
+  products: [],
+  beers: [],
+  cocktails: [],
+  spirits: [],
+  wines: [],
 };
 
 const AppContext = React.createContext();
@@ -230,6 +242,7 @@ const AppProvider = ({ children }) => {
   };
 
   const getAllProducts = async () => {
+    dispatch({ type: GET_ALL_PRODUCTS_BEGIN });
     const { productType, sort, search } = state;
     let url = `/products?productType=${productType}&sort=${sort}`;
     if (search) {
@@ -240,10 +253,11 @@ const AppProvider = ({ children }) => {
       const { data } = response;
 
       dispatch({
-        type: GET_ALL_PRODUCTS,
+        type: GET_ALL_PRODUCTS_SUCCESS,
         payload: { products: data.products },
       });
     } catch (error) {
+      dispatch({ type: GET_ALL_PRODUCTS_ERROR, payload: { msg: error } });
       console.log(error);
     }
   };
@@ -269,6 +283,73 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const getInventories = async () => {
+    dispatch({ type: GET_INVENTORIES_BEGIN });
+    try {
+      // const { data } = await authFetch.get("/products/inventory");
+
+      // const { beers, cocktails, spirits, wines } = data;
+      const { data } = await authFetch.get("/products?productType=all");
+      const { products } = data;
+
+      const beers = products.filter((prod) => prod.productType === "beer");
+      const cocktails = products.filter(
+        (prod) => prod.productType === "cocktail"
+      );
+      const spirits = products.filter((prod) => prod.productType === "spirit");
+      const wines = products.filter((prod) => prod.productType === "wine");
+
+      dispatch({
+        type: GET_INVENTORIES_SUCCESS,
+        payload: {
+          beers: beers,
+          cocktails: cocktails,
+          spirits: spirits,
+          wines: wines,
+        },
+      });
+    } catch (error) {
+      dispatch({ type: GET_INVENTORIES_ERROR });
+      console.log(error);
+    }
+  };
+
+  const setInventoryPair = (productInventory, name, value, index) => {
+    dispatch({
+      type: SET_INVENTORY_PAIR,
+      payload: {
+        productInventory: productInventory,
+        name: name,
+        value: value,
+        index: index,
+      },
+    });
+  };
+
+  const updateInventories = async () => {
+    dispatch({ type: UPDATE_INVENTORIES_BEGIN });
+    const { beers, spirits, wines } = state;
+
+    try {
+      const response = await authFetch.patch("/products/inventory", {
+        beers: beers,
+        spirits: spirits,
+        wines: wines,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const updateProductFromInventory = async (product) => {
+    try {
+      const response = await authFetch.patch("/products", product);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -286,6 +367,10 @@ const AppProvider = ({ children }) => {
         setShowCards,
         setIsEditing,
         editProduct,
+        getInventories,
+        updateInventories,
+        setInventoryPair,
+        updateProductFromInventory,
       }}
     >
       {children}

@@ -14,6 +14,9 @@ import BeerForm from "./BeerForm";
 import CocktailForm from "./CocktailForm";
 import SpiritForm from "./SpiritForm";
 import WineForm from "./WineForm";
+import InventoryBeer from "./InventoryBeer";
+import InventorySpirit from "./InventorySpirit";
+import InventoryWine from "./InventoryWine";
 
 export {
   FormRow,
@@ -32,4 +35,7 @@ export {
   CocktailForm,
   SpiritForm,
   WineForm,
+  InventoryBeer,
+  InventorySpirit,
+  InventoryWine,
 };

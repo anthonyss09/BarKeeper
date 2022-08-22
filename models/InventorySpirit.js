@@ -7,8 +7,25 @@ const InventorySpiritSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "Spirit",
       },
+      name: {
+        type: String,
+        required: [true, "Please provide product name."],
+      },
+      notes: {
+        type: String,
+      },
+      producer: {
+        type: String,
+      },
+      region: {
+        type: String,
+      },
+      type: {
+        type: String,
+      },
       stock: {
         type: Number,
+        default: 0,
       },
       productType: {
         type: String,

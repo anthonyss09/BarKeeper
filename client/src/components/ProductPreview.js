@@ -2,17 +2,23 @@ import Wrapper from "../assets/wrappers/ProductPreview";
 import wine from "../assets/images/wine.jpg";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
-import { SET_IS_EDITING } from "../context/actions";
 
 export default function ProductPreview({ image, product, name }) {
-  const { setItem, setShowCards, showCards, setIsEditing } = useAppContext();
+  const {
+    setItem,
+    setShowCards,
+    showCards,
+    setIsEditing,
+    updateProductFromInventory,
+  } = useAppContext();
 
   return (
     <Wrapper>
       <Link
         to={`/add-product`}
         className="product-link"
-        onClick={() => {
+        onClick={async () => {
+          updateProductFromInventory(product);
           setItem("productType", product.productType);
           setItem(product.productType, { ...product });
           setShowCards(!showCards);

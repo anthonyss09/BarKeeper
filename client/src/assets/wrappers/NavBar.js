@@ -43,6 +43,7 @@ const Wrapper = styled.nav`
   .center-text {
     font-size: 1.6rem;
     letter-spacing: 0.1rem;
+    margin-right: -8rem;
   }
   .drop-btns {
     padding-right: 1rem;
@@ -76,6 +77,11 @@ const Wrapper = styled.nav`
   @media (max-width: 880px) {
     .btn-drop-down {
       background: white;
+    }
+  }
+  @media (max-width: 500px) {
+    .center-text {
+      margin-right: -1rem;
     }
   }
 `;

@@ -7,11 +7,31 @@ const InventoryWineSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "Wine",
       },
-      stock: {
-        type: Number,
+      name: {
+        type: String,
+        required: [true, "Please provide product name."],
+      },
+      notes: {
+        type: String,
+      },
+      producer: {
+        type: String,
+      },
+      region: {
+        type: String,
+      },
+      varietal: {
+        type: String,
       },
       color: {
         type: String,
+      },
+      vintage: {
+        type: String,
+      },
+      stock: {
+        type: Number,
+        default: 0,
       },
       productType: {
         type: String,

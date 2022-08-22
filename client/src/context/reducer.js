@@ -20,6 +20,16 @@ import {
   EDIT_PRODUCT_BEGIN,
   EDIT_PRODUCT_SUCCESS,
   EDIT_PRODUCT_ERROR,
+  GET_ALL_PRODUCTS_BEGIN,
+  GET_ALL_PRODUCTS_SUCCESS,
+  GET_ALL_PRODUCTS_ERROR,
+  GET_INVENTORIES_BEGIN,
+  GET_INVENTORIES_SUCCESS,
+  GET_INVENTORIES_ERROR,
+  UPDATE_INVENTORIES_BEGIN,
+  UPDATE_INVENTORIES_SUCCESS,
+  UPDATE_INVENTORIES_ERROR,
+  SET_INVENTORY_PAIR,
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -132,8 +142,14 @@ const reducer = (state, action) => {
       wine: action.payload.wine,
     };
   }
-  if (action.type === GET_ALL_PRODUCTS) {
-    return { ...state, products: action.payload.products };
+  if (action.type === GET_ALL_PRODUCTS_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === GET_ALL_PRODUCTS_SUCCESS) {
+    return { ...state, products: action.payload.products, isLoading: false };
+  }
+  if (action.type === GET_ALL_PRODUCTS_ERROR) {
+    return { ...state, isLoading: false };
   }
   if (action.type === SET_IS_EDITING) {
     return { ...state, isEditing: action.payload.bool };
@@ -159,6 +175,45 @@ const reducer = (state, action) => {
       alertType: "danger",
       alertText: action.payload.msg,
     };
+  }
+  if (action.type === GET_INVENTORIES_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === GET_INVENTORIES_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      beers: action.payload.beers,
+      cocktails: action.payload.cocktails,
+      spirits: action.payload.spirits,
+      wines: action.payload.wines,
+    };
+  }
+  if (action.type === GET_INVENTORIES_ERROR) {
+    return { ...state, isLoading: false };
+  }
+  if (action.type === UPDATE_INVENTORIES_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === UPDATE_INVENTORIES_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      beers: action.payload.beers,
+      spirits: action.payload.spirits,
+      wines: action.payload.wines,
+    };
+  }
+  if (action.type === UPDATE_INVENTORIES_ERROR) {
+    return { ...state, isLoading: false };
+  }
+  if (action.type === SET_INVENTORY_PAIR) {
+    const products = state[action.payload.productInventory];
+    const product = products[action.payload.index];
+    product[action.payload.name] = action.payload.value;
+    products.splice(action.payload.index, 1, product);
+
+    return { ...state, [action.payload.productInventory]: products };
   }
   throw new Error(`No action of type: ${action.type}`);
 };

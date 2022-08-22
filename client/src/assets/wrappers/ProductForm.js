@@ -22,9 +22,9 @@ const Wrapper = styled.main`
   }
   .btn-back {
     background: pink;
-    background: rgb(166, 8, 8);
-    background: rgb(110, 4, 4);
-    color: white;
+    // background: rgb(166, 8, 8);
+    // background: rgb(110, 4, 4);
+    // color: white;
   }
   .btn-main {
     height: 4rem;
@@ -64,7 +64,7 @@ const Wrapper = styled.main`
     // border: 2px solid gold;
     // border: 2px solid rgb(255, 187, 0);
     // border: 1px solid rgb(255, 170, 0);
-    // border: 2px solid rgb(208, 208, 208);
+    // border: 1px solid black;
     border-radius: 0;
     font-family: sans-serif;
     font-size: 0.9rem;
