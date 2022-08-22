@@ -37,13 +37,14 @@ const Wrapper = styled.nav`
     // height: 2rem;
   }
   .btn-logout:hover {
-    transform: scale(1);
+    // transform: scale(1.02);
     // background: rgb(100, 100, 100);
   }
   .center-text {
     font-size: 1.6rem;
     letter-spacing: 0.1rem;
-    margin-right: -8rem;
+    margin-right: -7.8rem;
+    font-weight: 600;
   }
   .drop-btns {
     padding-right: 1rem;
@@ -81,7 +82,15 @@ const Wrapper = styled.nav`
   }
   @media (max-width: 500px) {
     .center-text {
-      margin-right: -1rem;
+      margin-right: -4rem;
+    }
+    .drop-btns {
+      padding-right: 0;
+    }
+  }
+  @media (max-width: 400px) {
+    .center-text {
+      margin-right: -1.6rem;
     }
   }
 `;

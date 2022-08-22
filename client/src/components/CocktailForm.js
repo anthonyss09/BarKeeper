@@ -21,7 +21,9 @@ export default function CocktailForm({ onClick, onChange, onSubmit }) {
             </div>
           </div>
           <div className="form-row place-holder">
-            <label className="form-label">hold my place</label>
+            <label className="form-label place-holder-label">
+              hold my place
+            </label>
             <input className="form-input place-holder-input" />
           </div>
           <FormRow

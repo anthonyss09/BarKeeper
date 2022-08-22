@@ -8,11 +8,6 @@ const Wrapper = styled.main`
   }
   .dashboard-page {
     padding: 2rem;
-    // padding: 1.8rem;
-    //nice light blue color
-    background: rgb(248, 252, 260);
-    background-color: rgb(239, 239, 241);
-    background: rgb(248, 248, 248);
     background: white;
     height: 100%;
     border-top: 4px solid rgb(248, 248, 248);
@@ -21,15 +16,11 @@ const Wrapper = styled.main`
   .first-column {
     height: 100vh;
     background: white;
-    // background: rgb(252, 250, 250);
-    // background: rgb(248, 248, 248);
   }
   .nav-bar {
     height: 4.2rem;
     width: 100%;
-    background: rgb(252, 250, 250);
     background: white;
-    // background: rgb(248, 248, 248);
     z-index: 30;
   }
   .second-column {
@@ -39,20 +30,16 @@ const Wrapper = styled.main`
     .first-column {
       display: none;
     }
-    .dashboard-page {
-      bacground: white;
-      border-left: none;
-    }
   }
   @media (max-width: 800px) {
     .dashboard-page {
-      padding: 2rem;
-      // padding: 1.4rem;
-      // background: white;
+      padding: 0.6rem;
     }
-    .nav-bar {
-      background: white;
-    }
+  }
+  @media (max-width: 400px) {
+    // .dashboard-page {
+    //   padding: 0;
+    // }
   }
 `;
 

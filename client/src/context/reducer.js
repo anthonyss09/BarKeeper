@@ -192,29 +192,29 @@ const reducer = (state, action) => {
   if (action.type === GET_INVENTORIES_ERROR) {
     return { ...state, isLoading: false };
   }
-  if (action.type === UPDATE_INVENTORIES_BEGIN) {
-    return { ...state, isLoading: true };
-  }
-  if (action.type === UPDATE_INVENTORIES_SUCCESS) {
-    return {
-      ...state,
-      isLoading: false,
-      beers: action.payload.beers,
-      spirits: action.payload.spirits,
-      wines: action.payload.wines,
-    };
-  }
-  if (action.type === UPDATE_INVENTORIES_ERROR) {
-    return { ...state, isLoading: false };
-  }
-  if (action.type === SET_INVENTORY_PAIR) {
-    const products = state[action.payload.productInventory];
-    const product = products[action.payload.index];
-    product[action.payload.name] = action.payload.value;
-    products.splice(action.payload.index, 1, product);
+  // if (action.type === UPDATE_INVENTORIES_BEGIN) {
+  //   return { ...state, isLoading: true };
+  // }
+  // if (action.type === UPDATE_INVENTORIES_SUCCESS) {
+  //   return {
+  //     ...state,
+  //     isLoading: false,
+  //     beers: action.payload.beers,
+  //     spirits: action.payload.spirits,
+  //     wines: action.payload.wines,
+  //   };
+  // }
+  // if (action.type === UPDATE_INVENTORIES_ERROR) {
+  //   return { ...state, isLoading: false };
+  // }
+  // if (action.type === SET_INVENTORY_PAIR) {
+  //   const products = state[action.payload.productInventory];
+  //   const product = products[action.payload.index];
+  //   product[action.payload.name] = action.payload.value;
+  //   products.splice(action.payload.index, 1, product);
 
-    return { ...state, [action.payload.productInventory]: products };
-  }
+  //   return { ...state, [action.payload.productInventory]: products };
+  // }
   throw new Error(`No action of type: ${action.type}`);
 };
 export default reducer;

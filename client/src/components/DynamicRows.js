@@ -1,6 +1,7 @@
 import { selectAmountOptions } from "../utils/options";
 import { useAppContext } from "../context/appContext";
 import FormRow from "./FormRow";
+import FormSelect from "./FormSelect";
 import Wrapper from "../assets/wrappers/DynamicRows";
 import { GrAddCircle, GrSubtractCircle } from "react-icons/gr";
 
@@ -13,7 +14,7 @@ export default function DynamicRows({ onChange }) {
 
   return (
     <Wrapper>
-      <label className="form-label" htmlFor="ingredient">
+      <label className="form-label dynamic-rows-label" htmlFor="ingredient">
         Ingredients
       </label>
       <div className="dynamic-rows">
@@ -24,6 +25,14 @@ export default function DynamicRows({ onChange }) {
           return (
             <div key={index}>
               <div className="dynamic-row">
+                {/* <FormSelect
+                  className="form-input select-input dynamic-input"
+                  value={amount}
+                  onChange={(e) => {
+                    setCocktailIngredients("amount", e.target.value, index);
+                  }}
+                  options={selectAmountOptions}
+                /> */}
                 <select
                   className="form-input select-input dynamic-input"
                   value={amount}

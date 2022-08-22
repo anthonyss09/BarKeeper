@@ -286,9 +286,6 @@ const AppProvider = ({ children }) => {
   const getInventories = async () => {
     dispatch({ type: GET_INVENTORIES_BEGIN });
     try {
-      // const { data } = await authFetch.get("/products/inventory");
-
-      // const { beers, cocktails, spirits, wines } = data;
       const { data } = await authFetch.get("/products?productType=all");
       const { products } = data;
 
@@ -314,33 +311,33 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  const setInventoryPair = (productInventory, name, value, index) => {
-    dispatch({
-      type: SET_INVENTORY_PAIR,
-      payload: {
-        productInventory: productInventory,
-        name: name,
-        value: value,
-        index: index,
-      },
-    });
-  };
+  // const setInventoryPair = (productInventory, name, value, index) => {
+  //   dispatch({
+  //     type: SET_INVENTORY_PAIR,
+  //     payload: {
+  //       productInventory: productInventory,
+  //       name: name,
+  //       value: value,
+  //       index: index,
+  //     },
+  //   });
+  // };
 
-  const updateInventories = async () => {
-    dispatch({ type: UPDATE_INVENTORIES_BEGIN });
-    const { beers, spirits, wines } = state;
+  // const updateInventories = async () => {
+  //   dispatch({ type: UPDATE_INVENTORIES_BEGIN });
+  //   const { beers, spirits, wines } = state;
 
-    try {
-      const response = await authFetch.patch("/products/inventory", {
-        beers: beers,
-        spirits: spirits,
-        wines: wines,
-      });
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //   try {
+  //     const response = await authFetch.patch("/products/inventory", {
+  //       beers: beers,
+  //       spirits: spirits,
+  //       wines: wines,
+  //     });
+  //     console.log(response);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const updateProductFromInventory = async (product) => {
     try {
@@ -368,8 +365,6 @@ const AppProvider = ({ children }) => {
         setIsEditing,
         editProduct,
         getInventories,
-        updateInventories,
-        setInventoryPair,
         updateProductFromInventory,
       }}
     >

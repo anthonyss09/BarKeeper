@@ -2,9 +2,6 @@ import Beer from "../models/Beer.js";
 import Spirit from "../models/Spirit.js";
 import Wine from "../models/Wine.js";
 import Cocktail from "../models/Cocktail.js";
-import InventoryBeer from "../models/InventoryBeer.js";
-import InventorySpirit from "../models/InventorySpirit.js";
-import InventoryWine from "../models/InventoryWine.js";
 
 import {
   BadRequestError,
@@ -27,19 +24,6 @@ const createProduct = async (req, res) => {
     productType.charAt(0).toUpperCase() + productType.slice(1).toLowerCase();
 
   const newProduct = await mongoose.model(productType).create(productObject);
-
-  const tempId = newProduct.createdBy;
-
-  await mongoose.model(`Inventory${productType}`).updateOne(
-    { createdBy: tempId },
-    {
-      $push: {
-        inventory: {
-          ...newProduct,
-        },
-      },
-    }
-  );
 
   res.status(StatusCodes.CREATED).json({ newProduct });
 };
@@ -90,50 +74,7 @@ const editProduct = async (req, res) => {
       runValidators: true,
     });
 
-  delete productObject._id;
-  let updateObject = { $set: {} };
-  for (var item in productObject) {
-    updateObject.$set["inventory.$." + item] = productObject[item];
-  }
-
-  const newInventory = await mongoose
-    .model(`Inventory${productType}`)
-    .findOneAndUpdate({ "inventory._id": id }, updateObject);
-
   res.status(StatusCodes.OK).json({ response, newInventory });
-};
-
-const getInventories = async (req, res) => {
-  const queryObject = { createdBy: "" };
-  queryObject.createdBy = req.user.userId;
-  let beers = await InventoryBeer.find(queryObject);
-  let spirits = await InventorySpirit.find(queryObject);
-  let wines = await InventoryWine.find(queryObject);
-
-  res.status(StatusCodes.OK).json({
-    beers: beers[0].inventory,
-    spirits: spirits[0].inventory,
-    wines: wines[0].inventory,
-  });
-};
-
-const updateInventories = async (req, res) => {
-  const { beers, spirits, wines } = req.body;
-  const userId = req.user.userId;
-
-  await InventoryBeer.findOneAndUpdate(
-    { createdBy: userId },
-    { inventory: beers }
-  );
-  await InventorySpirit.findOneAndUpdate(
-    { createdBy: userId },
-    { inventory: spirits }
-  );
-  await InventoryWine.findOneAndUpdate(
-    { createdBy: userId },
-    { inventory: wines }
-  );
-  await res.status(StatusCodes.OK).json({ beers, spirits, wines });
 };
 
 const updateProductFromInventory = async (req, res) => {
@@ -145,20 +86,10 @@ const updateProductFromInventory = async (req, res) => {
 
   const product = req.body;
 
-  // const productInventory = await mongoose
-  //   .model(`Inventory${productType}`)
-  //   .find({ createdBy: userId });
-
-  // const targetInventory = productInventory[0].inventory;
-  // const targetProductArray = targetInventory.filter((prod) => prod.id === id);
-  // const targetProduct = targetProductArray[0];
-
-  // const updatedProduct = await mongoose
-  //   .model(productType)
-  //   .findOneAndUpdate({ _id: id }, targetProduct, {
-  //     new: true,
-  //     runValidators: true,
-  //   });
+  const exists = await mongoose.model(productType).find({ _id: id });
+  if (!exists) {
+    throw new BadRequestError(`No product with id:${id} exists.`);
+  }
 
   const updatedProduct = await mongoose
     .model(productType)
@@ -170,11 +101,4 @@ const updateProductFromInventory = async (req, res) => {
   res.status(StatusCodes.OK).json({ updatedProduct });
 };
 
-export {
-  createProduct,
-  getProducts,
-  editProduct,
-  getInventories,
-  updateInventories,
-  updateProductFromInventory,
-};
+export { createProduct, getProducts, editProduct, updateProductFromInventory };

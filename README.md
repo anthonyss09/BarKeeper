@@ -200,10 +200,73 @@ npm install axios
 
 ## mongoose models, product controller
 
-- create product model with name, product array and createBy, product array will store product objects this way we can replace entire array when doing mass inventory changes instead of performing patch requests for each product
+- product models beer, cocktai, spirit wine created separetely
+- add on change to stock input on inventory page, individual stock values will be updated on change instead of sweeping inventory and inventory models
 
-- will branch here to build upon product model
+- in product controller: update product as followed
 
-## product model setup
+const updatedProduct = await mongoose
+.model(productType)
+.findOneAndUpdate({ \_id: id }, product, {
+new: true,
+runValidators: true,
+});
 
-## search page
+## search page & inventory
+
+- create search bar and product preview container
+- front and back end search functionality/ get all products
+- in appContext create dynamic url to send in req.query
+
+const { productType, sort, search } = state;
+let url = `/products?productType=${productType}&sort=${sort}`;
+if (search) {
+url = url + `&search=${search}`;
+}
+
+- in product controller grab req.query
+- create query object
+- filter based on req.query
+
+const { productType, search, sort } = req.query;
+const queryObject = {
+createdBy: req.user.userId,
+};
+
+if (search) {
+queryObject.name = { $regex: search, $options: "i" };
+}
+
+let beers = await Beer.find(queryObject);
+let cocktails = await Cocktail.find(queryObject);
+let spirits = await Spirit.find(queryObject);
+let wines = await Wine.find(queryObject);
+
+let products = beers.concat(cocktails).concat(spirits).concat(wines);
+
+if (productType !== "all") {
+products = products.filter(
+(product) => product.productType === productType
+);
+}
+
+- use same get all products functionality for inventory page
+- send axios to "/" url
+- filter response in frontend to display respective product types
+
+## edit product
+
+- edit product on /add-product route
+- set isEditing glabally
+- if isEditing display edit button
+- product previews link to /add-product, and onClick functionality
+
+  onClick={async () => {
+  updateProductFromInventory(product);
+  setItem("productType", product.productType);
+  setItem(product.productType, { ...product });
+  setShowCards(!showCards);
+  setIsEditing(true);
+  }}
+
+- onClick sets state[productType] which fills in product form on /add-product when editing

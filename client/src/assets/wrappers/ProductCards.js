@@ -19,16 +19,21 @@ const Wrapper = styled.aside`
     font-size: 2rem;
     text-transform: capitalize;
     background: white;
-    font-weight: 600;
+    font-weight: 400;
     color: rgb(60, 60, 60);
     letter-spacing: 0.1rem;
+    border: 3.5px solid rgb(110, 4, 4);
+    // font-family: "Yanone Kaffeesatz", sans-serif;
+    font-weight: 600;
+    // font-size: 3rem;
   }
   .product-card:hover {
     transition: var(--transition);
     cursor: pointer;
     transform: scale(1.02);
   }
-  @media (max-width: 1000px) {
+
+  @media (max-width: 1060px) {
     .product-card {
       width: 100%;
       height: 200px;

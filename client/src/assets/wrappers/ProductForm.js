@@ -6,6 +6,11 @@ import wine from "../images/wine.jpg";
 const Wrapper = styled.main`
   label {
     letter-spacing: 0.04rem;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    // color: rgb(40, 40, 40);
+    color: black;
   }
   .btns {
     display: flex;
@@ -37,24 +42,24 @@ const Wrapper = styled.main`
     border: 4px solid rgb(238, 238, 238);
     border: 4px solid white;
     // border: 2px solid rgb(208, 208, 208);
-    height: min-content;
+    // height: min-content;
     grid-row: 1/2;
     grid-column: 2/3;
     padding: 1rem 0;
+    // margin-top: -0.4rem;
     // padding-bottom: 1rem;
     background: white;
   }
+  .dynamic-rows-label {
+    margin-top: -0.4rem;
+  }
   .form {
     height: min-content;
-    // padding-right: 1.6rem;
     padding: 2rem 1.4rem;
     background: rgb(248, 248, 248);
-    // border: 8px solid rgb(118, 118, 118);
-    // border: 4px solid rgb(166, 8, 8);
-    // border: 4px solid rgb(110, 4, 4);
-    // background: rgb(238, 238, 238);
-    // border: 3px solid rgb(208, 208, 208);
-    // border: 2px solid rgb(208, 208, 208);
+    background: rgb(238, 238, 238);
+    border: 3px solid rgb(110, 4, 4);
+    // border: 3.5px solid rgb(166, 8, 8);
   }
   .form-input {
     box-shadow: none;
@@ -71,7 +76,7 @@ const Wrapper = styled.main`
     color: rgb(40, 40, 40);
   }
   .form-label {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.4rem;
   }
   //dynamic input styling stays where is, intentionally overriding styles
   .dynamic-input {
@@ -87,8 +92,8 @@ const Wrapper = styled.main`
     margin: 0;
   }
   .icon-container {
-    width: 92%;
-    height: 88%;
+    // width: 92%;
+    // height: 88%;
     display: grid;
     place-items: center;
     background-image: url(${wine});
@@ -101,9 +106,14 @@ const Wrapper = styled.main`
     place-items: center;
     background: rgb(228, 228, 228);
     background: white;
+    background-image: url(${wine});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     grid-row: 1/2;
     max-height: 236.5px;
-    width: 103.5%;
+    width: ;
+    // width: 103.5%;
   }
   .ingredients-input {
     letter-spacing: 0;
@@ -125,20 +135,22 @@ const Wrapper = styled.main`
     margin-top: -1rem;
   }
   .notes-row {
-    // margin-top: 0.1rem;
+    margin-top: -1.2rem;
   }
   .place-holder {
     grid-row: 2/3;
     grid-row: 2/3;
     color: white;
     color: rgb(238, 238, 238);
-    color: rgb(248, 248, 248);
+    // color: rgb(248, 248, 248);
     margin-top: -1rem;
   }
   .place-holder-input {
     background: rgb(228, 228, 228);
-
     background: white;
+  }
+  .place-holder-label {
+    color: rgb(238, 238, 238);
   }
   .rows-container {
     display: grid;
@@ -187,12 +199,18 @@ const Wrapper = styled.main`
     }
     .image-container {
       height: 250px;
-      width: 102.5%;
+      // width: 102.5%;
+      width: 98.5%;
     }
     .rows-container {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+    }
+  }
+  @media (max-width: 500px) {
+    .form {
+      // border: none;
     }
   }
 `;

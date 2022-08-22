@@ -1,6 +1,5 @@
 import { NavLinks } from "./index";
 import Wrapper from "../assets/wrappers/BigSidebar";
-import navLinks from "../utils/navLinks";
 import { useAppContext } from "../context/appContext";
 
 export default function BigSidebar() {

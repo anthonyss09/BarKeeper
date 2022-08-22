@@ -65,7 +65,7 @@ const Wrapper = styled.aside`
   @media (max-width: 800px) {
     .dynamic-rows {
       // margin-left: 0;
-      padding: 1rem 0;
+      // padding: 1rem 0;
     }
     // .form-label {
     //   margin-left: 0;

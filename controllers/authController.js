@@ -1,8 +1,4 @@
 import User from "../models/User.js";
-import InventoryBeer from "../models/InventoryBeer.js";
-import InventoryWine from "../models/InventoryWine.js";
-import InventorySpirit from "../models/InventorySpirit.js";
-import InventoryCocktail from "../models/InventoryCocktail.js";
 
 import {
   BadRequestError,
@@ -22,11 +18,6 @@ const register = async (req, res) => {
     throw new BadRequestError("Please provide all values.");
   }
   const user = await User.create({ name, email, password });
-
-  await InventoryBeer.create({ inventory: [], createdBy: user._id });
-  await InventorySpirit.create({ inventory: [], createdBy: user._id });
-  await InventoryWine.create({ inventory: [], createdBy: user._id });
-  await InventoryCocktail.create({ inventory: [], createdBy: user._id });
 
   const token = user.createJWT();
   res

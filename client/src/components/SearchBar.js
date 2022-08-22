@@ -1,10 +1,9 @@
 import FormRow from "./FormRow";
 import FormSelect from "./FormSelect";
 import Wrapper from "../assets/wrappers/SearchBar";
-import { sortOptions, productTypeOptions } from "../utils/options";
+import { productTypeOptions } from "../utils/options";
 import { useAppContext } from "../context/appContext";
 import { FaSearch } from "react-icons/fa";
-import { useEffect } from "react";
 
 export default function SearchBar() {
   const { setItem, search, productType, sort } = useAppContext();

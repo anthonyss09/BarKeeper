@@ -3,7 +3,7 @@ import Wrapper from "../assets/wrappers/Inventory";
 import { useAppContext } from "../context/appContext";
 
 export default function InventoryBeer({ products }) {
-  const { beers, setObjectPair, setInventoryPair, updateProductFromInventory } =
+  const { beers, setInventoryPair, updateProductFromInventory } =
     useAppContext();
 
   const handleChange = async (ind, e) => {
@@ -19,6 +19,7 @@ export default function InventoryBeer({ products }) {
       </div>
 
       <div className="form">
+        {beers.length === 0 && <h3>No beers in stock...</h3>}
         {products.map((product, index) => {
           return (
             <div className="form-row" key={index}>

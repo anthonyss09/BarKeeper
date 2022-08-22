@@ -1,27 +1,60 @@
-import { SearchBar, ProductPreview } from "../../components";
+import { SearchBar, ProductPreview, ScrollButton } from "../../components";
 import Wrapper from "../../assets/wrappers/AllProducts";
 import { useAppContext } from "../../context/appContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+
+import Spinner from "react-bootstrap/Spinner";
 
 export default function AllProducts() {
-  const { products, getAllProducts, search, sort, productType } =
+  const { products, getAllProducts, search, sort, productType, isLoading } =
     useAppContext();
   useEffect(() => {
     getAllProducts();
-    // console.log(products);
   }, [search, sort, productType]);
+
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 300) {
+      setVisible(true);
+    } else if (scrolled <= 300) {
+      setVisible(false);
+    }
+  };
+
+  window.addEventListener("scroll", toggleVisible);
+
   return (
     <Wrapper>
       <div className="container-search-bar">
         <SearchBar />
       </div>
-      <div className="container-product-previews">
+
+      <div className="spinner-container">
+        {isLoading && <Spinner animation="border" />}
+      </div>
+
+      {products.length === 0 && <h1>No products to display...</h1>}
+      <div
+        className={
+          products.length <= 2
+            ? "container-product-previews justify-center"
+            : "container-product-previews"
+        }
+      >
         {products.map((product, index) => {
           return (
             <ProductPreview key={index} products={products} product={product} />
           );
         })}
       </div>
+      {visible && (
+        <div className="scroll-btn-container">
+          <ScrollButton />
+        </div>
+      )}
     </Wrapper>
   );
 }

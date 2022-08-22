@@ -5,7 +5,6 @@ import BigSidebar from "./BigSidebar";
 import NavBar from "./NavBar";
 import SmallSidebar from "./SmallSidebar";
 import ProductCards from "./ProductCards";
-import ProductForm from "./ProductForm";
 import DynamicRows from "./DynamicRows";
 import SearchBar from "./SearchBar";
 import ProductPreview from "./ProductPreview";
@@ -17,6 +16,7 @@ import WineForm from "./WineForm";
 import InventoryBeer from "./InventoryBeer";
 import InventorySpirit from "./InventorySpirit";
 import InventoryWine from "./InventoryWine";
+import ScrollButton from "./ScrollButton";
 
 export {
   FormRow,
@@ -26,7 +26,6 @@ export {
   NavBar,
   SmallSidebar,
   ProductCards,
-  ProductForm,
   DynamicRows,
   SearchBar,
   ProductPreview,
@@ -38,4 +37,5 @@ export {
   InventoryBeer,
   InventorySpirit,
   InventoryWine,
+  ScrollButton,
 };

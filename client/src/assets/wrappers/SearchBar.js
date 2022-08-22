@@ -19,6 +19,7 @@ const Wrapper = styled.aside`
     border-radius: 0;
     border: 4px solid rgb(228, 228, 228);
     border: none;
+    width: 100%;
   }
   .form-label {
     letter-spacing: 0.04rem;
@@ -37,8 +38,16 @@ const Wrapper = styled.aside`
     width: 100%;
     outline: none;
     text-align: center;
-    color: rgb(80, 80, 80);
+    color: rgb(60, 60, 60);
     font-weight: 600;
+    border-radius: 0;
+  }
+  .form-select:hover {
+    cursor: pointer;
+  }
+  .form-select:focus {
+    outline: 0 none;
+    box-shadow: none;
   }
   .icon-search {
     height: 1.8rem;
@@ -51,6 +60,8 @@ const Wrapper = styled.aside`
     // gap: 0.4rem;
     align-items: center;
     position: relative;
+    border: 2px solid rgb(166, 8, 8);
+    border: 2px solid rgb(110, 4, 4);
   }
   .search-bar {
     // padding: 1rem;
@@ -62,6 +73,7 @@ const Wrapper = styled.aside`
     padding-left: 2rem;
     height: 1.84rem;
   }
+
   @media (max-width: 800px) {
     .form {
       flex-direction: column;
