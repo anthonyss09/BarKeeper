@@ -7,18 +7,17 @@ import { FaBeer } from "react-icons/fa";
 import wineBottle from "../assets/images/wine.jpg";
 
 export default function BeerForm({ onClick, onChange, onSubmit }) {
-  const { showAlert, beer, isEditing } = useAppContext();
+  const { showAlert, beer, isEditing, alertText, alertType } = useAppContext();
   return (
     <Wrapper>
       <form className="form" onSubmit={onSubmit}>
-        {showAlert && (
-          <Alert alertType="success" text="hooooray hooooray hooooray!" />
-        )}
+        {showAlert && <Alert text={alertText} alertType={alertType} />}
         <div className="rows-container">
           <div className="form-row image-container">
-            <div className="icon-container">
-              {/* <img src={wineBottle} /> */}
-            </div>
+            <FaBeer size={100} />
+            {/* <div className="icon-container">
+              <img src={wineBottle} />
+            </div> */}
           </div>
           <FormRow
             name="notes"
@@ -78,7 +77,7 @@ export default function BeerForm({ onClick, onChange, onSubmit }) {
             className="stock"
           />
         </div>
-        <AddEditBtns onClick={onClick} />
+        <AddEditBtns onClick={onClick} product={beer} />
       </form>
     </Wrapper>
   );

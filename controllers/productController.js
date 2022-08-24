@@ -101,4 +101,28 @@ const updateProductFromInventory = async (req, res) => {
   res.status(StatusCodes.OK).json({ updatedProduct });
 };
 
-export { createProduct, getProducts, editProduct, updateProductFromInventory };
+const removeProduct = async (req, res) => {
+  const { _id: id, name } = req.body;
+  console.log(req.body);
+  let { productType } = req.body;
+  productType =
+    productType.charAt(0).toUpperCase() + productType.slice(1).toLowerCase();
+
+  const exists = await mongoose.model(productType).find({ _id: id });
+  if (!exists) {
+    throw new BadRequestError(`No product with id:${id} exists.`);
+  }
+  const response = await mongoose
+    .model(productType)
+    .findOneAndDelete({ _id: id, name: name });
+
+  res.status(StatusCodes.OK).json({ response });
+};
+
+export {
+  createProduct,
+  getProducts,
+  editProduct,
+  updateProductFromInventory,
+  removeProduct,
+};

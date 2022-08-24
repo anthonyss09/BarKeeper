@@ -11,6 +11,10 @@ const Wrapper = styled.nav`
     // padding: 1rem;
     font-size: 1.2rem;
     font-weight: bold;
+    // background: transparent;
+    border: 2.5px solid black;
+
+    padding: 0 0.4rem;
   }
   .btn-drop-down:hover {
     transform: scale(1);
@@ -45,6 +49,8 @@ const Wrapper = styled.nav`
     letter-spacing: 0.1rem;
     margin-right: -7.8rem;
     font-weight: 600;
+    background: white;
+    padding: 0 1rem;
   }
   .drop-btns {
     padding-right: 1rem;
@@ -70,14 +76,14 @@ const Wrapper = styled.nav`
     z-index: 10;
   }
   .nav-item {
-    height: 2.4rem;
+    height: 2.8rem;
     display: flex;
     place-items: center;
     margin-top: 1rem;
   }
   @media (max-width: 880px) {
     .btn-drop-down {
-      background: white;
+      // background: white;
     }
   }
   @media (max-width: 500px) {
@@ -85,7 +91,7 @@ const Wrapper = styled.nav`
       margin-right: -4rem;
     }
     .drop-btns {
-      padding-right: 0;
+      // padding-right: 0;
     }
   }
   @media (max-width: 400px) {

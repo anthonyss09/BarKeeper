@@ -4,6 +4,7 @@ import Alert from "./Alert";
 import AddEditBtns from "./AddEditBtns";
 import { useAppContext } from "../context/appContext";
 import wineBottle from "../assets/images/wine.jpg";
+import { FaWineBottle } from "react-icons/fa";
 
 export default function SpiritForm({ onClick, onChange, onSubmit }) {
   const { showAlert, spirit } = useAppContext();
@@ -15,9 +16,10 @@ export default function SpiritForm({ onClick, onChange, onSubmit }) {
         )}
         <div className="rows-container">
           <div className="form-row image-container">
-            <div className="icon-container">
-              {/* <img src={wineBottle} /> */}
-            </div>
+            {/* <div className="icon-container">
+              <img src={wineBottle} />
+            </div> */}
+            <FaWineBottle size={110} />
           </div>
           <FormRow
             name="notes"
@@ -69,7 +71,7 @@ export default function SpiritForm({ onClick, onChange, onSubmit }) {
             className="stock"
           />
         </div>
-        <AddEditBtns onClick={onClick} />
+        <AddEditBtns onClick={onClick} product={spirit} />
       </form>
     </Wrapper>
   );

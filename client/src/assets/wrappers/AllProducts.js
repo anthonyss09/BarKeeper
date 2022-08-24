@@ -15,6 +15,8 @@ const Wrapper = styled.main`
     flex-direction: row;
     justify-content: space-evenly;
     gap: 1rem;
+    // background: white;
+    padding-top: 1rem;
   }
   .justify-center {
     justify-content: center;
@@ -26,6 +28,15 @@ const Wrapper = styled.main`
   @media (max-width: 400px) {
     .container-product-previews {
       justify-content: space-evenly;
+    }
+  }
+  @media (max-width: 880px) {
+    h1 {
+      // font-weight: bold;
+      font-size: 2rem;
+      padding: 1rem;
+      opacity: 0.9;
+      background: white;
     }
   }
 `;

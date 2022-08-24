@@ -6,6 +6,7 @@ import {
   CocktailForm,
   SpiritForm,
   WineForm,
+  displayAlert,
 } from "../../components/";
 import { useAppContext } from "../../context/appContext";
 
@@ -46,6 +47,10 @@ export default function AddProduct() {
 
     switch (productType) {
       case "beer":
+        if (!beer.name) {
+          displayAlert();
+          break;
+        }
         if (isEditing) {
           editProduct({ ...beer, productType: "beer" });
           break;
@@ -53,6 +58,10 @@ export default function AddProduct() {
         addProduct({ ...beer, productType: "beer" });
         break;
       case "cocktail":
+        if (!cocktail.name) {
+          displayAlert();
+          break;
+        }
         if (isEditing) {
           editProduct({ ...cocktail, productType: "cocktail" });
           break;
@@ -60,12 +69,20 @@ export default function AddProduct() {
         addProduct({ ...cocktail, productType: "cocktail" });
         break;
       case "wine":
+        if (!wine.name) {
+          displayAlert();
+          break;
+        }
         if (isEditing) {
           editProduct({ ...wine, productType: "wine" });
         }
         addProduct({ ...wine, productType: "wine" });
         break;
       case "spirit":
+        if (!spirit.name) {
+          displayAlert();
+          break;
+        }
         if (isEditing) {
           editProduct({ ...spirit, productType: "spirit" });
         }

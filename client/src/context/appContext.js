@@ -30,6 +30,9 @@ import {
   GET_INVENTORIES_ERROR,
   UPDATE_INVENTORIES_BEGIN,
   SET_INVENTORY_PAIR,
+  REMOVE_PRODUCT_BEGIN,
+  REMOVE_PRODUCT_SUCCESS,
+  REMOVE_PRODUCT_ERROR,
 } from "./actions";
 
 const user = localStorage.getItem("user");
@@ -311,40 +314,30 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  // const setInventoryPair = (productInventory, name, value, index) => {
-  //   dispatch({
-  //     type: SET_INVENTORY_PAIR,
-  //     payload: {
-  //       productInventory: productInventory,
-  //       name: name,
-  //       value: value,
-  //       index: index,
-  //     },
-  //   });
-  // };
-
-  // const updateInventories = async () => {
-  //   dispatch({ type: UPDATE_INVENTORIES_BEGIN });
-  //   const { beers, spirits, wines } = state;
-
-  //   try {
-  //     const response = await authFetch.patch("/products/inventory", {
-  //       beers: beers,
-  //       spirits: spirits,
-  //       wines: wines,
-  //     });
-  //     console.log(response);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   const updateProductFromInventory = async (product) => {
     try {
       const response = await authFetch.patch("/products", product);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const removeProduct = async (product) => {
+    dispatch({ type: REMOVE_PRODUCT_BEGIN });
+
+    try {
+      const response = await authFetch.delete("/products/remove-product", {
+        data: product,
+      });
+
+      dispatch({ type: REMOVE_PRODUCT_SUCCESS });
+    } catch (error) {
+      dispatch({
+        type: REMOVE_PRODUCT_ERROR,
+        payload: { alertText: error.response.data.msg },
+      });
+    }
+    clearAlert();
   };
 
   return (
@@ -366,6 +359,7 @@ const AppProvider = ({ children }) => {
         editProduct,
         getInventories,
         updateProductFromInventory,
+        removeProduct,
       }}
     >
       {children}

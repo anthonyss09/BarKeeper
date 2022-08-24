@@ -4,6 +4,7 @@ import Alert from "./Alert";
 import AddEditBtns from "./AddEditBtns";
 import { useAppContext } from "../context/appContext";
 import wineBottle from "../assets/images/wine.jpg";
+import { FaWineGlass, FaWineGlassAlt } from "react-icons/fa";
 
 export default function WineForm({ onClick, onChange, onSubmit }) {
   const { showAlert, wine } = useAppContext();
@@ -15,9 +16,10 @@ export default function WineForm({ onClick, onChange, onSubmit }) {
         )}
         <div className="rows-container">
           <div className="form-row image-container">
-            <div className="icon-container">
-              {/* <img src={wineBottle} /> */}
-            </div>
+            {/* <div className="icon-container">
+              <img src={wineBottle} />
+            </div> */}
+            <FaWineGlassAlt size={110} />
           </div>
           <FormRow
             name="notes"
@@ -85,7 +87,7 @@ export default function WineForm({ onClick, onChange, onSubmit }) {
             className="stock"
           />
         </div>
-        <AddEditBtns onClick={onClick} />
+        <AddEditBtns onClick={onClick} product={wine} />
       </form>
     </Wrapper>
   );

@@ -26,16 +26,24 @@ const Wrapper = styled.aside`
     font-weight: 600;
   }
   .product-preview {
-    background: rgb(228, 228, 228);
+    background: rgb(218, 218, 218);
     width: 120px;
     // height: 150px;
-    min-height: 172px;
+    min-height: 152px;
     padding: 0.8rem 0.6rem;
     margin: 0;
-    border: 2.5px solid rgb(130, 130, 130);
+    border: 2.5px solid rgb(120, 120, 120);
+    border: 2.5px solid black;
+    background: white;
+    // border: 3px solid rgb(110, 4, 4);
   }
   .product-preview:hover {
     cursor: pointer;
+  }
+  @media (max-width: 880px) {
+    .product-preview {
+      background: white;
+    }
   }
 `;
 export default Wrapper;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import cocktails from "../images/cocktails.jpg";
 
 const Wrapper = styled.aside`
   .cards-container {
@@ -22,7 +23,8 @@ const Wrapper = styled.aside`
     font-weight: 400;
     color: rgb(60, 60, 60);
     letter-spacing: 0.1rem;
-    border: 3.5px solid rgb(110, 4, 4);
+    // border: 3.5px solid rgb(110, 4, 4);
+    // border: 3.5px solid rgb(152, 184, 217);
     // font-family: "Yanone Kaffeesatz", sans-serif;
     font-weight: 600;
     // font-size: 3rem;
@@ -37,6 +39,19 @@ const Wrapper = styled.aside`
     .product-card {
       width: 100%;
       height: 200px;
+    }
+  }
+
+  @media (max-width: 880px) {
+    .cards-container {
+      // background-image: url(${cocktails});
+      // background-position: center;
+      // background-size: cover;
+      // background-repeat: repeat;
+      background: transparent;
+    }
+    .product-card {
+      border: 3px solid rgb(80, 80, 80);
     }
   }
 `;

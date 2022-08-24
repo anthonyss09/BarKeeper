@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
 const Wrapper = styled.aside`
-  h3 {
-    text-align: center;
-    font-family: "Yanone Kaffeesatz", sans-serif;
-    font-weight: 400;
-  }
   .product-title {
     text-align: center;
     font-size: 2rem;
@@ -46,7 +41,20 @@ const Wrapper = styled.aside`
   }
   .stock-input:focus {
     outline: 2px solid rgb(110, 4, 4);
+    outline: 2px solid rgb(64, 118, 147);
+    box-shadow: 2px 2px 5px rgb(64, 118, 147);
+    // box-shadow: 2px 2px 5px rgb(110, 4, 4);
     border-radius: 0.2rem;
+  }
+
+  @media (max-width: 880px) {
+    .product-title {
+      background: white;
+      padding: 0 3rem;
+      width: min-content;
+      opacity: 0.9;
+      margin: 0 auto;
+    }
   }
 `;
 export default Wrapper;

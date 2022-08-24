@@ -5,6 +5,7 @@ import AddEditBtns from "./AddEditBtns";
 import DynamicRows from "./DynamicRows";
 import { useAppContext } from "../context/appContext";
 import wineBottle from "../assets/images/wine.jpg";
+import { FaGlassMartiniAlt } from "react-icons/fa";
 
 export default function CocktailForm({ onClick, onChange, onSubmit }) {
   const { showAlert, cocktail } = useAppContext();
@@ -15,10 +16,11 @@ export default function CocktailForm({ onClick, onChange, onSubmit }) {
           <Alert alertType="success" text="hooooray hooooray hooooray!" />
         )}
         <div className="rows-container">
-          <div className=" image-container">
-            <div className="icon-container">
-              {/* <img src={wineBottle} /> */}
-            </div>
+          <div className="form-row image-container image-container-cocktail">
+            <FaGlassMartiniAlt size={110} />
+            {/* <div className="icon-container">
+              <img src={wineBottle} />
+            </div> */}
           </div>
           <div className="form-row place-holder">
             <label className="form-label place-holder-label">
@@ -54,7 +56,7 @@ export default function CocktailForm({ onClick, onChange, onSubmit }) {
             className="inspiration"
           />
         </div>
-        <AddEditBtns onClick={onClick} />
+        <AddEditBtns onClick={onClick} product={cocktail} />
       </form>
     </Wrapper>
   );

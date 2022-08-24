@@ -21,7 +21,7 @@ export default function Inventory() {
     getInventories();
   }, []);
 
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;

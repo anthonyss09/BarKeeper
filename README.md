@@ -270,3 +270,9 @@ products = products.filter(
   }}
 
 - onClick sets state[productType] which fills in product form on /add-product when editing
+
+cocktails colored cred
+<a href="https://www.freepik.com/vectors/tropical-drink">Tropical drink vector created by pikisuperstar - www.freepik.com</a>
+
+cocktails black and white cred
+<a href="https://www.freepik.com/vectors/cocktail-icon">Cocktail icon vector created by vectorpocket - www.freepik.com</a>
