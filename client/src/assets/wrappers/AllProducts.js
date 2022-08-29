@@ -9,20 +9,19 @@ const Wrapper = styled.main`
     font-weight: 400;
   }
   .container-product-previews {
-    margin-top: 1.4rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
     gap: 1rem;
-    // background: white;
-    padding-top: 1rem;
+    background: white;
+    padding: 1.8rem 1rem;
   }
   .justify-center {
     justify-content: center;
   }
   .spinner-container {
-    margin-top: 1rem;
+    // margin-top: 1rem;
     text-align: center;
   }
   @media (max-width: 400px) {

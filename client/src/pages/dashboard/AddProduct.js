@@ -2,10 +2,10 @@ import Wrapper from "../../assets/wrappers/AddProducts";
 import {
   ProductCards,
   ProductForm,
-  BeerForm,
-  CocktailForm,
-  SpiritForm,
-  WineForm,
+  FormBeer,
+  FormCocktail,
+  FormSpirit,
+  FormWine,
   displayAlert,
 } from "../../components/";
 import { useAppContext } from "../../context/appContext";
@@ -102,28 +102,28 @@ export default function AddProduct() {
       ) : (
         <div>
           {productType === "beer" && (
-            <BeerForm
+            <FormBeer
               onClick={handleClick}
               onChange={handleChange}
               onSubmit={handleSubmit}
             />
           )}
           {productType === "cocktail" && (
-            <CocktailForm
+            <FormCocktail
               onClick={handleClick}
               onChange={handleChange}
               onSubmit={handleSubmit}
             />
           )}
           {productType === "spirit" && (
-            <SpiritForm
+            <FormSpirit
               onClick={handleClick}
               onChange={handleChange}
               onSubmit={handleSubmit}
             />
           )}
           {productType === "wine" && (
-            <WineForm
+            <FormWine
               onClick={handleClick}
               onChange={handleChange}
               onSubmit={handleSubmit}

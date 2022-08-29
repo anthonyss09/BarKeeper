@@ -13,8 +13,8 @@ const Wrapper = styled.nav`
     font-weight: bold;
     // background: transparent;
     border: 2.5px solid black;
-
-    padding: 0 0.4rem;
+    padding: 0.4rem 0.4rem;
+    white-space: nowrap;
   }
   .btn-drop-down:hover {
     transform: scale(1);
@@ -46,11 +46,12 @@ const Wrapper = styled.nav`
   }
   .center-text {
     font-size: 1.6rem;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.2rem;
     margin-right: -7.8rem;
     font-weight: 600;
-    background: white;
+    // background: white;
     padding: 0 1rem;
+    font-size: 2rem;
   }
   .drop-btns {
     padding-right: 1rem;
@@ -76,6 +77,7 @@ const Wrapper = styled.nav`
     z-index: 10;
   }
   .nav-item {
+    // min-height: min-content;
     height: 2.8rem;
     display: flex;
     place-items: center;

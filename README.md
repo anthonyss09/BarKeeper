@@ -276,3 +276,12 @@ cocktails colored cred
 
 cocktails black and white cred
 <a href="https://www.freepik.com/vectors/cocktail-icon">Cocktail icon vector created by vectorpocket - www.freepik.com</a>
+
+colored hand sketched cocktail cred
+<a href="https://www.freepik.com/vectors/etching">Etching vector created by rawpixel.com - www.freepik.com</a>
+
+black and white sketched cocktail cred
+<a href="https://www.freepik.com/vectors/martini">Martini vector created by rawpixel.com - www.freepik.com</a>
+
+drunk person image cred
+<a href="https://www.freepik.com/free-vector/alcoholic-man-cartoon-character_30770266.htm#query=drunk%20person&position=16&from_view=search">Image by brgfx</a> on <a href="https://www.freepik.com/">Freepik</a>

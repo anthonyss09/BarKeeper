@@ -3,15 +3,11 @@ import styled from "styled-components";
 const Wrapper = styled.aside`
 
   .bar-keeper {
-    // margin: 2rem 0 0 2rem;
     position: absolute;
     top: 0.3rem;
     left 1rem;
     font-size: 2.4rem;
-    // font-weight: bold;
-
   }
- 
   .link-item {
     margin-right: 0.5rem;
   }
@@ -21,14 +17,6 @@ const Wrapper = styled.aside`
     background: rgb(245,245,240);
     padding: 1rem 0 1rem 4rem;
     transition: var(--transition);
-    //  font-family: "Yanone Kaffeesatz", sans-serif;
-    // font-weight: 400;
-    // font-size: 1.2rem;
-    // letter-spacing: 1rem;
-    // font-weight: 600;
-  
-    // color: black;
-    // font-family: sans-serif;
   }
   .nav-link:hover {
     padding-left: 5rem;

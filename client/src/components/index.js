@@ -9,10 +9,10 @@ import DynamicRows from "./DynamicRows";
 import SearchBar from "./SearchBar";
 import ProductPreview from "./ProductPreview";
 import FormSelect from "./FormSelect";
-import BeerForm from "./BeerForm";
-import CocktailForm from "./CocktailForm";
-import SpiritForm from "./SpiritForm";
-import WineForm from "./WineForm";
+import FormBeer from "./FormBeer";
+import FormCocktail from "./FormCocktail";
+import FormSpirit from "./FormSpirit";
+import FormWine from "./FormWine";
 import InventoryBeer from "./InventoryBeer";
 import InventorySpirit from "./InventorySpirit";
 import InventoryWine from "./InventoryWine";
@@ -30,10 +30,10 @@ export {
   SearchBar,
   ProductPreview,
   FormSelect,
-  BeerForm,
-  CocktailForm,
-  SpiritForm,
-  WineForm,
+  FormBeer,
+  FormCocktail,
+  FormSpirit,
+  FormWine,
   InventoryBeer,
   InventorySpirit,
   InventoryWine,

@@ -3,27 +3,25 @@ import FormRow from "./FormRow";
 import Alert from "./Alert";
 import AddEditBtns from "./AddEditBtns";
 import { useAppContext } from "../context/appContext";
-import { FaBeer } from "react-icons/fa";
-import wineBottle from "../assets/images/wine.jpg";
+import { FaWineBottle } from "react-icons/fa";
+import { GiWaterBottle } from "react-icons/gi";
 
-export default function BeerForm({ onClick, onChange, onSubmit }) {
-  const { showAlert, beer, isEditing, alertText, alertType } = useAppContext();
+export default function SpiritForm({ onClick, onChange, onSubmit }) {
+  const { showAlert, spirit, alertText, alertType } = useAppContext();
   return (
     <Wrapper>
       <form className="form" onSubmit={onSubmit}>
         {showAlert && <Alert text={alertText} alertType={alertType} />}
         <div className="rows-container">
           <div className="form-row image-container">
-            <FaBeer size={100} />
-            {/* <div className="icon-container">
-              <img src={wineBottle} />
-            </div> */}
+            {/* <FaWineBottle size={110} /> */}
+            <GiWaterBottle size={150} />
           </div>
           <FormRow
             name="notes"
             labelText="notes"
             onChange={onChange}
-            value={beer.notes}
+            value={spirit.notes}
             type="textarea"
             rows={7}
             className="notes"
@@ -32,7 +30,7 @@ export default function BeerForm({ onClick, onChange, onSubmit }) {
             name="name"
             labelText="name"
             onChange={onChange}
-            value={beer.name}
+            value={spirit.name}
             type="text"
             className="name"
           />
@@ -40,44 +38,36 @@ export default function BeerForm({ onClick, onChange, onSubmit }) {
             name="producer"
             labelText="producer"
             onChange={onChange}
-            value={beer.producer}
+            value={spirit.producer}
             type="text"
             className="producer"
-          />
-          <FormRow
-            name="style"
-            labelText="style"
-            onChange={onChange}
-            value={beer.style}
-            type="text"
-            className="style"
           />
           <FormRow
             name="region"
             labelText="region"
             onChange={onChange}
-            value={beer.region}
+            value={spirit.region}
             type="text"
             className="region"
           />
           <FormRow
-            name="abv"
-            labelText="abv"
+            name="type"
+            labelText="type"
             onChange={onChange}
-            value={beer.abv}
+            value={spirit.type}
             type="text"
-            className="abv"
+            className="type"
           />
           <FormRow
             name="stock"
             labelText="stock"
             onChange={onChange}
-            value={beer.stock}
+            value={spirit.stock}
             type="text"
             className="stock"
           />
         </div>
-        <AddEditBtns onClick={onClick} product={beer} />
+        <AddEditBtns onClick={onClick} product={spirit} />
       </form>
     </Wrapper>
   );

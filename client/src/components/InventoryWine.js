@@ -17,8 +17,9 @@ export default function InventorySpirit({ products }) {
       <div className="product-title">
         <span className="span-wines">Wines</span>
       </div>
-      {wines.length === 0 && <h3>No beers in stock...</h3>}
+
       <div className="form">
+        {wines.length === 0 && <h3>No wines in stock...</h3>}
         {products.map((product, index) => {
           return (
             <div className="form-row" key={index}>

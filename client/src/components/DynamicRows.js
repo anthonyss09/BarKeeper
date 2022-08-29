@@ -72,7 +72,7 @@ export default function DynamicRows({ onChange }) {
                 />
               </div>
               {ingredients.amount.length === index + 1 && (
-                <div className="form-row icon-add-row">
+                <div className="icon-add-row">
                   <GrAddCircle
                     size={25}
                     className="icon icon-add"

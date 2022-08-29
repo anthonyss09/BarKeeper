@@ -24,7 +24,7 @@ export default function NavBar({ onClick }) {
         <span className="center-text nav-item">Dashboard</span>
         <div className="drop-btns">
           <button
-            className="btn-main btn-drop-down nav-item"
+            className="btn btn-main btn-drop-down nav-item"
             onClick={() => {
               setShowBtn(!showBtn);
             }}
@@ -35,7 +35,7 @@ export default function NavBar({ onClick }) {
           </button>
           {showBtn && (
             <button
-              className="nav-item btn-main btn-logout"
+              className="nav-item btn btn-main btn-logout"
               onClick={() => {
                 logoutUser();
               }}

@@ -4,23 +4,18 @@ import Alert from "./Alert";
 import AddEditBtns from "./AddEditBtns";
 import DynamicRows from "./DynamicRows";
 import { useAppContext } from "../context/appContext";
-import wineBottle from "../assets/images/wine.jpg";
 import { FaGlassMartiniAlt } from "react-icons/fa";
+import { BiDrink } from "react-icons/bi";
 
 export default function CocktailForm({ onClick, onChange, onSubmit }) {
-  const { showAlert, cocktail } = useAppContext();
+  const { showAlert, cocktail, alertText, alertType } = useAppContext();
   return (
     <Wrapper>
       <form className="form" onSubmit={onSubmit}>
-        {showAlert && (
-          <Alert alertType="success" text="hooooray hooooray hooooray!" />
-        )}
+        {showAlert && <Alert text={alertText} alertType={alertType} />}
         <div className="rows-container">
           <div className="form-row image-container image-container-cocktail">
-            <FaGlassMartiniAlt size={110} />
-            {/* <div className="icon-container">
-              <img src={wineBottle} />
-            </div> */}
+            <BiDrink size={150} />
           </div>
           <div className="form-row place-holder">
             <label className="form-label place-holder-label">

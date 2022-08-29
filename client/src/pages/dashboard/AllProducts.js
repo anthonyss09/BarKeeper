@@ -36,7 +36,6 @@ export default function AllProducts() {
         {isLoading && <Spinner animation="border" />}
       </div>
 
-      {products.length === 0 && <h1>No products to display...</h1>}
       <div
         className={
           products.length <= 2
@@ -44,6 +43,7 @@ export default function AllProducts() {
             : "container-product-previews"
         }
       >
+        {products.length === 0 && <h1>No products to display...</h1>}
         {products.map((product, index) => {
           return (
             <ProductPreview key={index} products={products} product={product} />

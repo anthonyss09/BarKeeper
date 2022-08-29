@@ -3,6 +3,7 @@ import { FormRow, Alert } from "../components/";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
+import cocktailColor from "../assets/images/cocktailColor.jpg";
 
 export default function Register() {
   const initialState = {
@@ -67,48 +68,68 @@ export default function Register() {
   };
   return (
     <Wrapper>
-      <div className="bar-keeper">BarKeeper</div>
-      <form className="form" onSubmit={handleSubmit}>
-        <h6>Register</h6>
-        {showAlert && <Alert alertType={alertType} text={alertText} />}
-        {!values.isMember && (
-          <FormRow
-            type="text"
-            labelText="name"
-            name="name"
-            value={values.name}
-            onChange={handleChange}
-          />
-        )}
+      <div className="container-main">
+        <div className="container-center">
+          <div className="section-about">
+            <div className="about-info">
+              <div className="bar-keeper">BarKeeper</div>
+              <span className="text-about">
+                Keep all your cocktail recipes!
+                <br />
+                <br /> Easy access to wine & spirit notes! <br />
+                <br />
+                Track and manage inventory! <br />
+                <br />
+                <span className="text-enjoy">Enjoy!</span>
+              </span>
+            </div>
+          </div>
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="bar-keeper bar-keeper-inner">BarKeeper</div>
+            <h6>Register</h6>
+            {showAlert && <Alert alertType={alertType} text={alertText} />}
+            {!values.isMember && (
+              <FormRow
+                type="text"
+                labelText="name"
+                name="name"
+                value={values.name}
+                onChange={handleChange}
+              />
+            )}
 
-        <FormRow
-          type="email"
-          labelText="email"
-          name="email"
-          value={values.email}
-          onChange={handleChange}
-        />
-        <FormRow
-          type="password"
-          labelText="password"
-          name="password"
-          value={values.password}
-          onChange={handleChange}
-        />
-        <div className="footer-div">
-          <p>{values.isMember ? "Not a member yet?" : "Already a member?"}</p>
-          <span onClick={toggleMember}>
-            {values.isMember ? "Register" : "Login"}
-          </span>
+            <FormRow
+              type="email"
+              labelText="email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+            />
+            <FormRow
+              type="password"
+              labelText="password"
+              name="password"
+              value={values.password}
+              onChange={handleChange}
+            />
+            <div className="footer-div">
+              <p>
+                {values.isMember ? "Not a member yet?" : "Already a member?"}
+              </p>
+              <span className="text-footer" onClick={toggleMember}>
+                {values.isMember ? "Register" : "Login"}
+              </span>
+            </div>
+            <button
+              className="btn btn-main btn-register"
+              type="submit"
+              disabled={isLoading}
+            >
+              {values.isMember ? "Login" : "Register"}
+            </button>
+          </form>
         </div>
-        <button
-          className="btn-main btn-register"
-          type="submit"
-          disabled={isLoading}
-        >
-          {values.isMember ? "Login" : "Register"}
-        </button>
-      </form>
+      </div>
     </Wrapper>
   );
 }

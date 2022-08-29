@@ -10,7 +10,7 @@ const Wrapper = styled.aside`
     font-weight: 400;
   }
   .form {
-    background: rgb(238, 238, 238);
+    background: rgb(244, 244, 244);
     margin-top: 0.6rem;
     margin-bottom: 1.6rem;
   }
@@ -23,6 +23,7 @@ const Wrapper = styled.aside`
     box-shadow: none;
     border-radius: 0;
     padding: 0.2rem 0 0.2rem 0.6rem;
+    // box-shadow: inset 1px 1px 4px rgb(198, 198, 198);
   }
   .center-input {
     text-align: center;
@@ -40,10 +41,8 @@ const Wrapper = styled.aside`
     border-radius: 0.2rem;
   }
   .stock-input:focus {
-    outline: 2px solid rgb(110, 4, 4);
     outline: 2px solid rgb(64, 118, 147);
     box-shadow: 2px 2px 5px rgb(64, 118, 147);
-    // box-shadow: 2px 2px 5px rgb(110, 4, 4);
     border-radius: 0.2rem;
   }
 

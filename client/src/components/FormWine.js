@@ -5,21 +5,17 @@ import AddEditBtns from "./AddEditBtns";
 import { useAppContext } from "../context/appContext";
 import wineBottle from "../assets/images/wine.jpg";
 import { FaWineGlass, FaWineGlassAlt } from "react-icons/fa";
+import { GiWineBottle } from "react-icons/gi";
 
 export default function WineForm({ onClick, onChange, onSubmit }) {
-  const { showAlert, wine } = useAppContext();
+  const { showAlert, wine, alertText, alertType } = useAppContext();
   return (
     <Wrapper>
       <form className="form" onSubmit={onSubmit}>
-        {showAlert && (
-          <Alert alertType="success" text="hooooray hooooray hooooray!" />
-        )}
+        {showAlert && <Alert text={alertText} alertType={alertType} />}
         <div className="rows-container">
           <div className="form-row image-container">
-            {/* <div className="icon-container">
-              <img src={wineBottle} />
-            </div> */}
-            <FaWineGlassAlt size={110} />
+            <GiWineBottle size={160} />
           </div>
           <FormRow
             name="notes"

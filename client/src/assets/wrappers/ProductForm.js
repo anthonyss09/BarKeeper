@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import greyGradient from "../images/greyGradient.jpg";
-import cocktail from "../images/cocktail.jpg";
-import wine from "../images/wine.jpg";
-import cocktails from "../images/cocktails.jpg";
+import cocktails from "../images/cocktails3.jpg";
+import cocktailColor from "../images/cocktailColor.jpg";
 
 const Wrapper = styled.main`
   label {
@@ -10,7 +8,6 @@ const Wrapper = styled.main`
     font-family: "Yanone Kaffeesatz", sans-serif;
     font-weight: 400;
     font-size: 1.2rem;
-    // color: rgb(40, 40, 40);
     color: black;
   }
   .alert {
@@ -25,37 +22,14 @@ const Wrapper = styled.main`
     margin-top: 1rem;
   }
   .btn-add {
-    background: var(--blue-light);
-    background: rgb(137, 173, 248);
-    color: white;
-    background: rgb(100, 100, 100);
-    background: rgb(64, 118, 147);
-    // background: rgb(132, 166, 186);
-    // background: rgb(132, 166, 186);
-    // border: 2px solid rgb(100, 100, 100);
-
-    color: black;
-    // background-image: radial-gradient(rgb(228, 228, 228), rgb(152, 184, 217));
-    color: white;
-    // border: 4px solid black;
     color: black;
     color: white;
-    background: white;
     background: rgb(152, 184, 217);
     font-weight: bold;
-    // background-image: url(${cocktails});
-    // background-position: center;
-    // background-size: cover;
   }
   .btn-back {
-    background: pink;
-    // background: rgb(166, 8, 8);
-    // background: rgb(110, 4, 4);
-    color: white;
-    color: rgb(80, 80, 80);
-    background: white;
     font-weight: bold;
-    background: rgb(120, 120, 120);
+    background: rgb(90, 90, 90);
     color: white;
   }
   .btn-delete {
@@ -69,102 +43,72 @@ const Wrapper = styled.main`
   .dynamic-rows {
     width: 101%;
     box-shadow: none;
-    border: 4px solid rgb(238, 238, 238);
-    border: 4px solid white;
-    // border: 2px solid rgb(208, 208, 208);
-    // height: min-content;
     grid-row: 1/2;
     grid-column: 2/3;
     padding: 1rem 0;
-    // margin-top: -0.4rem;
-    // padding-bottom: 1rem;
     background: white;
     border: 4px solid rgb(228, 228, 228);
+    border: 2px solid rgb(228, 228, 228);
   }
   .dynamic-rows-label {
     margin-top: -0.4rem;
   }
+  .dynamic-row {
+    display: flex;
+    margin: 0.4rem 1rem 0.4rem 1rem;
+  }
+
   .form {
     height: min-content;
     padding: 2rem 1.4rem;
-    // background: rgb(248, 248, 248);
-    // background: rgb(238, 238, 238);
-    border: 3px solid rgb(110, 4, 4);
-    // border: 3.5px solid rgb(166, 8, 8);
-    // background-image: url(${cocktails});
-    // background-position: center;
-    // background-size: cover;
     padding-top: 0;
-    // background: transparent;
   }
   .form-input {
     box-shadow: none;
-    border: 4px solid rgb(228, 228, 228);
-    // border: 4px solid white;
-    // border: 2px solid rgb(208, 208, 208);
-    // border: 2px solid gold;
-    // border: 2px solid rgb(255, 187, 0);
-    // border: 1px solid rgb(255, 170, 0);
-    // border: 1px solid black;
-    // border: 2.5px solid rgb(80, 80, 80);
     border-radius: 0;
     font-family: sans-serif;
     font-size: 0.9rem;
     color: rgb(40, 40, 40);
     width: 100%;
     padding: 0.8rem;
+    border: 2px solid rgb(228, 228, 228);
   }
   .form-label {
     margin-bottom: 0.4rem;
     letter-spacing: 0.05rem;
   }
+
   //dynamic input styling stays where is, intentionally overriding styles
   .dynamic-input {
-    border: 4px solid rgb(228, 228, 228);
     padding: 0;
     padding-left: 0.4rem;
+    border: 2px solid rgb(228, 228, 228);
   }
+
   .form-row {
     width: 100%;
     margin-top: -1.8rem;
     font-weight: bolder;
     color: rgb(80, 80, 80);
   }
-  .icon-add-row {
-    margin: 0;
-  }
-  // .icon-container {
-  //   // width: 92%;
-  //   // height: 88%;
-  //   display: grid;
-  //   place-items: center;
-  //   background-image: url(${wine});
-  //   background-position: center;
-  //   background-repeat: no-repeat;
-  //   background-size: cover;
-  // }
   .image-container {
     display: grid;
     place-items: center;
     background: rgb(228, 228, 228);
-    background: white;
-    // background-image: url(${wine});
-    // background-position: center;
-    // background-repeat: no-repeat;
-    background-size: cover;
+    background: rgb(249, 234, 222);
     grid-row: 1/2;
-    height: 191px;
-    max-height: 191px;
-    // width: 103.5%;
-    border: 4px solid rgb(228, 228, 228);
-    margin-top: 0.5rem;
+    height: 205px;
+    max-height: 205px;
+    margin-top: 1.2rem;
     color: black;
-    // border: 2.5px solid rgb(80, 80, 80);
   }
   .image-container-cocktail {
     margin-top: 1.9rem;
-    height: 206px;
-    max-height: 206px;
+    height: 193px;
+    max-height: 188px;
+    background: rgb(228, 228, 228);
+    background: rgb(255, 247, 242);
+    background: rgb(249, 234, 222);
   }
   .ingredients-input {
     letter-spacing: 0;
@@ -192,16 +136,12 @@ const Wrapper = styled.main`
     grid-row: 2/3;
     grid-row: 2/3;
     color: white;
-    // color: rgb(238, 238, 238);
-    // color: rgb(248, 248, 248);
     margin-top: -1rem;
   }
   .place-holder-input {
-    // background: rgb(228, 228, 228);
     background: white;
   }
   .place-holder-label {
-    // color: rgb(238, 238, 238);
     color: white;
   }
   .rows-container {
@@ -212,6 +152,13 @@ const Wrapper = styled.main`
   }
   .select-input {
     height: 2.4rem;
+    width: 25%;
+    min-width: 50px;
+    min-width: fit-content;
+    height: 2rem;
+    margin-right: 1rem;
+    box-shadow: none;
+    border: 2px solid rgb(228, 228, 228);
   }
   @media (max-width: 800px) {
     .btns {
@@ -227,8 +174,8 @@ const Wrapper = styled.main`
     .btn-main {
       width: 100%;
     }
-    .circle-div {
-      width: 95%;
+    .dynamic-input {
+      margin-bottom: 0.3rem;
     }
     .dynamic-rows {
       width: 100%;
@@ -242,11 +189,6 @@ const Wrapper = styled.main`
       flex-direction: column;
       padding: 2rem 2rem;
       padding-top: 0;
-      // background: transparent;
-      // border: 4px solid rgb(88, 88, 88);
-    }
-    .form-input {
-      // border: 3px solid rgb(80, 80, 80);
     }
     .form-row {
       width: 100%;
@@ -256,19 +198,12 @@ const Wrapper = styled.main`
     }
     .image-container {
       height: 250px;
-      // width: 102.5%;
       width: 98.5%;
-      // border: 4px solid rgb(80, 80, 80);
     }
     .rows-container {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-    }
-  }
-  @media (max-width: 500px) {
-    .form {
-      // border: none;
     }
   }
   @media (max-width: 800px) {
