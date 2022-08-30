@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;300;400&family=Yanone+Kaffeesatz:wght@300;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.03rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+:root {
+  /* colors */
+  /* grey */
+  --grey-50: rgb(228, 227, 227);
+  --grey-200: rgb(86, 80, 80);
+
+  /* red */
+  --alert-pink: rgb(248, 153, 186);
+  --alert-red: rgb(110, 4, 4);
+
+  /* purple */
+  --success-light-purple: rgb(187, 187, 241);
+  --medium-purple: rgb(113, 113, 161);
+  --deep-purple: rgb(71, 8, 71);
+
+  /* blue */
+  --blue-light: rgb(193, 208, 245);
+  --blue-dark: rgb(9, 9, 97);
+
+  /* green */
+  --link-green-light: rgb(194, 253, 231);
+  --link-green-medium: rgb(172, 239, 214);
+  --link-green-dark: rgb(145, 214, 189);
+
+  /* neutrals */
+  --light-background: rgb(255, 251, 251);
+  --gold: rgb(232, 168, 4);
+
+  /* other variables */
+  --transition: 0.3s ease-in-out all;
+  --box-shadow: 2px 2px 5px gray;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+textarea {
+  resize: none;
+}
+
+.alert {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  border-radius: 0;
+  font-weight: 700;
+  width: 72%;
+  width: 96%;
+}
+.alert-danger {
+  background: pink;
+  color: rgb(110, 4, 4);
+}
+.alert-success {
+  background-color: var(--success-light-purple);
+  color: white;
+}
+
+.btn-main {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  font-family: "Fira Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.1rem;
+}
+.btn-main:hover {
+  transition: var(--transition);
+  cursor: pointer;
+  transform: scale(1.02);
+}
+.btn-inventory {
+  margin-top: 2rem;
+  margin-left: auto;
+  background: pink;
+}
+.container-inventory {
+  padding: 1rem;
+  background: white;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 1rem;
+  transition: var(--transition);
+}
+
+.form-input {
+  font-family: "Cantarelli";
+  padding: 0.2rem;
+  padding-left: 0.4rem;
+  line-height: 1.6rem;
+  border: none;
+  box-shadow: 2px 2px 5px gray;
+  box-shadow: inset 1px 1px 4px rgb(198, 198, 198);
+  width: 98.5%;
+}
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+.select-input {
+  width: 50%;
+  border-radius: 0;
+}
+.select-input:hover {
+  cursor: pointer;
+}
+.form-input:hover,
+.form-input:focus {
+  outline: none;
+  transition: 0.1s ease-in-out all;
+}
+.form-label {
+  display: block;
+  text-transform: capitalize;
+  margin-bottom: 0.4rem;
+}
+.form-row {
+  margin-bottom: 1rem;
+  width: 72%;
+}
+.form-select:focus {
+  outline: none;
+  box-shadow: none;
+}
+.ingredients-row {
+  display: flex;
+  width: 100%;
+}
+.scroll-btn {
+  padding: 0.4rem;
+  border-radius: 50%;
+  color: rgb(110, 4, 4);
+  opacity: 0.9;
+}
+.scroll-btn:hover {
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(1.02);
+}
+.scroll-btn-container {
+  margin: 1rem 0;
+  position: sticky;
+  bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.test-colors {
+  background-color: rgb(24, 24, 105);
+  background-color: rgb(9, 9, 97);
+  color: rgb(252, 250, 250);
+  color: rgb(71, 8, 71);
+  color: rgb(255, 254, 246);
+  color: rgb(225, 220, 220);
+  color: rgb(253, 208, 215);
+  color: rgb(250, 218, 226);
+  color: rgb(221, 175, 175);
+  color: rgb(231, 179, 179);
+  color: rgb(110, 4, 4);
+  color: rgb(166, 8, 8);
+  color: rgb(244, 142, 154);
+  color: rgb(244, 223, 205);
+  color: rgb(255, 247, 242);
+  color: rgb(232, 166, 108);
+  color: rgb(232, 146, 71);
+  color: rgb(255, 170, 0);
+  background-color: rgb(115, 199, 168);
+  background-color: rgb(239, 239, 241);
+  background: rgb(250, 252, 260);
+  background: rgb(174, 209, 247);
+  background: rgb(234, 242, 250);
+  background: rgb(14, 136, 202);
+  background: rgb(29, 117, 164);
+  background: rgb(52, 94, 117);
+  background: rgb(98, 133, 152);
+  background: rgb(83, 124, 147);
+  background: rgb(160, 182, 195);
+  background: rgb(134, 129, 111);
+}
