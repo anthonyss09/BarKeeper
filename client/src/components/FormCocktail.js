@@ -4,7 +4,6 @@ import Alert from "./Alert";
 import AddEditBtns from "./AddEditBtns";
 import DynamicRows from "./DynamicRows";
 import { useAppContext } from "../context/appContext";
-import { FaGlassMartiniAlt } from "react-icons/fa";
 import { BiDrink } from "react-icons/bi";
 
 export default function CocktailForm({ onClick, onChange, onSubmit }) {

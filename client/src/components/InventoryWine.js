@@ -1,9 +1,8 @@
-import FormRow from "./FormRow";
 import Wrapper from "../assets/wrappers/Inventory";
 import { useAppContext } from "../context/appContext";
 
 export default function InventorySpirit({ products }) {
-  const { wines, setObjectPair, setInventoryPair, updateProductFromInventory } =
+  const { wines, setInventoryPair, updateProductFromInventory } =
     useAppContext();
 
   const handleChange = async (ind, e) => {

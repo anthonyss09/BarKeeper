@@ -3,12 +3,12 @@ import FormRow from "./FormRow";
 import Alert from "./Alert";
 import AddEditBtns from "./AddEditBtns";
 import { useAppContext } from "../context/appContext";
-import { FaBeer } from "react-icons/fa";
+// import { FaBeer } from "react-icons/fa";
 import { TbBeer } from "react-icons/tb";
-import { BiBeer } from "react-icons/bi";
+// import { BiBeer } from "react-icons/bi";
 
 export default function BeerForm({ onClick, onChange, onSubmit }) {
-  const { showAlert, beer, isEditing, alertText, alertType } = useAppContext();
+  const { showAlert, beer, alertText, alertType } = useAppContext();
   return (
     <Wrapper>
       <form className="form" onSubmit={onSubmit}>

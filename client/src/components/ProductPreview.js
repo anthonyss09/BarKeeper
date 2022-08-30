@@ -1,8 +1,8 @@
 import Wrapper from "../assets/wrappers/ProductPreview";
-import wine from "../assets/images/wine.jpg";
+// import wine from "../assets/images/wine.jpg";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
-import { BiBeer } from "react-icons/bi";
+// import { BiBeer } from "react-icons/bi";
 import { BiDrink } from "react-icons/bi";
 import { GiWaterBottle } from "react-icons/gi";
 import { GiWineBottle } from "react-icons/gi";
@@ -22,11 +22,12 @@ export default function ProductPreview({ image, product, name }) {
       <Link
         to={`/add-product`}
         className="product-link"
-        onClick={async () => {
+        onClick={() => {
           updateProductFromInventory(product);
+          setShowCards(!showCards);
           setItem("productType", product.productType);
           setItem(product.productType, { ...product });
-          setShowCards(!showCards);
+
           setIsEditing(true);
         }}
       >

@@ -3,8 +3,8 @@ import FormRow from "./FormRow";
 import Alert from "./Alert";
 import AddEditBtns from "./AddEditBtns";
 import { useAppContext } from "../context/appContext";
-import wineBottle from "../assets/images/wine.jpg";
-import { FaWineGlass, FaWineGlassAlt } from "react-icons/fa";
+// import wineBottle from "../assets/images/wine.jpg";
+// import { FaWineGlass, FaWineGlassAlt } from "react-icons/fa";
 import { GiWineBottle } from "react-icons/gi";
 
 export default function WineForm({ onClick, onChange, onSubmit }) {

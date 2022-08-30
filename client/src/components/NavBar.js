@@ -1,11 +1,4 @@
-import {
-  FaAlignLeft,
-  FaBars,
-  FaUserCircle,
-  FaCaretDown,
-  FaAngleDoubleLeft,
-  FaAngleDoubleRight,
-} from "react-icons/fa";
+import { FaBars, FaUserCircle, FaCaretDown } from "react-icons/fa";
 import Wrapper from "../assets/wrappers/NavBar";
 import { useState } from "react";
 import { useAppContext } from "../context/appContext";

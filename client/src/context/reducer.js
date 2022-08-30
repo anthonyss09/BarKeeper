@@ -1,4 +1,3 @@
-import { initialState } from "./appContext";
 import {
   DISPLAY_ALERT,
   CLEAR_ALERT,
@@ -14,7 +13,6 @@ import {
   ADD_PRODUCT_BEGIN,
   ADD_PRODUCT_SUCCESS,
   ADD_PRODUCT_ERROR,
-  GET_ALL_PRODUCTS,
   SET_SHOW_CARDS,
   SET_IS_EDITING,
   EDIT_PRODUCT_BEGIN,
@@ -26,10 +24,6 @@ import {
   GET_INVENTORIES_BEGIN,
   GET_INVENTORIES_SUCCESS,
   GET_INVENTORIES_ERROR,
-  UPDATE_INVENTORIES_BEGIN,
-  UPDATE_INVENTORIES_SUCCESS,
-  UPDATE_INVENTORIES_ERROR,
-  SET_INVENTORY_PAIR,
   REMOVE_PRODUCT_BEGIN,
   REMOVE_PRODUCT_SUCCESS,
   REMOVE_PRODUCT_ERROR,
@@ -143,6 +137,7 @@ const reducer = (state, action) => {
       cocktail: { ...action.payload.cocktail },
       spirit: action.payload.spirit,
       wine: action.payload.wine,
+      productType: "all",
     };
   }
   if (action.type === GET_ALL_PRODUCTS_BEGIN) {

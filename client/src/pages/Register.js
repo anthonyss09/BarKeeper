@@ -3,7 +3,6 @@ import { FormRow, Alert } from "../components/";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
-import cocktailColor from "../assets/images/cocktailColor.jpg";
 
 export default function Register() {
   const initialState = {
@@ -32,9 +31,8 @@ export default function Register() {
         navigate("/");
       }, 3000);
     }
-  }, [user]);
+  }, [user, navigate]);
   const toggleMember = () => {
-    console.log(values.isMember);
     setValues({ ...values, isMember: !values.isMember });
   };
 

@@ -16,7 +16,6 @@ import {
   ADD_PRODUCT_SUCCESS,
   ADD_PRODUCT_ERROR,
   CLEAR_VALUES,
-  GET_ALL_PRODUCTS,
   SET_SHOW_CARDS,
   SET_IS_EDITING,
   EDIT_PRODUCT_BEGIN,
@@ -28,8 +27,6 @@ import {
   GET_INVENTORIES_BEGIN,
   GET_INVENTORIES_SUCCESS,
   GET_INVENTORIES_ERROR,
-  UPDATE_INVENTORIES_BEGIN,
-  SET_INVENTORY_PAIR,
   REMOVE_PRODUCT_BEGIN,
   REMOVE_PRODUCT_SUCCESS,
   REMOVE_PRODUCT_ERROR,
@@ -51,7 +48,6 @@ const initialState = {
   search: "",
   showCards: true,
   isEditing: false,
-  // user: user,
   token: token,
   productType: "all",
   beer: {
@@ -171,6 +167,7 @@ const AppProvider = ({ children }) => {
   const logoutUser = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
+    clearValues();
     dispatch({ type: LOGOUT_USER });
   };
 
@@ -228,10 +225,7 @@ const AppProvider = ({ children }) => {
   const addProduct = async (productObject) => {
     dispatch({ type: ADD_PRODUCT_BEGIN });
     try {
-      const response = await authFetch.post(
-        "/products/add-product",
-        productObject
-      );
+      await authFetch.post("/products/add-product", productObject);
       dispatch({ type: ADD_PRODUCT_SUCCESS });
     } catch (error) {
       console.log(error);
@@ -316,7 +310,7 @@ const AppProvider = ({ children }) => {
 
   const updateProductFromInventory = async (product) => {
     try {
-      const response = await authFetch.patch("/products", product);
+      await authFetch.patch("/products", product);
     } catch (error) {
       console.log(error);
     }
@@ -326,7 +320,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: REMOVE_PRODUCT_BEGIN });
 
     try {
-      const response = await authFetch.delete("/products/remove-product", {
+      await authFetch.delete("/products/remove-product", {
         data: product,
       });
 

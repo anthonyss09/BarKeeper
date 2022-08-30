@@ -3,7 +3,6 @@ import FormRow from "./FormRow";
 import Alert from "./Alert";
 import AddEditBtns from "./AddEditBtns";
 import { useAppContext } from "../context/appContext";
-import { FaWineBottle } from "react-icons/fa";
 import { GiWaterBottle } from "react-icons/gi";
 
 export default function SpiritForm({ onClick, onChange, onSubmit }) {

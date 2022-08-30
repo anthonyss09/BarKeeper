@@ -38,11 +38,11 @@ const Wrapper = styled.main`
     color: rgb(40, 40, 40);
     border: 3px solid black;
   }
-  .btn-register:hover {
-    background: black;
-    // background: rgb(152, 184, 217);
-    color: rgb(248, 248, 248);
-  }
+  // .btn-register:hover {
+  //   background: black;
+  //   // background: rgb(152, 184, 217);
+  //   color: rgb(248, 248, 248);
+  // }
   .container-main {
     display: flex;
     justify-content: center;

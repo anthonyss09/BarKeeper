@@ -1,7 +1,5 @@
 import { selectAmountOptions } from "../utils/options";
 import { useAppContext } from "../context/appContext";
-import FormRow from "./FormRow";
-import FormSelect from "./FormSelect";
 import Wrapper from "../assets/wrappers/DynamicRows";
 import { GrAddCircle, GrSubtractCircle } from "react-icons/gr";
 

@@ -1,4 +1,3 @@
-import FormRow from "./FormRow";
 import FormSelect from "./FormSelect";
 import Wrapper from "../assets/wrappers/SearchBar";
 import { productTypeOptions } from "../utils/options";
@@ -6,7 +5,7 @@ import { useAppContext } from "../context/appContext";
 import { FaSearch } from "react-icons/fa";
 
 export default function SearchBar() {
-  const { setItem, search, productType, sort } = useAppContext();
+  const { setItem, search, productType } = useAppContext();
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -3,7 +3,8 @@ import Wrapper from "../assets/wrappers/BigSidebar";
 import { useAppContext } from "../context/appContext";
 
 export default function BigSidebar() {
-  const { setItems } = useAppContext();
+  const { setItem, setShowCards } = useAppContext();
+
   return (
     <Wrapper>
       <div className="sidebar-container">
@@ -13,7 +14,8 @@ export default function BigSidebar() {
 
         <NavLinks
           onClick={() => {
-            setItems("productType", "All");
+            setItem("productType", "all");
+            setShowCards(true);
           }}
         />
       </div>

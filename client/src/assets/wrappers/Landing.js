@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import notebook from "../images/notebook.jpg";
 
 const Wrapper = styled.main`
   h6 {
@@ -17,44 +18,47 @@ const Wrapper = styled.main`
   .p-1 {
   }
   .about-container {
+    width: 80%;
     color: black;
     padding: 0.8rem;
     text-align: center;
     box-shadow: 2px 2px 8px gray;
-    // transform: rotate(-15deg);
-    padding: 2rem;
     position: absolute;
+    top: 20%;
     top: 15%;
-    top: 10%;
     right: 5%;
-
     font-weight: bold;
+    z-index: 10;
   }
   .btn {
     width: 200px;
     height: 50px;
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 0;
     background: white;
     box-shadow: 2px 2px 8px gray;
     font-weight: bold;
   }
   .img-notebook {
-    height: 100vh;
-    width: 100%;
+    height: 100%;
     // box-shadow: 2px 2px 8px gray;
+    overflow: hidden;
   }
   .img-screen-shot {
-    height: 400px;
-    width: 600px;
     position: absolute;
-    right: 15%;
-    right: 20%;
+    left: 5%;
     top: 35%;
-    top: 30%;
+    width: 90vw;
     box-shadow: 2px 2px 8px gray;
     transform: rotate(10deg);
+  }
+  .main-container {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(${notebook});
+    background-position: center;
+    background-size: cover;
   }
 `;
 export default Wrapper;
