@@ -41,8 +41,8 @@ app.use(express.static(path.resolve(__dirname, "./client/build")));
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/products", auth, productRouter);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 //middleware
 app.use(notFoundMiddleware);

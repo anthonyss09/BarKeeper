@@ -353,3 +353,5 @@ web: node server.js
 - heroku create namoOfApp
 - add env variables
 - git push heroku main/master
+
+- add env variables to heroku
