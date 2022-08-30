@@ -342,7 +342,7 @@ login heroku
 "install-client": "cd client && npm install",
 "heroku-postbuild": "npm run install-client && npm run build-client"
 
-- setup procfile in root (no extension)
+- setup Procfile in root (no extension)
 
 web: node server.js
 
