@@ -28,6 +28,7 @@ export default function ProductPreview({ image, product, name }) {
           setItem("productType", product.productType);
           setItem(product.productType, { ...product });
           setIsEditing(true);
+          window.scrollTo(0, 0);
         }}
       >
         <div className="product-preview">

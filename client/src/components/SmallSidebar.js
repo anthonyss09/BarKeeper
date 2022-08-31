@@ -18,6 +18,7 @@ export default function SmallSidebar({ onClick }) {
           onClick={() => {
             onClick();
             setItems("productType", "All");
+            window.scrollTo(0, 0);
           }}
         />
       </div>

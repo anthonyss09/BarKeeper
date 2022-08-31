@@ -7,7 +7,6 @@ import {
   FormWine,
 } from "../../components/";
 import { useAppContext } from "../../context/appContext";
-import { useEffect } from "react";
 
 export default function AddProduct() {
   const {
@@ -28,16 +27,13 @@ export default function AddProduct() {
     clearValues,
   } = useAppContext();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const handleClick = (e) => {
     const name = e.target.innerHTML;
     setShowCards(!showCards);
     setIsEditing(false);
     clearValues();
     setItem("productType", name);
+    window.scrollTo(0, 0);
   };
 
   const handleChange = (e) => {
@@ -96,6 +92,7 @@ export default function AddProduct() {
       default:
         return;
     }
+    window.scrollTo(0, 0);
   };
 
   return (

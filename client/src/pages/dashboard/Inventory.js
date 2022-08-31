@@ -18,7 +18,6 @@ export default function Inventory() {
   } = useAppContext();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     getInventories();
   }, []);
 

@@ -16,6 +16,7 @@ export default function BigSidebar() {
           onClick={() => {
             setItem("productType", "all");
             setShowCards(true);
+            window.scrollTo(0, 0);
           }}
         />
       </div>

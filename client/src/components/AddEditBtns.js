@@ -19,6 +19,7 @@ export default function AddEditBtns({ onClick, product }) {
             removeProduct(product);
             clearValues();
             setIsEditing(false);
+            window.scrollTo(0, 0);
           }}
         >
           Delete product
