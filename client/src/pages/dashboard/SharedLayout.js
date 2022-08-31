@@ -1,10 +1,14 @@
 import { Outlet } from "react-router-dom";
 import { BigSidebar, NavBar, SmallSidebar } from "../../components";
 import Wrapper from "../../assets/wrappers/SharedLayout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function SharedLayout() {
   const [showSidebar, setShowSidebar] = useState(true);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleClick = () => {
     setShowSidebar(!showSidebar);
