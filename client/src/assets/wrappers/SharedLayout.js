@@ -5,7 +5,7 @@ import notebook from "../images/notebook.jpg";
 const Wrapper = styled.main`
   .dashboard {
     display: flex;
-    width: 100vw;
+    // width: 100vw;
     transition: var(--transition);
   }
   .dashboard-page {

@@ -66,7 +66,7 @@ const Wrapper = styled.main`
   }
   @media (min-width: 400px) {
     .img-screen-shot {
-      top: 35%;
+      top: 38%;
     }
   }
 `;
