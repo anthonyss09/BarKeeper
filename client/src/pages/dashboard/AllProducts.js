@@ -10,6 +10,7 @@ export default function AllProducts() {
   const { products, getAllProducts, search, sort, productType, isLoading } =
     useAppContext();
   useEffect(() => {
+    window.scrollTo(0, 0);
     getAllProducts();
     // eslint-disable-next-line
   }, [search, sort, productType]);

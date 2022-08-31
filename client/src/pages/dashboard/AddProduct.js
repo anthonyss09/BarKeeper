@@ -7,6 +7,7 @@ import {
   FormWine,
 } from "../../components/";
 import { useAppContext } from "../../context/appContext";
+import { useState } from "react";
 
 export default function AddProduct() {
   const {
@@ -26,6 +27,10 @@ export default function AddProduct() {
     setIsEditing,
     clearValues,
   } = useAppContext();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleClick = (e) => {
     const name = e.target.innerHTML;
