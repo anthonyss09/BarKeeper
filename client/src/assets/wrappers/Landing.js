@@ -48,17 +48,26 @@ const Wrapper = styled.main`
   .img-screen-shot {
     position: absolute;
     left: 5%;
-    top: 35%;
+    top: 45%;
     width: 90vw;
     box-shadow: 2px 2px 8px gray;
     transform: rotate(10deg);
   }
   .main-container {
     height: 100vh;
-    width: 100vw;
     background-image: url(${notebook});
     background-position: center;
     background-size: cover;
+  }
+  @media (min-width: 385px) {
+    .img-screen-shot {
+      top: 40%;
+    }
+  }
+  @media (min-width: 400px) {
+    .img-screen-shot {
+      top: 35%;
+    }
   }
 `;
 export default Wrapper;

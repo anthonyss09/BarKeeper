@@ -231,7 +231,7 @@ const AppProvider = ({ children }) => {
       console.log(error);
       dispatch({
         type: ADD_PRODUCT_ERROR,
-        payload: { msg: error.response.data },
+        payload: { msg: error.response.data.msg },
       });
     }
     clearValues();
@@ -280,33 +280,33 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
-  // const getInventories = async () => {
-  //   dispatch({ type: GET_INVENTORIES_BEGIN });
-  //   try {
-  //     const { data } = await authFetch.get("/products?productType=all");
-  //     const { products } = data;
+  const getInventories = async () => {
+    dispatch({ type: GET_INVENTORIES_BEGIN });
+    try {
+      const { data } = await authFetch.get("/products?productType=all");
+      const { products } = data;
 
-  //     const beers = products.filter((prod) => prod.productType === "beer");
-  //     const cocktails = products.filter(
-  //       (prod) => prod.productType === "cocktail"
-  //     );
-  //     const spirits = products.filter((prod) => prod.productType === "spirit");
-  //     const wines = products.filter((prod) => prod.productType === "wine");
+      const beers = products.filter((prod) => prod.productType === "beer");
+      const cocktails = products.filter(
+        (prod) => prod.productType === "cocktail"
+      );
+      const spirits = products.filter((prod) => prod.productType === "spirit");
+      const wines = products.filter((prod) => prod.productType === "wine");
 
-  //     dispatch({
-  //       type: GET_INVENTORIES_SUCCESS,
-  //       payload: {
-  //         beers: beers,
-  //         cocktails: cocktails,
-  //         spirits: spirits,
-  //         wines: wines,
-  //       },
-  //     });
-  //   } catch (error) {
-  //     dispatch({ type: GET_INVENTORIES_ERROR });
-  //     console.log(error);
-  //   }
-  // };
+      dispatch({
+        type: GET_INVENTORIES_SUCCESS,
+        payload: {
+          beers: beers,
+          cocktails: cocktails,
+          spirits: spirits,
+          wines: wines,
+        },
+      });
+    } catch (error) {
+      dispatch({ type: GET_INVENTORIES_ERROR });
+      console.log(error);
+    }
+  };
 
   const updateProductFromInventory = async (product) => {
     try {
@@ -354,6 +354,7 @@ const AppProvider = ({ children }) => {
         editProduct,
         updateProductFromInventory,
         removeProduct,
+        getInventories,
       }}
     >
       {children}
