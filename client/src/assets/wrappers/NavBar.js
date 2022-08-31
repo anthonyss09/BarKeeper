@@ -90,17 +90,18 @@ const Wrapper = styled.nav`
   }
   @media (max-width: 500px) {
     .center-text {
-      margin-right: -4rem;
+      // margin-right: -4rem;
+      display: none;
     }
     .drop-btns {
       // padding-right: 0;
     }
   }
-  @media (max-width: 400px) {
-    .center-text {
-      margin-right: -1.6rem;
-    }
-  }
+  // @media (max-width: 400px) {
+  //   .center-text {
+  //     margin-right: -1.6rem;
+  //   }
+  // }
 `;
 
 export default Wrapper;

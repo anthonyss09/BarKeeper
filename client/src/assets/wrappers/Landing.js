@@ -61,7 +61,7 @@ const Wrapper = styled.main`
   }
   @media (min-width: 385px) {
     .img-screen-shot {
-      top: 40%;
+      top: 45%;
     }
   }
   @media (min-width: 400px) {
