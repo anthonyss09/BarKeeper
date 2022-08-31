@@ -7,7 +7,7 @@ import {
   FormWine,
 } from "../../components/";
 import { useAppContext } from "../../context/appContext";
-import { useState } from "react";
+import { useEffect } from "react";
 
 export default function AddProduct() {
   const {
