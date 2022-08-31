@@ -1,5 +1,5 @@
 import Wrapper from "../assets/wrappers/Landing";
-import screenShot from "../assets/images/screenShot1.png";
+import screenShot from "../assets/images/screenShot.png";
 import { Link } from "react-router-dom";
 
 export default function Landing() {
