@@ -34,14 +34,7 @@ export default function AddProduct() {
     const name = e.target.innerHTML;
     setShowCards(!showCards);
     setIsEditing(false);
-
     setItem("productType", name);
-    if (isEditing) {
-      navigate("/");
-      window.scrollTo(0, 0);
-      return;
-    }
-    console.log("what");
     clearValues();
     window.scrollTo(0, 0);
   };
