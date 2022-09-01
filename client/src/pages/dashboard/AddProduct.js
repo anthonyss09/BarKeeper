@@ -7,6 +7,7 @@ import {
   FormWine,
 } from "../../components/";
 import { useAppContext } from "../../context/appContext";
+import { useNavigate } from "react-router-dom";
 
 export default function AddProduct() {
   const {
@@ -27,12 +28,21 @@ export default function AddProduct() {
     clearValues,
   } = useAppContext();
 
+  const navigate = useNavigate();
+
   const handleClick = (e) => {
     const name = e.target.innerHTML;
     setShowCards(!showCards);
     setIsEditing(false);
-    clearValues();
+
     setItem("productType", name);
+    if (isEditing) {
+      navigate("/");
+      window.scrollTo(0, 0);
+      return;
+    }
+    console.log("what");
+    clearValues();
     window.scrollTo(0, 0);
   };
 
