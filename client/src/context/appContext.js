@@ -30,6 +30,7 @@ import {
   REMOVE_PRODUCT_BEGIN,
   REMOVE_PRODUCT_SUCCESS,
   REMOVE_PRODUCT_ERROR,
+  UPDATE_VALUE_IN_ARRAY,
 } from "./actions";
 
 const user = localStorage.getItem("user");
@@ -316,6 +317,18 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const updateValueInArray = (products, index, name, value) => {
+    const prodArr = state[products];
+    const prod = prodArr[index];
+    prod.stock = value;
+    prodArr.splice(index, 1, prod);
+    console.log(prodArr);
+    dispatch({
+      type: UPDATE_VALUE_IN_ARRAY,
+      payload: { prodArr: prodArr },
+    });
+  };
+
   const removeProduct = async (product) => {
     dispatch({ type: REMOVE_PRODUCT_BEGIN });
 
@@ -355,6 +368,7 @@ const AppProvider = ({ children }) => {
         updateProductFromInventory,
         removeProduct,
         getInventories,
+        updateValueInArray,
       }}
     >
       {children}

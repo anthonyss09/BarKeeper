@@ -12,7 +12,7 @@ export default function NavBar({ onClick }) {
     <Wrapper>
       <div className="nav-bar">
         <div className="hamburger nav-item" onClick={onClick}>
-          <FaBars size={30} className=" icon icon-bars" />
+          <FaBars size={25} className=" icon icon-bars" />
         </div>
         <span className="center-text nav-item">Dashboard</span>
         <div className="drop-btns">
@@ -22,7 +22,7 @@ export default function NavBar({ onClick }) {
               setShowBtn(!showBtn);
             }}
           >
-            <FaUserCircle size={35} className="icon icon-user" />
+            <FaUserCircle size={20} className="icon icon-user" />
             {user && user.name}
             <FaCaretDown className="icon icon-caret" />
           </button>

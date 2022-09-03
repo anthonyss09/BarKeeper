@@ -72,7 +72,7 @@ export default function BeerForm({ onClick, onChange, onSubmit }) {
             name="stock"
             labelText="stock"
             onChange={onChange}
-            value={beer.stock}
+            value={beer.stock ? beer.stock : ""}
             type="text"
             className="stock"
           />

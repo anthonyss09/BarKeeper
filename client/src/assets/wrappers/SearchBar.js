@@ -32,9 +32,9 @@ const Wrapper = styled.aside`
     color: rgb(60, 60, 60);
     font-weight: 600;
     border-radius: 0;
-    border: 2px solid black;
     height: 2.4rem;
-    border: 2px solid rgb(60, 60, 60);
+    border: 1.5px solid rgb(60, 60, 60);
+    // border: 2px solid rgb(160, 160, 160);
   }
   .form-select:hover {
     cursor: pointer;
@@ -53,15 +53,16 @@ const Wrapper = styled.aside`
     display: flex;
     align-items: center;
     position: relative;
-    border: 2px solid rgb(60, 60, 60);
+    border: 1.5px solid rgb(60, 60, 60);
+    // border: 2px solid rgb(160, 160, 160);
     margin-bottom: 1rem;
     height: 2.4rem;
   }
   .search-bar {
     height: min-content;
     background: rgb(248, 248, 248);
-
     margin: 1rem;
+    box-shadow: 0.5px 0.1px 0.5px 1px gray;
   }
   .search-input {
     padding-left: 2rem;

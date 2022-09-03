@@ -13,6 +13,8 @@ const Wrapper = styled.main`
     min-height: 100vh;
     border-top: 4px solid rgb(248, 248, 248);
     border-left: 4px solid rgb(248, 248, 248);
+    border-top: 2px solid rgb(248, 248, 248);
+    border-left: 2px solid rgb(248, 248, 248);
   }
   .first-column {
     height: 100vh;
@@ -23,7 +25,7 @@ const Wrapper = styled.main`
     background-size: cover;
   }
   .nav-bar {
-    height: 4.6rem;
+    height: 4rem;
     width: 100%;
     background: white;
     z-index: 30;

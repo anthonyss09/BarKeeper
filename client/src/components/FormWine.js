@@ -78,7 +78,7 @@ export default function WineForm({ onClick, onChange, onSubmit }) {
             name="stock"
             labelText="stock"
             onChange={onChange}
-            value={wine.stock}
+            value={wine.stock ? wine.stock : ""}
             type="text"
             className="stock"
           />

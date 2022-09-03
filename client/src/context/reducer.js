@@ -27,6 +27,7 @@ import {
   REMOVE_PRODUCT_BEGIN,
   REMOVE_PRODUCT_SUCCESS,
   REMOVE_PRODUCT_ERROR,
+  UPDATE_VALUE_IN_ARRAY,
 } from "./actions";
 
 const reducer = (state, action) => {
@@ -208,7 +209,12 @@ const reducer = (state, action) => {
       alertText: action.payload.msg,
     };
   }
-
+  if (action.type === UPDATE_VALUE_IN_ARRAY) {
+    return {
+      ...state,
+      [action.payload.products]: action.payload.prodArr,
+    };
+  }
   throw new Error(`No action of type: ${action.type}`);
 };
 export default reducer;

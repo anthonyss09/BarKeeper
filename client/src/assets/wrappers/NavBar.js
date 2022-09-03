@@ -10,6 +10,7 @@ const Wrapper = styled.nav`
     font-size: 1.2rem;
     font-weight: bold;
     border: 2.5px solid black;
+    border: 1.5px solid black;
     padding: 0.4rem 0;
     white-space: nowrap;
   }
@@ -67,7 +68,7 @@ const Wrapper = styled.nav`
   }
   .nav-item {
     // min-height: min-content;
-    height: 2.8rem;
+    height: 2.2rem;
     display: flex;
     place-items: center;
     margin-top: 1rem;

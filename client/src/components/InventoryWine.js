@@ -2,13 +2,13 @@ import Wrapper from "../assets/wrappers/Inventory";
 import { useAppContext } from "../context/appContext";
 
 export default function InventorySpirit({ products }) {
-  const { wines, setInventoryPair, updateProductFromInventory } =
+  const { wines, updateProductFromInventory, updateValueInArray } =
     useAppContext();
 
-  const handleChange = async (ind, e) => {
+  const handleChange = (ind, e) => {
     const { name, value } = e.target;
-    console.log(name, value, ind);
-    await setInventoryPair("wines", name, value, ind);
+
+    updateValueInArray("wines", ind, name, value);
     updateProductFromInventory(wines[ind]);
   };
   return (
@@ -37,7 +37,7 @@ export default function InventorySpirit({ products }) {
               <input
                 className="form-input stock-input"
                 name="stock"
-                value={wines[index].stock}
+                value={wines[index].stock ? wines[index].stock : ""}
                 onChange={(e) => {
                   handleChange(index, e);
                 }}

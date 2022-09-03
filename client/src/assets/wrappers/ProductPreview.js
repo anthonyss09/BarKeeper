@@ -34,15 +34,16 @@ const Wrapper = styled.aside`
     font-weight: 600;
   }
   .product-preview {
-    width: 110px;
-    min-height: 152px;
-    min-height: 135px;
+    // width: 110px;
+    // min-height: 152px;
+    // min-height: 135px;
+    min-width: 100px;
+    min-height: 130px;
     // padding: 0.8rem 0.6rem;
     margin: 0;
-    border: 2.5px solid rgb(60, 60, 60);
-    border: 2.5px solid rgb(100, 100, 100);
-    border: 4px solid black;
     border: 3px solid black;
+    border: 2px solid rgb(120, 120, 120);
+    // border: 2.5px solid rgb(160, 160, 160);
     background: white;
   }
   .product-preview:hover {

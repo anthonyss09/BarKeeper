@@ -61,7 +61,7 @@ export default function SpiritForm({ onClick, onChange, onSubmit }) {
             name="stock"
             labelText="stock"
             onChange={onChange}
-            value={spirit.stock}
+            value={spirit.stock ? spirit.stock : ""}
             type="text"
             className="stock"
           />
